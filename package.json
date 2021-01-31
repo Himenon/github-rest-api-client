@@ -1,0 +1,65 @@
+{
+  "name": "@himenon/openapi-typescript-practice-specification",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenAPIを利用したAPI作成と、開発、リリースフローまでの仕組みづくりの練習",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Himenon/openapi-typescript-practice.git"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/esm/index.d.ts",
+  "scripts": {
+    "build": "run-s clean build:code build:docs",
+    "build:code": "yarn ts ./scripts/buildCode.ts",
+    "build:docs": "yarn ts ./scripts/buildDocs.ts",
+    "clean": "yarn ts ./scripts/clean.ts",
+    "json2schema": "yarn ts ./scripts/json2schema.ts",
+    "mock:server": "yarn ts ./scripts/mockServer.ts",
+    "publish:ghpages": "gh-pages --dist ./docs -b gh-pages",
+    "release:github:registry": "yarn publish --registry https://npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}",
+    "release:npm:registry": "yarn publish",
+    "ts": "ts-node -P tsconfig.build.json"
+  },
+  "dependencies": {
+    "@types/superagent": "4.1.10",
+    "superagent": "6.1.0"
+  },
+  "devDependencies": {
+    "@apidevtools/swagger-cli": "4.0.4",
+    "@himenon/openapi-typescript-code-generator": "0.1.7",
+    "@stoplight/prism-cli": "4.1.2",
+    "@types/fs-extra": "9.0.6",
+    "@types/rimraf": "3.0.0",
+    "@typescript-eslint/eslint-plugin": "4.14.1",
+    "@typescript-eslint/parser": "4.14.1",
+    "api-spec-converter": "2.11.4",
+    "chalk": "4.1.0",
+    "cherry-pick": "0.5.0",
+    "chokidar": "3.5.1",
+    "conventional-changelog-angular-all": "1.7.0",
+    "cpy": "8.1.1",
+    "eslint": "7.19.0",
+    "eslint-config-prettier": "7.2.0",
+    "eslint-plugin-import": "2.22.1",
+    "execa": "5.0.0",
+    "fs-extra": "9.1.0",
+    "gh-pages": "3.1.0",
+    "husky": "4.3.8",
+    "json2yaml": "1.1.0",
+    "lerna": "3.22.1",
+    "lint-staged": "10.5.3",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.2.1",
+    "rimraf": "3.0.2",
+    "sort-package-json": "1.48.1",
+    "ts-node": "9.1.1",
+    "typescript": "4.1.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

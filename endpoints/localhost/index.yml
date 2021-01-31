@@ -1,0 +1,92 @@
+openapi: 3.0.1
+info:
+  version: "{{ pkg.version }}"
+  title: OpenAPI 3.0の練習
+  description: Article関連のAPI週
+  license:
+    name: MIT
+  termsOfService: "https://swagger.io/specification/"
+  contact:
+    name: "@Himenon"
+    url: "https://github.com/Himenon"
+externalDocs:
+  url: "https://himenon.github.io/openapi-practice"
+  description: "自動生成ドキュメント"
+
+servers:
+  - url: http://localhost:{port}
+    description: 開発環境
+    variables:
+      port:
+        default: "4000"
+        enum: ["4000", "5000"]
+        description: ポート番号
+
+tags:
+  - name: BlogPost
+    description: "記事のAPI"
+    externalDocs:
+      url: "https://himenon.github.io/"
+  - name: LegacyPost
+    description: "古いバージョンの記事のAPI"
+
+components:
+  securitySchemes:
+    SessionKey:
+      name: api_token
+      type: apiKey
+      in: cookie
+
+paths:
+  /blog-post:
+    post:
+      servers:
+        - url: "http://localhost:9000"
+          description: ローカル開発環境向けのURL
+      operationId: createBlogPost
+      summary: ブログ記事を作成する
+      description: ログインが必要です
+      externalDocs:
+        url: https://swagger.io/specification/
+      tags:
+        - BlogPost
+      security:
+        - SessionKey: []
+      responses:
+        200:
+          $ref: "./components/responses/SuccessCreateBlogPost.yml"
+    delete:
+      operationId: deleteBlogPost
+      summary: 記事を作成する
+      description: ログインが必要です
+      externalDocs:
+        url: https://swagger.io/specification/
+        description: ローカル開発環境
+      security:
+        - SessionKey: []
+      parameters:
+        - $ref: "./components/parameters/BlogId.yml"
+      tags:
+        - BlogPost
+      responses:
+        200:
+          $ref: "./components/responses/SuccessDeleteBlogPost.yml"
+        401:
+          $ref: "./components/responses/Unauthorized.yml"
+        404:
+          $ref: "./components/responses/NotFound.yml"
+  /search:
+    get:
+      operationId: searchBlogPost
+      summary: ブログ記事を検索する
+      externalDocs:
+        url: https://swagger.io/specification/
+      tags:
+        - BlogPost
+      parameters:
+        - $ref: "./components/parameters/SearchParams.yml"
+      responses:
+        200:
+          $ref: "./components/responses/SuccessSearchBlogPost.yml"
+        404:
+          $ref: "./components/responses/NotFound.yml"

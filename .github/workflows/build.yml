@@ -1,0 +1,20 @@
+name: Build and Document deploy
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+          registry-url: https://npm.pkg.github.com
+          scope: "@Himenon"
+      - run: |
+          yarn install --frozen-lockfile
+          yarn build
