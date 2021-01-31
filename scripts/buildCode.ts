@@ -1,25 +1,26 @@
 import * as path from "path";
 import * as Config from "./tools/config";
-import { convertYamlToJson } from "./tools/convertOAS3yamlToJson";
+// import { convertYamlToJson } from "./tools/convertOAS3yamlToJson";
 import { generateTsCode } from "./tools/generateTsCode";
 import { clean } from "./tools/clean";
 import { shell } from "./tools/shell";
 import { copyPackageSet } from "./tools/copyPackageSet";
 
-export const build = async (endpoint: string): Promise<void> => {
-  const params = clean(endpoint);
-  const entryPoint = path.join(Config.endpointsDir, endpoint, "index.yml");
-  await convertYamlToJson({
-    filename: entryPoint,
-    output: params.endpointJsonFile,
-  });
+export const build = async (key: string, entryPoint: string): Promise<void> => {
+  const params = clean(key);
+  // await convertYamlToJson({
+  //   filename: entryPoint,
+  //   output: params.endpointJsonFile,
+  // });
   generateTsCode(entryPoint, params.tsFile);
 
   await shell(`eslint --fix ${params.tsFile}`);
 };
 
 const main = async () => {
-  const promises = Config.endpoints.map(build);
+  const promises = Object.entries(Config.endpoints).map(([key, entryPoint]) => {
+    return build(key, entryPoint);
+  });
   await Promise.all(promises);
 
   await Promise.all([

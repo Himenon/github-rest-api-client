@@ -8,20 +8,17 @@ const remove = (filename: string) => {
   rimraf.sync(filename);
 };
 
-export const clean = (endpoint: string) => {
-  const endpointJsonFile = path.join(
-    Config.endpointsOutputDir,
-    endpoint + ".json"
-  );
-  const tsFile = path.join(Config.sourceDir, endpoint + ".ts");
-  const libDir = path.join(Config.libDir, endpoint);
+export const clean = (key: string) => {
+  const endpointJsonFile = path.join(Config.endpointsOutputDir, key + ".json");
+  const tsFile = path.join(Config.sourceDir, key + ".ts");
+  const libDir = path.join(Config.libDir, key);
   remove(endpointJsonFile);
   remove(tsFile);
   remove(libDir);
-  remove(path.join(Config.libDir, endpoint));
-  remove(path.join(Config.libCjsDir, endpoint + "*"));
-  remove(path.join(Config.libEsmDir, endpoint + "*"));
-  remove(path.join(Config.libTypesDir, endpoint + "*"));
+  remove(path.join(Config.libDir, key));
+  remove(path.join(Config.libCjsDir, key + "*"));
+  remove(path.join(Config.libEsmDir, key + "*"));
+  remove(path.join(Config.libTypesDir, key + "*"));
 
   return {
     endpointJsonFile,
