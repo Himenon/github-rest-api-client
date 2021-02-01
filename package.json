@@ -1,11 +1,11 @@
 {
-  "name": "@himenon/openapi-typescript-practice-specification",
+  "name": "@himenon/github-rest-api-client-specification",
   "version": "0.1.0",
   "private": true,
-  "description": "OpenAPIを利用したAPI作成と、開発、リリースフローまでの仕組みづくりの練習",
+  "description": "github-rest-api-clientの自動生成",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Himenon/openapi-typescript-practice.git"
+    "url": "git+https://github.com/Himenon/github-rest-api-client.git"
   },
   "license": "MIT",
   "sideEffects": false,
@@ -13,7 +13,7 @@
   "module": "lib/esm/index.js",
   "types": "lib/esm/index.d.ts",
   "scripts": {
-    "build": "run-s clean build:code build:docs",
+    "build": "run-s clean build:code",
     "build:code": "yarn ts ./scripts/buildCode.ts",
     "build:docs": "yarn ts ./scripts/buildDocs.ts",
     "clean": "yarn ts ./scripts/clean.ts",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@apidevtools/swagger-cli": "4.0.4",
-    "@himenon/openapi-typescript-code-generator": "0.1.7",
+    "@himenon/openapi-typescript-code-generator": "0.2.0",
     "@stoplight/prism-cli": "4.1.2",
     "@types/fs-extra": "9.0.6",
     "@types/rimraf": "3.0.0",

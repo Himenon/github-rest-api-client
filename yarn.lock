@@ -154,10 +154,10 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@himenon/openapi-typescript-code-generator@0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@himenon/openapi-typescript-code-generator/-/openapi-typescript-code-generator-0.1.7.tgz#1b4307a7e8a5a42321ccaca091ba64daa244e188"
-  integrity sha512-oY7akvd0ycAfYa4nE7/n0b1yPE9U778JclgcI22srx2kC4LW8Bv0QY2W679Pfo/0bpjy+nZDOXUakFN2WxD/3Q==
+"@himenon/openapi-typescript-code-generator@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@himenon/openapi-typescript-code-generator/-/openapi-typescript-code-generator-0.2.0.tgz#b804422975ff77db6beca3c8f3630475b3391492"
+  integrity sha512-dYmIOgcax3oZ9nSoAsGbMvwwBsJR5V/DAN5DNXDeUpsPU6sfoJM+x/2S5kHjbf7/ZiuN6+/t7aR4DaVq3R1Mtg==
   dependencies:
     "@himenon/path-oriented-data-structure" "0.1.0"
     "@types/json-schema" "7.0.6"

@@ -1,6 +1,5 @@
 import * as path from "path";
 import * as Config from "./tools/config";
-// import { convertYamlToJson } from "./tools/convertOAS3yamlToJson";
 import { generateTsCode } from "./tools/generateTsCode";
 import { clean } from "./tools/clean";
 import { shell } from "./tools/shell";
@@ -8,10 +7,6 @@ import { copyPackageSet } from "./tools/copyPackageSet";
 
 export const build = async (key: string, entryPoint: string): Promise<void> => {
   const params = clean(key);
-  // await convertYamlToJson({
-  //   filename: entryPoint,
-  //   output: params.endpointJsonFile,
-  // });
   generateTsCode(entryPoint, params.tsFile);
 
   await shell(`eslint --fix ${params.tsFile}`);

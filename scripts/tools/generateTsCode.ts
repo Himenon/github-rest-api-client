@@ -9,6 +9,7 @@ export const generateTsCode = (
 ): void => {
   const tsSourceCode = generateTypeScriptCode({
     entryPoint,
+    enableValidate: false,
   });
 
   fs.mkdirSync(path.dirname(outputFileName), { recursive: true });

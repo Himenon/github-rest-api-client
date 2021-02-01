@@ -6,7 +6,6 @@ types/
 lib/
 docs/
 build/
-source/
 *.zip
 swagger-editor/
 .tmp*
