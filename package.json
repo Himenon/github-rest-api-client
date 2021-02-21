@@ -19,6 +19,8 @@
     "clean": "yarn ts ./scripts/clean.ts",
     "json2schema": "yarn ts ./scripts/json2schema.ts",
     "mock:server": "yarn ts ./scripts/mockServer.ts",
+    "prettier:format": "prettier --write ./source",
+    "prettier:format:check": "prettier --check \"source/*.ts\"",
     "publish:ghpages": "gh-pages --dist ./docs -b gh-pages",
     "release:github:registry": "yarn publish --registry https://npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}",
     "release:npm:registry": "yarn publish",
@@ -30,7 +32,7 @@
   },
   "devDependencies": {
     "@apidevtools/swagger-cli": "4.0.4",
-    "@himenon/openapi-typescript-code-generator": "0.2.0",
+    "@himenon/openapi-typescript-code-generator": "0.4.0",
     "@stoplight/prism-cli": "4.1.2",
     "@types/fs-extra": "9.0.6",
     "@types/rimraf": "3.0.0",
