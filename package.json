@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@apidevtools/swagger-cli": "4.0.4",
-    "@himenon/openapi-typescript-code-generator": "0.4.0",
+    "@himenon/openapi-typescript-code-generator": "0.8.0",
     "@stoplight/prism-cli": "4.1.2",
     "@types/fs-extra": "9.0.6",
     "@types/rimraf": "3.0.0",

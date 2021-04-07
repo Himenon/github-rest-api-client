@@ -154,21 +154,21 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@himenon/openapi-typescript-code-generator@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@himenon/openapi-typescript-code-generator/-/openapi-typescript-code-generator-0.4.0.tgz#c7025885beb074b2978dce8b3c58744085dfa2ca"
-  integrity sha512-q9XLd/Ot4dt2mfsy8CK8Exe0rK80yin/NTGDaGhSYl3b5Ax8ZRU1laIamG2as5rC5zPIwjxojBN+ZFUVZrlcQA==
+"@himenon/openapi-typescript-code-generator@0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@himenon/openapi-typescript-code-generator/-/openapi-typescript-code-generator-0.8.0.tgz#20c3c31a0aed45a740458282014331e37e47773f"
+  integrity sha512-2S8uc6ur0qDKeeU6bm/vMnwy+f6KlEburjPuDy68YJiyI5qMl35zR/6f2GewqOu7j8nPd5tb01I+Thw2xKNmuw==
   dependencies:
-    "@himenon/path-oriented-data-structure" "0.1.0"
-    "@types/json-schema" "7.0.6"
-    ajv "7.0.3"
+    "@himenon/path-oriented-data-structure" "0.1.3"
+    "@types/json-schema" "7.0.7"
+    ajv "8.0.5"
     dot-prop "6.0.1"
     js-yaml "4.0.0"
 
-"@himenon/path-oriented-data-structure@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@himenon/path-oriented-data-structure/-/path-oriented-data-structure-0.1.0.tgz#b417a3cb46e3bbc409c4fc5216c42d924f2e7433"
-  integrity sha512-pU4wymQPvBbtPDyeVP8RekOUsQbUiztEae38BIPLFRSqOM68xCNcFzng71HhI2ZdD0kbt+zK1HgQKwB/nv8VkA==
+"@himenon/path-oriented-data-structure@0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@himenon/path-oriented-data-structure/-/path-oriented-data-structure-0.1.3.tgz#a9298afd0097e2f5e466a2f86318c887e82570ed"
+  integrity sha512-1QaIv/cFdpg5GkpG6pQgrYgDouRO7dzz3djiSKLgd2+GjqMG0TsVvUaAxtIo7Y6Hqdk/pL7u7U+cYf80ww9tcw==
 
 "@jsdevtools/ono@^7.1.3":
   version "7.1.3"
@@ -1177,10 +1177,15 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/json-schema@*", "@types/json-schema@7.0.6", "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.4":
+"@types/json-schema@*", "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.4":
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
   integrity sha512-3c+yGKvVP5Y9TYBEibGNR+kLtijnj7mYrXRg+WpFb2X9xm04g/DXYkfg4hmzJQosc9snFNUPkbYIhu+KAm6jJw==
+
+"@types/json-schema@7.0.7":
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
+  integrity sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==
 
 "@types/json5@^0.0.29":
   version "0.0.29"
@@ -1414,10 +1419,10 @@ ajv-oai@^1.2.1:
   dependencies:
     decimal.js "^10.2.0"
 
-ajv@7.0.3, ajv@^7.0.2:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-7.0.3.tgz#13ae747eff125cafb230ac504b2406cf371eece2"
-  integrity sha512-R50QRlXSxqXcQP5SvKUrw8VZeypvo12i2IX0EeR5PiZ7bEKeHWgzgo264LDadUsCU42lTJVhFikTqJwNeH34gQ==
+ajv@8.0.5:
+  version "8.0.5"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.0.5.tgz#f07d6fdeffcdbb80485570ce3f1bc845fcc812b9"
+  integrity sha512-RkiLa/AeJx7+9OvniQ/qeWu0w74A8DiPPBclQ6ji3ZQkv5KamO+QGpqmi7O4JIw3rHGUXZ6CoP9tsAkn3gyazg==
   dependencies:
     fast-deep-equal "^3.1.1"
     json-schema-traverse "^1.0.0"
@@ -1442,6 +1447,16 @@ ajv@^6.10.0, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.6:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
+    uri-js "^4.2.2"
+
+ajv@^7.0.2:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-7.0.3.tgz#13ae747eff125cafb230ac504b2406cf371eece2"
+  integrity sha512-R50QRlXSxqXcQP5SvKUrw8VZeypvo12i2IX0EeR5PiZ7bEKeHWgzgo264LDadUsCU42lTJVhFikTqJwNeH34gQ==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
 ansi-colors@^4.1.1:
