@@ -16981,6 +16981,8 @@ export class Client<RequestOption> {
   /**
    * GitHub API Root
    * Get Hypermedia links to resources accessible in GitHub's REST API
+   * operationId: meta/root
+   * Request URI: /
    */
   public async meta$root(option?: RequestOption): Promise<Response$meta$root$Status$200["application/json"]> {
     const url = this.baseUrl + `/`;
@@ -16989,7 +16991,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** List global webhooks */
+  /**
+   * List global webhooks
+   * operationId: enterprise-admin/list-global-webhooks
+   * Request URI: /admin/hooks
+   */
   public async enterprise$admin$list$global$webhooks(
     params: Params$enterprise$admin$list$global$webhooks,
     option?: RequestOption,
@@ -17005,7 +17011,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Create a global webhook */
+  /**
+   * Create a global webhook
+   * operationId: enterprise-admin/create-global-webhook
+   * Request URI: /admin/hooks
+   */
   public async enterprise$admin$create$global$webhook(
     params: Params$enterprise$admin$create$global$webhook,
     option?: RequestOption,
@@ -17018,7 +17028,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a global webhook */
+  /**
+   * Get a global webhook
+   * operationId: enterprise-admin/get-global-webhook
+   * Request URI: /admin/hooks/{hook_id}
+   */
   public async enterprise$admin$get$global$webhook(
     params: Params$enterprise$admin$get$global$webhook,
     option?: RequestOption,
@@ -17030,7 +17044,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a global webhook */
+  /**
+   * Delete a global webhook
+   * operationId: enterprise-admin/delete-global-webhook
+   * Request URI: /admin/hooks/{hook_id}
+   */
   public async enterprise$admin$delete$global$webhook(
     params: Params$enterprise$admin$delete$global$webhook,
     option?: RequestOption,
@@ -17044,6 +17062,8 @@ export class Client<RequestOption> {
   /**
    * Update a global webhook
    * Parameters that are not provided will be overwritten with the default value or removed if no default exists.
+   * operationId: enterprise-admin/update-global-webhook
+   * Request URI: /admin/hooks/{hook_id}
    */
   public async enterprise$admin$update$global$webhook(
     params: Params$enterprise$admin$update$global$webhook,
@@ -17060,6 +17080,8 @@ export class Client<RequestOption> {
   /**
    * Ping a global webhook
    * This will trigger a [ping event](https://docs.github.com/enterprise-server@2.22/webhooks/#ping-event) to be sent to the webhook.
+   * operationId: enterprise-admin/ping-global-webhook
+   * Request URI: /admin/hooks/{hook_id}/pings
    */
   public async enterprise$admin$ping$global$webhook(
     params: Params$enterprise$admin$ping$global$webhook,
@@ -17071,7 +17093,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, undefined, undefined, option);
   }
-  /** List public keys */
+  /**
+   * List public keys
+   * operationId: enterprise-admin/list-public-keys
+   * Request URI: /admin/keys
+   */
   public async enterprise$admin$list$public$keys(
     params: Params$enterprise$admin$list$public$keys,
     option?: RequestOption,
@@ -17086,7 +17112,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Delete a public key */
+  /**
+   * Delete a public key
+   * operationId: enterprise-admin/delete-public-key
+   * Request URI: /admin/keys/{key_ids}
+   */
   public async enterprise$admin$delete$public$key(
     params: Params$enterprise$admin$delete$public$key,
     option?: RequestOption,
@@ -17100,6 +17130,8 @@ export class Client<RequestOption> {
    * Updates the [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team. [LDAP synchronization](https://help.github.com/enterprise/admin/guides/user-management/using-ldap/#enabling-ldap-sync) must be enabled to map LDAP entries to a team. Use the [Create a team](https://docs.github.com/enterprise-server@2.22/v3/teams/#create-a-team) endpoint to create a team with LDAP mapping.
    *
    * If you pass the `hellcat-preview` media type, you can also update the LDAP mapping of a child team.
+   * operationId: enterprise-admin/update-ldap-mapping-for-team
+   * Request URI: /admin/ldap/teams/{team_id}/mapping
    */
   public async enterprise$admin$update$ldap$mapping$for$team(
     params: Params$enterprise$admin$update$ldap$mapping$for$team,
@@ -17115,6 +17147,8 @@ export class Client<RequestOption> {
   /**
    * Sync LDAP mapping for a team
    * Note that this API call does not automatically initiate an LDAP sync. Rather, if a `201` is returned, the sync job is queued successfully, and is performed when the instance is ready.
+   * operationId: enterprise-admin/sync-ldap-mapping-for-team
+   * Request URI: /admin/ldap/teams/{team_id}/sync
    */
   public async enterprise$admin$sync$ldap$mapping$for$team(
     params: Params$enterprise$admin$sync$ldap$mapping$for$team,
@@ -17126,7 +17160,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, undefined, undefined, option);
   }
-  /** Update LDAP mapping for a user */
+  /**
+   * Update LDAP mapping for a user
+   * operationId: enterprise-admin/update-ldap-mapping-for-user
+   * Request URI: /admin/ldap/users/{username}/mapping
+   */
   public async enterprise$admin$update$ldap$mapping$for$user(
     params: Params$enterprise$admin$update$ldap$mapping$for$user,
     option?: RequestOption,
@@ -17141,6 +17179,8 @@ export class Client<RequestOption> {
   /**
    * Sync LDAP mapping for a user
    * Note that this API call does not automatically initiate an LDAP sync. Rather, if a `201` is returned, the sync job is queued successfully, and is performed when the instance is ready.
+   * operationId: enterprise-admin/sync-ldap-mapping-for-user
+   * Request URI: /admin/ldap/users/{username}/sync
    */
   public async enterprise$admin$sync$ldap$mapping$for$user(
     params: Params$enterprise$admin$sync$ldap$mapping$for$user,
@@ -17152,7 +17192,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, undefined, undefined, option);
   }
-  /** Create an organization */
+  /**
+   * Create an organization
+   * operationId: enterprise-admin/create-org
+   * Request URI: /admin/organizations
+   */
   public async enterprise$admin$create$org(
     params: Params$enterprise$admin$create$org,
     option?: RequestOption,
@@ -17164,7 +17208,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Update an organization name */
+  /**
+   * Update an organization name
+   * operationId: enterprise-admin/update-org-name
+   * Request URI: /admin/organizations/{org}
+   */
   public async enterprise$admin$update$org$name(
     params: Params$enterprise$admin$update$org$name,
     option?: RequestOption,
@@ -17176,7 +17224,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PATCH", url, headers, params.requestBody, undefined, option);
   }
-  /** List pre-receive environments */
+  /**
+   * List pre-receive environments
+   * operationId: enterprise-admin/list-pre-receive-environments
+   * Request URI: /admin/pre-receive-environments
+   */
   public async enterprise$admin$list$pre$receive$environments(
     params: Params$enterprise$admin$list$pre$receive$environments,
     option?: RequestOption,
@@ -17191,7 +17243,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Create a pre-receive environment */
+  /**
+   * Create a pre-receive environment
+   * operationId: enterprise-admin/create-pre-receive-environment
+   * Request URI: /admin/pre-receive-environments
+   */
   public async enterprise$admin$create$pre$receive$environment(
     params: Params$enterprise$admin$create$pre$receive$environment,
     option?: RequestOption,
@@ -17203,7 +17259,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a pre-receive environment */
+  /**
+   * Get a pre-receive environment
+   * operationId: enterprise-admin/get-pre-receive-environment
+   * Request URI: /admin/pre-receive-environments/{pre_receive_environment_id}
+   */
   public async enterprise$admin$get$pre$receive$environment(
     params: Params$enterprise$admin$get$pre$receive$environment,
     option?: RequestOption,
@@ -17223,6 +17283,8 @@ export class Client<RequestOption> {
    * *   _Cannot modify or delete the default environment_
    * *   _Cannot delete environment that has hooks_
    * *   _Cannot delete environment when download is in progress_
+   * operationId: enterprise-admin/delete-pre-receive-environment
+   * Request URI: /admin/pre-receive-environments/{pre_receive_environment_id}
    */
   public async enterprise$admin$delete$pre$receive$environment(
     params: Params$enterprise$admin$delete$pre$receive$environment,
@@ -17235,6 +17297,8 @@ export class Client<RequestOption> {
   /**
    * Update a pre-receive environment
    * You cannot modify the default environment. If you attempt to modify the default environment, you will receive a `422 Unprocessable Entity` response.
+   * operationId: enterprise-admin/update-pre-receive-environment
+   * Request URI: /admin/pre-receive-environments/{pre_receive_environment_id}
    */
   public async enterprise$admin$update$pre$receive$environment(
     params: Params$enterprise$admin$update$pre$receive$environment,
@@ -17257,6 +17321,8 @@ export class Client<RequestOption> {
    *
    * * _Cannot modify or delete the default environment_
    * * _Can not start a new download when a download is in progress_
+   * operationId: enterprise-admin/start-pre-receive-environment-download
+   * Request URI: /admin/pre-receive-environments/{pre_receive_environment_id}/downloads
    */
   public async enterprise$admin$start$pre$receive$environment$download(
     params: Params$enterprise$admin$start$pre$receive$environment$download,
@@ -17272,6 +17338,8 @@ export class Client<RequestOption> {
   /**
    * Get the download status for a pre-receive environment
    * In addition to seeing the download status at the "[Get a pre-receive environment](#get-a-pre-receive-environment)" endpoint, there is also this separate endpoint for just the download status.
+   * operationId: enterprise-admin/get-download-status-for-pre-receive-environment
+   * Request URI: /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest
    */
   public async enterprise$admin$get$download$status$for$pre$receive$environment(
     params: Params$enterprise$admin$get$download$status$for$pre$receive$environment,
@@ -17284,7 +17352,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** List pre-receive hooks */
+  /**
+   * List pre-receive hooks
+   * operationId: enterprise-admin/list-pre-receive-hooks
+   * Request URI: /admin/pre-receive-hooks
+   */
   public async enterprise$admin$list$pre$receive$hooks(
     params: Params$enterprise$admin$list$pre$receive$hooks,
     option?: RequestOption,
@@ -17299,7 +17371,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Create a pre-receive hook */
+  /**
+   * Create a pre-receive hook
+   * operationId: enterprise-admin/create-pre-receive-hook
+   * Request URI: /admin/pre-receive-hooks
+   */
   public async enterprise$admin$create$pre$receive$hook(
     params: Params$enterprise$admin$create$pre$receive$hook,
     option?: RequestOption,
@@ -17311,7 +17387,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a pre-receive hook */
+  /**
+   * Get a pre-receive hook
+   * operationId: enterprise-admin/get-pre-receive-hook
+   * Request URI: /admin/pre-receive-hooks/{pre_receive_hook_id}
+   */
   public async enterprise$admin$get$pre$receive$hook(
     params: Params$enterprise$admin$get$pre$receive$hook,
     option?: RequestOption,
@@ -17322,7 +17402,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a pre-receive hook */
+  /**
+   * Delete a pre-receive hook
+   * operationId: enterprise-admin/delete-pre-receive-hook
+   * Request URI: /admin/pre-receive-hooks/{pre_receive_hook_id}
+   */
   public async enterprise$admin$delete$pre$receive$hook(
     params: Params$enterprise$admin$delete$pre$receive$hook,
     option?: RequestOption,
@@ -17331,7 +17415,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update a pre-receive hook */
+  /**
+   * Update a pre-receive hook
+   * operationId: enterprise-admin/update-pre-receive-hook
+   * Request URI: /admin/pre-receive-hooks/{pre_receive_hook_id}
+   */
   public async enterprise$admin$update$pre$receive$hook(
     params: Params$enterprise$admin$update$pre$receive$hook,
     option?: RequestOption,
@@ -17346,6 +17434,8 @@ export class Client<RequestOption> {
   /**
    * List personal access tokens
    * Lists personal access tokens for all users, including admin users.
+   * operationId: enterprise-admin/list-personal-access-tokens
+   * Request URI: /admin/tokens
    */
   public async enterprise$admin$list$personal$access$tokens(
     params: Params$enterprise$admin$list$personal$access$tokens,
@@ -17364,6 +17454,8 @@ export class Client<RequestOption> {
   /**
    * Delete a personal access token
    * Deletes a personal access token. Returns a `403 - Forbidden` status when a personal access token is in use. For example, if you access this endpoint with the same personal access token that you are trying to delete, you will receive this error.
+   * operationId: enterprise-admin/delete-personal-access-token
+   * Request URI: /admin/tokens/{token_id}
    */
   public async enterprise$admin$delete$personal$access$token(
     params: Params$enterprise$admin$delete$personal$access$token,
@@ -17380,6 +17472,8 @@ export class Client<RequestOption> {
    * The login name will be normalized to only contain alphanumeric characters or single hyphens. For example, if you send `"octo_cat"` as the login, a user named `"octo-cat"` will be created.
    *
    * If the login name or email address is already associated with an account, the server will return a `422` response.
+   * operationId: enterprise-admin/create-user
+   * Request URI: /admin/users
    */
   public async enterprise$admin$create$user(
     params: Params$enterprise$admin$create$user,
@@ -17397,6 +17491,8 @@ export class Client<RequestOption> {
    * Deleting a user will delete all their repositories, gists, applications, and personal settings. [Suspending a user](https://docs.github.com/enterprise-server@2.22/rest/reference/enterprise-admin#suspend-a-user) is often a better option.
    *
    * You can delete any user account except your own.
+   * operationId: enterprise-admin/delete-user
+   * Request URI: /admin/users/{username}
    */
   public async enterprise$admin$delete$user(
     params: Params$enterprise$admin$delete$user,
@@ -17406,7 +17502,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update the username for a user */
+  /**
+   * Update the username for a user
+   * operationId: enterprise-admin/update-username-for-user
+   * Request URI: /admin/users/{username}
+   */
   public async enterprise$admin$update$username$for$user(
     params: Params$enterprise$admin$update$username$for$user,
     option?: RequestOption,
@@ -17418,7 +17518,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PATCH", url, headers, params.requestBody, undefined, option);
   }
-  /** Create an impersonation OAuth token */
+  /**
+   * Create an impersonation OAuth token
+   * operationId: enterprise-admin/create-impersonation-o-auth-token
+   * Request URI: /admin/users/{username}/authorizations
+   */
   public async enterprise$admin$create$impersonation$o$auth$token(
     params: Params$enterprise$admin$create$impersonation$o$auth$token,
     option?: RequestOption,
@@ -17430,7 +17534,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Delete an impersonation OAuth token */
+  /**
+   * Delete an impersonation OAuth token
+   * operationId: enterprise-admin/delete-impersonation-o-auth-token
+   * Request URI: /admin/users/{username}/authorizations
+   */
   public async enterprise$admin$delete$impersonation$o$auth$token(
     params: Params$enterprise$admin$delete$impersonation$o$auth$token,
     option?: RequestOption,
@@ -17444,6 +17552,8 @@ export class Client<RequestOption> {
    * Returns the GitHub App associated with the authentication credentials used. To see how many app installations are associated with this GitHub App, see the `installations_count` in the response. For more details about your app's installations, see the "[List installations for the authenticated app](https://docs.github.com/enterprise-server@2.22/rest/reference/apps#list-installations-for-the-authenticated-app)" endpoint.
    *
    * You must use a [JWT](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+   * operationId: apps/get-authenticated
+   * Request URI: /app
    */
   public async apps$get$authenticated(
     option?: RequestOption,
@@ -17457,6 +17567,8 @@ export class Client<RequestOption> {
   /**
    * Create a GitHub App from a manifest
    * Use this endpoint to complete the handshake necessary when implementing the [GitHub App Manifest flow](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/creating-github-apps-from-a-manifest/). When you create a GitHub App with the manifest flow, you receive a temporary `code` used to retrieve the GitHub App's `id`, `pem` (private key), and `webhook_secret`.
+   * operationId: apps/create-from-manifest
+   * Request URI: /app-manifests/{code}/conversions
    */
   public async apps$create$from$manifest(
     params: Params$apps$create$from$manifest,
@@ -17473,6 +17585,8 @@ export class Client<RequestOption> {
    * You must use a [JWT](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
    *
    * The permissions the installation has are included under the `permissions` key.
+   * operationId: apps/list-installations
+   * Request URI: /app/installations
    */
   public async apps$list$installations(
     params: Params$apps$list$installations,
@@ -17495,6 +17609,8 @@ export class Client<RequestOption> {
    * Enables an authenticated GitHub App to find an installation's information using the installation id. The installation's account type (`target_type`) will be either an organization or a user account, depending which account the repository belongs to.
    *
    * You must use a [JWT](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+   * operationId: apps/get-installation
+   * Request URI: /app/installations/{installation_id}
    */
   public async apps$get$installation(
     params: Params$apps$get$installation,
@@ -17511,6 +17627,8 @@ export class Client<RequestOption> {
    * Uninstalls a GitHub App on a user, organization, or business account. If you prefer to temporarily suspend an app's access to your account's resources, then we recommend the "[Suspend an app installation](https://docs.github.com/enterprise-server@2.22/v3/apps/#suspend-an-app-installation)" endpoint.
    *
    * You must use a [JWT](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+   * operationId: apps/delete-installation
+   * Request URI: /app/installations/{installation_id}
    */
   public async apps$delete$installation(
     params: Params$apps$delete$installation,
@@ -17525,6 +17643,8 @@ export class Client<RequestOption> {
    * Creates an installation access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of `401 - Unauthorized`, and requires creating a new installation token. By default the installation token has access to all repositories that the installation can access. To restrict the access to specific repositories, you can provide the `repository_ids` when creating the token. When you omit `repository_ids`, the response does not contain the `repositories` key.
    *
    * You must use a [JWT](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+   * operationId: apps/create-installation-access-token
+   * Request URI: /app/installations/{installation_id}/access_tokens
    */
   public async apps$create$installation$access$token(
     params: Params$apps$create$installation$access$token,
@@ -17543,6 +17663,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue the [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://docs.github.com/enterprise-server@2.22/developers/apps/authorizing-oauth-apps#web-application-flow). The [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations) will be removed on November, 13, 2020. For more information, including scheduled brownouts, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-auth-endpoint/).
    *
    * You can use this API to list the set of OAuth applications that have been granted access to your account. Unlike the [list your authorizations](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations#list-your-authorizations) API, this API does not manage individual tokens. This API will return one entry for each OAuth application that has been granted access to your account, regardless of the number of tokens an application has generated for your user. The list of OAuth applications returned matches what is shown on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized). The `scopes` returned are the union of scopes authorized for the application. For example, if an application has one token with `repo` scope and another token with `user` scope, the grant will return `["repo", "user"]`.
+   * operationId: oauth-authorizations/list-grants
+   * Request URI: /applications/grants
    */
   public async oauth$authorizations$list$grants(
     params: Params$oauth$authorizations$list$grants,
@@ -17562,6 +17684,8 @@ export class Client<RequestOption> {
    * @deprecated
    * Get a single grant
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue the [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). The [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations) will be removed on November, 13, 2020. For more information, including scheduled brownouts, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-auth-endpoint/).
+   * operationId: oauth-authorizations/get-grant
+   * Request URI: /applications/grants/{grant_id}
    */
   public async oauth$authorizations$get$grant(
     params: Params$oauth$authorizations$get$grant,
@@ -17579,6 +17703,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue the [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://docs.github.com/enterprise-server@2.22/developers/apps/authorizing-oauth-apps#web-application-flow). The [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations/) will be removed on November, 13, 2020. For more information, including scheduled brownouts, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-auth-endpoint/).
    *
    * Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for your user. Once deleted, the application has no access to your account and is no longer listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).
+   * operationId: oauth-authorizations/delete-grant
+   * Request URI: /applications/grants/{grant_id}
    */
   public async oauth$authorizations$delete$grant(
     params: Params$oauth$authorizations$delete$grant,
@@ -17592,6 +17718,8 @@ export class Client<RequestOption> {
    * Delete an app authorization
    * OAuth application owners can revoke a grant for their OAuth application and a specific user. You must use [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. You must also provide a valid OAuth `access_token` as an input parameter and the grant for the token's owner will be deleted.
    * Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).
+   * operationId: apps/delete-authorization
+   * Request URI: /applications/{client_id}/grant
    */
   public async apps$delete$authorization(
     params: Params$apps$delete$authorization,
@@ -17611,6 +17739,8 @@ export class Client<RequestOption> {
    * OAuth application owners can revoke a grant for their OAuth application and a specific user. You must use [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. You must also provide a valid token as `:access_token` and the grant for the token's owner will be deleted.
    *
    * Deleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the Applications settings page under "Authorized OAuth Apps" on GitHub Enterprise Server](https://github.com/settings/applications#authorized).
+   * operationId: apps/revoke-grant-for-application
+   * Request URI: /applications/{client_id}/grants/{access_token}
    */
   public async apps$revoke$grant$for$application(
     params: Params$apps$revoke$grant$for$application,
@@ -17623,6 +17753,8 @@ export class Client<RequestOption> {
   /**
    * Check a token
    * OAuth applications can use a special API method for checking OAuth token validity without exceeding the normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication) to use this endpoint, where the username is the OAuth application `client_id` and the password is its `client_secret`. Invalid tokens will return `404 NOT FOUND`.
+   * operationId: apps/check-token
+   * Request URI: /applications/{client_id}/token
    */
   public async apps$check$token(
     params: Params$apps$check$token,
@@ -17638,6 +17770,8 @@ export class Client<RequestOption> {
   /**
    * Delete an app token
    * OAuth application owners can revoke a single token for an OAuth application. You must use [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password.
+   * operationId: apps/delete-token
+   * Request URI: /applications/{client_id}/token
    */
   public async apps$delete$token(params: Params$apps$delete$token, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/applications/${params.parameter.client_id}/token`;
@@ -17649,6 +17783,8 @@ export class Client<RequestOption> {
   /**
    * Reset a token
    * OAuth applications can use this API method to reset a valid OAuth token without end-user involvement. Applications must save the "token" property in the response because changes take effect immediately. You must use [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. Invalid tokens will return `404 NOT FOUND`.
+   * operationId: apps/reset-token
+   * Request URI: /applications/{client_id}/token
    */
   public async apps$reset$token(
     params: Params$apps$reset$token,
@@ -17667,6 +17803,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue OAuth endpoints that contain `access_token` in the path parameter. We have introduced new endpoints that allow you to securely manage tokens for OAuth Apps by moving `access_token` to the request body. For more information, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).
    *
    * OAuth applications can use a special API method for checking OAuth token validity without exceeding the normal rate limits for failed login attempts. Authentication works differently with this particular endpoint. You must use [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. Invalid tokens will return `404 NOT FOUND`.
+   * operationId: apps/check-authorization
+   * Request URI: /applications/{client_id}/tokens/{access_token}
    */
   public async apps$check$authorization(
     params: Params$apps$check$authorization,
@@ -17684,6 +17822,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue OAuth endpoints that contain `access_token` in the path parameter. We have introduced new endpoints that allow you to securely manage tokens for OAuth Apps by moving `access_token` to the request body. For more information, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).
    *
    * OAuth applications can use this API method to reset a valid OAuth token without end-user involvement. Applications must save the "token" property in the response because changes take effect immediately. You must use [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password. Invalid tokens will return `404 NOT FOUND`.
+   * operationId: apps/reset-authorization
+   * Request URI: /applications/{client_id}/tokens/{access_token}
    */
   public async apps$reset$authorization(
     params: Params$apps$reset$authorization,
@@ -17701,6 +17841,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue OAuth endpoints that contain `access_token` in the path parameter. We have introduced new endpoints that allow you to securely manage tokens for OAuth Apps by moving `access_token` to the request body. For more information, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).
    *
    * OAuth application owners can revoke a single token for an OAuth application. You must use [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication) when accessing this endpoint, using the OAuth application's `client_id` and `client_secret` as the username and password.
+   * operationId: apps/revoke-authorization-for-application
+   * Request URI: /applications/{client_id}/tokens/{access_token}
    */
   public async apps$revoke$authorization$for$application(
     params: Params$apps$revoke$authorization$for$application,
@@ -17715,6 +17857,8 @@ export class Client<RequestOption> {
    * **Note**: The `:app_slug` is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., `https://github.com/settings/apps/:app_slug`).
    *
    * If the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or an [installation access token](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
+   * operationId: apps/get-by-slug
+   * Request URI: /apps/{app_slug}
    */
   public async apps$get$by$slug(
     params: Params$apps$get$by$slug,
@@ -17730,6 +17874,8 @@ export class Client<RequestOption> {
    * @deprecated
    * List your authorizations
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue the [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). The [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations) will be removed on November, 13, 2020. For more information, including scheduled brownouts, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-auth-endpoint/).
+   * operationId: oauth-authorizations/list-authorizations
+   * Request URI: /authorizations
    */
   public async oauth$authorizations$list$authorizations(
     params: Params$oauth$authorizations$list$authorizations,
@@ -17759,6 +17905,8 @@ export class Client<RequestOption> {
    * You can also create tokens on GitHub Enterprise Server from the [personal access tokens settings](https://github.com/settings/tokens) page. Read more about these tokens in [the GitHub Help documentation](https://help.github.com/articles/creating-an-access-token-for-command-line-use).
    *
    * Organizations that enforce SAML SSO require personal access tokens to be allowed. Read more about allowing tokens in [the GitHub Help documentation](https://help.github.com/articles/about-identity-and-access-management-with-saml-single-sign-on).
+   * operationId: oauth-authorizations/create-authorization
+   * Request URI: /authorizations
    */
   public async oauth$authorizations$create$authorization(
     params: Params$oauth$authorizations$create$authorization,
@@ -17783,6 +17931,8 @@ export class Client<RequestOption> {
    * If you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see "[Working with two-factor authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#working-with-two-factor-authentication)."
    *
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue the [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations/), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://docs.github.com/enterprise-server@2.22/developers/apps/authorizing-oauth-apps#web-application-flow). The [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations) will be removed on November, 13, 2020. For more information, including scheduled brownouts, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-auth-endpoint/).
+   * operationId: oauth-authorizations/get-or-create-authorization-for-app
+   * Request URI: /authorizations/clients/{client_id}
    */
   public async oauth$authorizations$get$or$create$authorization$for$app(
     params: Params$oauth$authorizations$get$or$create$authorization$for$app,
@@ -17810,6 +17960,8 @@ export class Client<RequestOption> {
    * This method will create a new authorization for the specified OAuth application, only if an authorization for that application and fingerprint do not already exist for the user. The URL includes the 20 character client ID for the OAuth app that is requesting the token. `fingerprint` is a unique string to distinguish an authorization from others created for the same client ID and user. It returns the user's existing authorization for the application if one is present. Otherwise, it creates and returns a new one.
    *
    * If you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see "[Working with two-factor authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#working-with-two-factor-authentication)."
+   * operationId: oauth-authorizations/get-or-create-authorization-for-app-and-fingerprint
+   * Request URI: /authorizations/clients/{client_id}/{fingerprint}
    */
   public async oauth$authorizations$get$or$create$authorization$for$app$and$fingerprint(
     params: Params$oauth$authorizations$get$or$create$authorization$for$app$and$fingerprint,
@@ -17831,6 +17983,8 @@ export class Client<RequestOption> {
    * @deprecated
    * Get a single authorization
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue the [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). The [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations) will be removed on November, 13, 2020. For more information, including scheduled brownouts, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-auth-endpoint/).
+   * operationId: oauth-authorizations/get-authorization
+   * Request URI: /authorizations/{authorization_id}
    */
   public async oauth$authorizations$get$authorization(
     params: Params$oauth$authorizations$get$authorization,
@@ -17846,6 +18000,8 @@ export class Client<RequestOption> {
    * @deprecated
    * Delete an authorization
    * **Deprecation Notice:** GitHub Enterprise Server will discontinue the [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). The [OAuth Authorizations API](https://docs.github.com/enterprise-server@2.22/rest/reference/oauth-authorizations) will be removed on November, 13, 2020. For more information, including scheduled brownouts, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-auth-endpoint/).
+   * operationId: oauth-authorizations/delete-authorization
+   * Request URI: /authorizations/{authorization_id}
    */
   public async oauth$authorizations$delete$authorization(
     params: Params$oauth$authorizations$delete$authorization,
@@ -17863,6 +18019,8 @@ export class Client<RequestOption> {
    * If you have two-factor authentication setup, Basic Authentication for this endpoint requires that you use a one-time password (OTP) and your username and password instead of tokens. For more information, see "[Working with two-factor authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#working-with-two-factor-authentication)."
    *
    * You can only send one of these scope keys at a time.
+   * operationId: oauth-authorizations/update-authorization
+   * Request URI: /authorizations/{authorization_id}
    */
   public async oauth$authorizations$update$authorization(
     params: Params$oauth$authorizations$update$authorization,
@@ -17875,7 +18033,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PATCH", url, headers, params.requestBody, undefined, option);
   }
-  /** Get all codes of conduct */
+  /**
+   * Get all codes of conduct
+   * operationId: codes-of-conduct/get-all-codes-of-conduct
+   * Request URI: /codes_of_conduct
+   */
   public async codes$of$conduct$get$all$codes$of$conduct(
     option?: RequestOption,
   ): Promise<Response$codes$of$conduct$get$all$codes$of$conduct$Status$200["application/json"]> {
@@ -17885,7 +18047,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Get a code of conduct */
+  /**
+   * Get a code of conduct
+   * operationId: codes-of-conduct/get-conduct-code
+   * Request URI: /codes_of_conduct/{key}
+   */
   public async codes$of$conduct$get$conduct$code(
     params: Params$codes$of$conduct$get$conduct$code,
     option?: RequestOption,
@@ -17903,6 +18069,8 @@ export class Client<RequestOption> {
    * The app must create a content attachment within six hours of the content reference URL being posted. See "[Using content attachments](https://docs.github.com/enterprise-server@2.22/apps/using-content-attachments/)" for details about content attachments.
    *
    * You must use an [installation access token](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
+   * operationId: apps/create-content-attachment
+   * Request URI: /content_references/{content_reference_id}/attachments
    */
   public async apps$create$content$attachment(
     params: Params$apps$create$content$attachment,
@@ -17918,6 +18086,8 @@ export class Client<RequestOption> {
   /**
    * Get emojis
    * Lists all the emojis available to use on GitHub Enterprise Server.
+   * operationId: emojis/get
+   * Request URI: /emojis
    */
   public async emojis$get(option?: RequestOption): Promise<Response$emojis$get$Status$200["application/json"]> {
     const url = this.baseUrl + `/emojis`;
@@ -17926,7 +18096,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Get license information */
+  /**
+   * Get license information
+   * operationId: enterprise-admin/get-license-information
+   * Request URI: /enterprise/settings/license
+   */
   public async enterprise$admin$get$license$information(
     option?: RequestOption,
   ): Promise<Response$enterprise$admin$get$license$information$Status$200["application/json"]> {
@@ -17955,6 +18129,8 @@ export class Client<RequestOption> {
    * | `all`        | All of the statistics listed above.                                                                 |
    *
    * These statistics are cached and will be updated approximately every 10 minutes.
+   * operationId: enterprise-admin/get-type-stats
+   * Request URI: /enterprise/stats/{type}
    */
   public async enterprise$admin$get$type$stats(
     params: Params$enterprise$admin$get$type$stats,
@@ -17971,6 +18147,8 @@ export class Client<RequestOption> {
    * Lists all self-hosted runner groups for an enterprise.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/list-self-hosted-runner-groups-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups
    */
   public async enterprise$admin$list$self$hosted$runner$groups$for$enterprise(
     params: Params$enterprise$admin$list$self$hosted$runner$groups$for$enterprise,
@@ -17991,6 +18169,8 @@ export class Client<RequestOption> {
    * Creates a new self-hosted runner group for an enterprise.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/create-self-hosted-runner-group-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups
    */
   public async enterprise$admin$create$self$hosted$runner$group$for$enterprise(
     params: Params$enterprise$admin$create$self$hosted$runner$group$for$enterprise,
@@ -18008,6 +18188,8 @@ export class Client<RequestOption> {
    * Gets a specific self-hosted runner group for an enterprise.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/get-self-hosted-runner-group-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}
    */
   public async enterprise$admin$get$self$hosted$runner$group$for$enterprise(
     params: Params$enterprise$admin$get$self$hosted$runner$group$for$enterprise,
@@ -18026,6 +18208,8 @@ export class Client<RequestOption> {
    * Deletes a self-hosted runner group for an enterprise.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/delete-self-hosted-runner-group-from-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}
    */
   public async enterprise$admin$delete$self$hosted$runner$group$from$enterprise(
     params: Params$enterprise$admin$delete$self$hosted$runner$group$from$enterprise,
@@ -18042,6 +18226,8 @@ export class Client<RequestOption> {
    * Updates the `name` and `visibility` of a self-hosted runner group in an enterprise.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/update-self-hosted-runner-group-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}
    */
   public async enterprise$admin$update$self$hosted$runner$group$for$enterprise(
     params: Params$enterprise$admin$update$self$hosted$runner$group$for$enterprise,
@@ -18061,6 +18247,8 @@ export class Client<RequestOption> {
    * Lists the organizations with access to a self-hosted runner group.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/list-org-access-to-self-hosted-runner-group-in-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations
    */
   public async enterprise$admin$list$org$access$to$self$hosted$runner$group$in$enterprise(
     params: Params$enterprise$admin$list$org$access$to$self$hosted$runner$group$in$enterprise,
@@ -18085,6 +18273,8 @@ export class Client<RequestOption> {
    * Replaces the list of organizations that have access to a self-hosted runner configured in an enterprise.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/set-org-access-to-self-hosted-runner-group-in-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations
    */
   public async enterprise$admin$set$org$access$to$self$hosted$runner$group$in$enterprise(
     params: Params$enterprise$admin$set$org$access$to$self$hosted$runner$group$in$enterprise,
@@ -18103,6 +18293,8 @@ export class Client<RequestOption> {
    * Adds an organization to the list of selected organizations that can access a self-hosted runner group. The runner group must have `visibility` set to `selected`. For more information, see "[Create a self-hosted runner group for an enterprise](#create-a-self-hosted-runner-group-for-an-enterprise)."
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/add-org-access-to-self-hosted-runner-group-in-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations/{org_id}
    */
   public async enterprise$admin$add$org$access$to$self$hosted$runner$group$in$enterprise(
     params: Params$enterprise$admin$add$org$access$to$self$hosted$runner$group$in$enterprise,
@@ -18119,6 +18311,8 @@ export class Client<RequestOption> {
    * Removes an organization from the list of selected organizations that can access a self-hosted runner group. The runner group must have `visibility` set to `selected`. For more information, see "[Create a self-hosted runner group for an enterprise](#create-a-self-hosted-runner-group-for-an-enterprise)."
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/remove-org-access-to-self-hosted-runner-group-in-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations/{org_id}
    */
   public async enterprise$admin$remove$org$access$to$self$hosted$runner$group$in$enterprise(
     params: Params$enterprise$admin$remove$org$access$to$self$hosted$runner$group$in$enterprise,
@@ -18135,6 +18329,8 @@ export class Client<RequestOption> {
    * Lists the self-hosted runners that are in a specific enterprise group.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/list-self-hosted-runners-in-group-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners
    */
   public async enterprise$admin$list$self$hosted$runners$in$group$for$enterprise(
     params: Params$enterprise$admin$list$self$hosted$runners$in$group$for$enterprise,
@@ -18159,6 +18355,8 @@ export class Client<RequestOption> {
    * Replaces the list of self-hosted runners that that are part of an enterprise runner group.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/set-self-hosted-runners-in-group-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners
    */
   public async enterprise$admin$set$self$hosted$runners$in$group$for$enterprise(
     params: Params$enterprise$admin$set$self$hosted$runners$in$group$for$enterprise,
@@ -18178,6 +18376,8 @@ export class Client<RequestOption> {
    *
    * You must authenticate using an access token with the `admin:enterprise`
    * scope to use this endpoint.
+   * operationId: enterprise-admin/add-self-hosted-runner-to-group-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners/{runner_id}
    */
   public async enterprise$admin$add$self$hosted$runner$to$group$for$enterprise(
     params: Params$enterprise$admin$add$self$hosted$runner$to$group$for$enterprise,
@@ -18194,6 +18394,8 @@ export class Client<RequestOption> {
    * Removes a self-hosted runner from a group configured in an enterprise. The runner is then returned to the default group.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/remove-self-hosted-runner-from-group-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners/{runner_id}
    */
   public async enterprise$admin$remove$self$hosted$runner$from$group$for$enterprise(
     params: Params$enterprise$admin$remove$self$hosted$runner$from$group$for$enterprise,
@@ -18210,6 +18412,8 @@ export class Client<RequestOption> {
    * Lists all self-hosted runners configured for an enterprise.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/list-self-hosted-runners-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runners
    */
   public async enterprise$admin$list$self$hosted$runners$for$enterprise(
     params: Params$enterprise$admin$list$self$hosted$runners$for$enterprise,
@@ -18230,6 +18434,8 @@ export class Client<RequestOption> {
    * Lists binaries for the runner application that you can download and run.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/list-runner-applications-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runners/downloads
    */
   public async enterprise$admin$list$runner$applications$for$enterprise(
     params: Params$enterprise$admin$list$runner$applications$for$enterprise,
@@ -18254,6 +18460,8 @@ export class Client<RequestOption> {
    * ```
    * ./config.sh --url https://github.com/enterprises/octo-enterprise --token TOKEN
    * ```
+   * operationId: enterprise-admin/create-registration-token-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runners/registration-token
    */
   public async enterprise$admin$create$registration$token$for$enterprise(
     params: Params$enterprise$admin$create$registration$token$for$enterprise,
@@ -18279,6 +18487,8 @@ export class Client<RequestOption> {
    * ```
    * ./config.sh remove --token TOKEN
    * ```
+   * operationId: enterprise-admin/create-remove-token-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runners/remove-token
    */
   public async enterprise$admin$create$remove$token$for$enterprise(
     params: Params$enterprise$admin$create$remove$token$for$enterprise,
@@ -18295,6 +18505,8 @@ export class Client<RequestOption> {
    * Gets a specific self-hosted runner configured in an enterprise.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/get-self-hosted-runner-for-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runners/{runner_id}
    */
   public async enterprise$admin$get$self$hosted$runner$for$enterprise(
     params: Params$enterprise$admin$get$self$hosted$runner$for$enterprise,
@@ -18312,6 +18524,8 @@ export class Client<RequestOption> {
    * Forces the removal of a self-hosted runner from an enterprise. You can use this endpoint to completely remove the runner when the machine you were using no longer exists.
    *
    * You must authenticate using an access token with the `admin:enterprise` scope to use this endpoint.
+   * operationId: enterprise-admin/delete-self-hosted-runner-from-enterprise
+   * Request URI: /enterprises/{enterprise}/actions/runners/{runner_id}
    */
   public async enterprise$admin$delete$self$hosted$runner$from$enterprise(
     params: Params$enterprise$admin$delete$self$hosted$runner$from$enterprise,
@@ -18325,6 +18539,8 @@ export class Client<RequestOption> {
   /**
    * List public events
    * We delay the public events feed by five minutes, which means the most recent event returned by the public events API actually occurred at least five minutes ago.
+   * operationId: activity/list-public-events
+   * Request URI: /events
    */
   public async activity$list$public$events(
     params: Params$activity$list$public$events,
@@ -18353,6 +18569,8 @@ export class Client<RequestOption> {
    * *   **Security advisories**: A collection of public announcements that provide information about security-related vulnerabilities in software on GitHub Enterprise Server.
    *
    * **Note**: Private feeds are only returned when [authenticating via Basic Auth](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication) since current feed URIs use the older, non revocable auth tokens.
+   * operationId: activity/get-feeds
+   * Request URI: /feeds
    */
   public async activity$get$feeds(
     option?: RequestOption,
@@ -18366,6 +18584,8 @@ export class Client<RequestOption> {
   /**
    * List gists for the authenticated user
    * Lists the authenticated user's gists or if called anonymously, this endpoint returns all public gists:
+   * operationId: gists/list
+   * Request URI: /gists
    */
   public async gists$list(
     params: Params$gists$list,
@@ -18387,6 +18607,8 @@ export class Client<RequestOption> {
    * Allows you to add a new gist with one or more files.
    *
    * **Note:** Don't name your files "gistfile" with a numerical suffix. This is the format of the automatic naming scheme that Gist uses internally.
+   * operationId: gists/create
+   * Request URI: /gists
    */
   public async gists$create(
     params: Params$gists$create,
@@ -18404,6 +18626,8 @@ export class Client<RequestOption> {
    * List public gists sorted by most recently updated to least recently updated.
    *
    * Note: With [pagination](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#pagination), you can fetch up to 3000 gists. For example, you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per page.
+   * operationId: gists/list-public
+   * Request URI: /gists/public
    */
   public async gists$list$public(
     params: Params$gists$list$public,
@@ -18423,6 +18647,8 @@ export class Client<RequestOption> {
   /**
    * List starred gists
    * List the authenticated user's starred gists:
+   * operationId: gists/list-starred
+   * Request URI: /gists/starred
    */
   public async gists$list$starred(
     params: Params$gists$list$starred,
@@ -18439,7 +18665,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get a gist */
+  /**
+   * Get a gist
+   * operationId: gists/get
+   * Request URI: /gists/{gist_id}
+   */
   public async gists$get(
     params: Params$gists$get,
     option?: RequestOption,
@@ -18450,7 +18680,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a gist */
+  /**
+   * Delete a gist
+   * operationId: gists/delete
+   * Request URI: /gists/{gist_id}
+   */
   public async gists$delete(params: Params$gists$delete, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/gists/${params.parameter.gist_id}`;
     const headers = {};
@@ -18459,6 +18693,8 @@ export class Client<RequestOption> {
   /**
    * Update a gist
    * Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.
+   * operationId: gists/update
+   * Request URI: /gists/{gist_id}
    */
   public async gists$update(
     params: Params$gists$update,
@@ -18471,7 +18707,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PATCH", url, headers, params.requestBody, undefined, option);
   }
-  /** List gist comments */
+  /**
+   * List gist comments
+   * operationId: gists/list-comments
+   * Request URI: /gists/{gist_id}/comments
+   */
   public async gists$list$comments(
     params: Params$gists$list$comments,
     option?: RequestOption,
@@ -18486,7 +18726,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Create a gist comment */
+  /**
+   * Create a gist comment
+   * operationId: gists/create-comment
+   * Request URI: /gists/{gist_id}/comments
+   */
   public async gists$create$comment(
     params: Params$gists$create$comment,
     option?: RequestOption,
@@ -18498,7 +18742,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a gist comment */
+  /**
+   * Get a gist comment
+   * operationId: gists/get-comment
+   * Request URI: /gists/{gist_id}/comments/{comment_id}
+   */
   public async gists$get$comment(
     params: Params$gists$get$comment,
     option?: RequestOption,
@@ -18509,13 +18757,21 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a gist comment */
+  /**
+   * Delete a gist comment
+   * operationId: gists/delete-comment
+   * Request URI: /gists/{gist_id}/comments/{comment_id}
+   */
   public async gists$delete$comment(params: Params$gists$delete$comment, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/gists/${params.parameter.gist_id}/comments/${params.parameter.comment_id}`;
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update a gist comment */
+  /**
+   * Update a gist comment
+   * operationId: gists/update-comment
+   * Request URI: /gists/{gist_id}/comments/{comment_id}
+   */
   public async gists$update$comment(
     params: Params$gists$update$comment,
     option?: RequestOption,
@@ -18527,7 +18783,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PATCH", url, headers, params.requestBody, undefined, option);
   }
-  /** List gist commits */
+  /**
+   * List gist commits
+   * operationId: gists/list-commits
+   * Request URI: /gists/{gist_id}/commits
+   */
   public async gists$list$commits(
     params: Params$gists$list$commits,
     option?: RequestOption,
@@ -18542,7 +18802,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** List gist forks */
+  /**
+   * List gist forks
+   * operationId: gists/list-forks
+   * Request URI: /gists/{gist_id}/forks
+   */
   public async gists$list$forks(
     params: Params$gists$list$forks,
     option?: RequestOption,
@@ -18560,6 +18824,8 @@ export class Client<RequestOption> {
   /**
    * Fork a gist
    * **Note**: This was previously `/gists/:gist_id/fork`.
+   * operationId: gists/fork
+   * Request URI: /gists/{gist_id}/forks
    */
   public async gists$fork(
     params: Params$gists$fork,
@@ -18571,7 +18837,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, undefined, undefined, option);
   }
-  /** Check if a gist is starred */
+  /**
+   * Check if a gist is starred
+   * operationId: gists/check-is-starred
+   * Request URI: /gists/{gist_id}/star
+   */
   public async gists$check$is$starred(params: Params$gists$check$is$starred, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/gists/${params.parameter.gist_id}/star`;
     const headers = {};
@@ -18580,19 +18850,29 @@ export class Client<RequestOption> {
   /**
    * Star a gist
    * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#http-verbs)."
+   * operationId: gists/star
+   * Request URI: /gists/{gist_id}/star
    */
   public async gists$star(params: Params$gists$star, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/gists/${params.parameter.gist_id}/star`;
     const headers = {};
     return this.apiClient.request("PUT", url, headers, undefined, undefined, option);
   }
-  /** Unstar a gist */
+  /**
+   * Unstar a gist
+   * operationId: gists/unstar
+   * Request URI: /gists/{gist_id}/star
+   */
   public async gists$unstar(params: Params$gists$unstar, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/gists/${params.parameter.gist_id}/star`;
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Get a gist revision */
+  /**
+   * Get a gist revision
+   * operationId: gists/get-revision
+   * Request URI: /gists/{gist_id}/{sha}
+   */
   public async gists$get$revision(
     params: Params$gists$get$revision,
     option?: RequestOption,
@@ -18606,6 +18886,8 @@ export class Client<RequestOption> {
   /**
    * Get all gitignore templates
    * List all templates available to pass as an option when [creating a repository](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#create-a-repository-for-the-authenticated-user).
+   * operationId: gitignore/get-all-templates
+   * Request URI: /gitignore/templates
    */
   public async gitignore$get$all$templates(
     option?: RequestOption,
@@ -18620,6 +18902,8 @@ export class Client<RequestOption> {
    * Get a gitignore template
    * The API also allows fetching the source of a single template.
    * Use the raw [media type](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types/) to get the raw contents.
+   * operationId: gitignore/get-template
+   * Request URI: /gitignore/templates/{name}
    */
   public async gitignore$get$template(
     params: Params$gitignore$get$template,
@@ -18636,6 +18920,8 @@ export class Client<RequestOption> {
    * List repositories that an app installation can access.
    *
    * You must use an [installation access token](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
+   * operationId: apps/list-repos-accessible-to-installation
+   * Request URI: /installation/repositories
    */
   public async apps$list$repos$accessible$to$installation(
     params: Params$apps$list$repos$accessible$to$installation,
@@ -18658,6 +18944,8 @@ export class Client<RequestOption> {
    * Once an installation token is revoked, the token is invalidated and cannot be used. Other endpoints that require the revoked installation token must have a new installation token to work. You can create a new token using the "[Create an installation access token for an app](https://docs.github.com/enterprise-server@2.22/rest/reference/apps#create-an-installation-access-token-for-an-app)" endpoint.
    *
    * You must use an [installation access token](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
+   * operationId: apps/revoke-installation-access-token
+   * Request URI: /installation/token
    */
   public async apps$revoke$installation$access$token(option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/installation/token`;
@@ -18675,6 +18963,8 @@ export class Client<RequestOption> {
    * reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by
    * the `pull_request` key. Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull
    * request id, use the "[List pull requests](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#list-pull-requests)" endpoint.
+   * operationId: issues/list
+   * Request URI: /issues
    */
   public async issues$list(
     params: Params$issues$list,
@@ -18700,7 +18990,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get all commonly used licenses */
+  /**
+   * Get all commonly used licenses
+   * operationId: licenses/get-all-commonly-used
+   * Request URI: /licenses
+   */
   public async licenses$get$all$commonly$used(
     params: Params$licenses$get$all$commonly$used,
     option?: RequestOption,
@@ -18715,7 +19009,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get a license */
+  /**
+   * Get a license
+   * operationId: licenses/get
+   * Request URI: /licenses/{license}
+   */
   public async licenses$get(
     params: Params$licenses$get,
     option?: RequestOption,
@@ -18726,7 +19024,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Render a Markdown document */
+  /**
+   * Render a Markdown document
+   * operationId: markdown/render
+   * Request URI: /markdown
+   */
   public async markdown$render(params: Params$markdown$render, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/markdown`;
     const headers = {
@@ -18737,6 +19039,8 @@ export class Client<RequestOption> {
   /**
    * Render a Markdown document in raw mode
    * You must send Markdown as plain text (using a `Content-Type` header of `text/plain` or `text/x-markdown`) to this endpoint, rather than using JSON format. In raw mode, [GitHub Flavored Markdown](https://github.github.com/gfm/) is not supported and Markdown will be rendered in plain format like a README.md file. Markdown content must be 400 KB or less.
+   * operationId: markdown/render-raw
+   * Request URI: /markdown/raw
    */
   public async markdown$render$raw<RequestContentType extends RequestContentType$markdown$render$raw>(
     params: Params$markdown$render$raw<RequestContentType>,
@@ -18749,7 +19053,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get GitHub Enterprise Server meta information */
+  /**
+   * Get GitHub Enterprise Server meta information
+   * operationId: meta/get
+   * Request URI: /meta
+   */
   public async meta$get(option?: RequestOption): Promise<Response$meta$get$Status$200["application/json"]> {
     const url = this.baseUrl + `/meta`;
     const headers = {
@@ -18757,7 +19065,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** List public events for a network of repositories */
+  /**
+   * List public events for a network of repositories
+   * operationId: activity/list-public-events-for-repo-network
+   * Request URI: /networks/{owner}/{repo}/events
+   */
   public async activity$list$public$events$for$repo$network(
     params: Params$activity$list$public$events$for$repo$network,
     option?: RequestOption,
@@ -18775,6 +19087,8 @@ export class Client<RequestOption> {
   /**
    * List notifications for the authenticated user
    * List all notifications for the current user, sorted by most recently updated.
+   * operationId: activity/list-notifications-for-authenticated-user
+   * Request URI: /notifications
    */
   public async activity$list$notifications$for$authenticated$user(
     params: Params$activity$list$notifications$for$authenticated$user,
@@ -18797,6 +19111,8 @@ export class Client<RequestOption> {
   /**
    * Mark notifications as read
    * Marks all notifications as "read" removes it from the [default view on GitHub Enterprise Server](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub Enterprise Server will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the [List notifications for the authenticated user](https://docs.github.com/enterprise-server@2.22/rest/reference/activity#list-notifications-for-the-authenticated-user) endpoint and pass the query parameter `all=false`.
+   * operationId: activity/mark-notifications-as-read
+   * Request URI: /notifications
    */
   public async activity$mark$notifications$as$read(
     params: Params$activity$mark$notifications$as$read,
@@ -18809,7 +19125,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PUT", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a thread */
+  /**
+   * Get a thread
+   * operationId: activity/get-thread
+   * Request URI: /notifications/threads/{thread_id}
+   */
   public async activity$get$thread(
     params: Params$activity$get$thread,
     option?: RequestOption,
@@ -18820,7 +19140,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Mark a thread as read */
+  /**
+   * Mark a thread as read
+   * operationId: activity/mark-thread-as-read
+   * Request URI: /notifications/threads/{thread_id}
+   */
   public async activity$mark$thread$as$read(
     params: Params$activity$mark$thread$as$read,
     option?: RequestOption,
@@ -18834,6 +19158,8 @@ export class Client<RequestOption> {
    * This checks to see if the current user is subscribed to a thread. You can also [get a repository subscription](https://docs.github.com/enterprise-server@2.22/rest/reference/activity#get-a-repository-subscription).
    *
    * Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were **@mentioned**, or manually subscribe to a thread.
+   * operationId: activity/get-thread-subscription-for-authenticated-user
+   * Request URI: /notifications/threads/{thread_id}/subscription
    */
   public async activity$get$thread$subscription$for$authenticated$user(
     params: Params$activity$get$thread$subscription$for$authenticated$user,
@@ -18852,6 +19178,8 @@ export class Client<RequestOption> {
    * You can also use this endpoint to subscribe to threads that you are currently not receiving notifications for or to subscribed to threads that you have previously ignored.
    *
    * Unsubscribing from a conversation in a repository that you are not watching is functionally equivalent to the [Delete a thread subscription](https://docs.github.com/enterprise-server@2.22/rest/reference/activity#delete-a-thread-subscription) endpoint.
+   * operationId: activity/set-thread-subscription
+   * Request URI: /notifications/threads/{thread_id}/subscription
    */
   public async activity$set$thread$subscription(
     params: Params$activity$set$thread$subscription,
@@ -18867,6 +19195,8 @@ export class Client<RequestOption> {
   /**
    * Delete a thread subscription
    * Mutes all future notifications for a conversation until you comment on the thread or get an **@mention**. If you are watching the repository of the thread, you will still receive notifications. To ignore future notifications for a repository you are watching, use the [Set a thread subscription](https://docs.github.com/enterprise-server@2.22/rest/reference/activity#set-a-thread-subscription) endpoint and set `ignore` to `true`.
+   * operationId: activity/delete-thread-subscription
+   * Request URI: /notifications/threads/{thread_id}/subscription
    */
   public async activity$delete$thread$subscription(
     params: Params$activity$delete$thread$subscription,
@@ -18879,6 +19209,8 @@ export class Client<RequestOption> {
   /**
    * Get Octocat
    * Get the octocat as ASCII art
+   * operationId: meta/get-octocat
+   * Request URI: /octocat
    */
   public async meta$get$octocat(
     params: Params$meta$get$octocat,
@@ -18898,6 +19230,8 @@ export class Client<RequestOption> {
    * Lists all organizations, in the order that they were created on GitHub Enterprise Server.
    *
    * **Note:** Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#link-header) to get the URL for the next page of organizations.
+   * operationId: orgs/list
+   * Request URI: /organizations
    */
   public async orgs$list(
     params: Params$orgs$list,
@@ -18918,6 +19252,8 @@ export class Client<RequestOption> {
    * To see many of the organization response values, you need to be an authenticated organization owner with the `admin:org` scope. When the value of `two_factor_requirement_enabled` is `true`, the organization requires all members, billing managers, and outside collaborators to enable [two-factor authentication](https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/).
    *
    * GitHub Apps with the `Organization plan` permission can use this endpoint to retrieve information about an organization's GitHub Enterprise Server plan. See "[Authenticating with GitHub Apps](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/)" for details. For an example response, see 'Response with GitHub Enterprise Server plan information' below."
+   * operationId: orgs/get
+   * Request URI: /orgs/{org}
    */
   public async orgs$get(
     params: Params$orgs$get,
@@ -18934,6 +19270,8 @@ export class Client<RequestOption> {
    * **Parameter Deprecation Notice:** GitHub Enterprise Server will replace and discontinue `members_allowed_repository_creation_type` in favor of more granular permissions. The new input parameters are `members_can_create_public_repositories`, `members_can_create_private_repositories` for all organizations and `members_can_create_internal_repositories` for organizations associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+. For more information, see the [blog post](https://developer.github.com/changes/2019-12-03-internal-visibility-changes).
    *
    * Enables an authenticated organization owner with the `admin:org` scope to update the organization's profile and member privileges.
+   * operationId: orgs/update
+   * Request URI: /orgs/{org}
    */
   public async orgs$update(
     params: Params$orgs$update,
@@ -18950,6 +19288,8 @@ export class Client<RequestOption> {
    * List self-hosted runner groups for an organization
    * Lists all self-hosted runner groups configured in an organization and inherited from an enterprise.
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/list-self-hosted-runner-groups-for-org
+   * Request URI: /orgs/{org}/actions/runner-groups
    */
   public async actions$list$self$hosted$runner$groups$for$org(
     params: Params$actions$list$self$hosted$runner$groups$for$org,
@@ -18972,6 +19312,8 @@ export class Client<RequestOption> {
    * Creates a new self-hosted runner group for an organization.
    *
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/create-self-hosted-runner-group-for-org
+   * Request URI: /orgs/{org}/actions/runner-groups
    */
   public async actions$create$self$hosted$runner$group$for$org(
     params: Params$actions$create$self$hosted$runner$group$for$org,
@@ -18988,6 +19330,8 @@ export class Client<RequestOption> {
    * Get a self-hosted runner group for an organization
    * Gets a specific self-hosted runner group for an organization.
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/get-self-hosted-runner-group-for-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}
    */
   public async actions$get$self$hosted$runner$group$for$org(
     params: Params$actions$get$self$hosted$runner$group$for$org,
@@ -19004,6 +19348,8 @@ export class Client<RequestOption> {
    * Delete a self-hosted runner group from an organization
    * Deletes a self-hosted runner group for an organization.
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/delete-self-hosted-runner-group-from-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}
    */
   public async actions$delete$self$hosted$runner$group$from$org(
     params: Params$actions$delete$self$hosted$runner$group$from$org,
@@ -19018,6 +19364,8 @@ export class Client<RequestOption> {
    * Update a self-hosted runner group for an organization
    * Updates the `name` and `visibility` of a self-hosted runner group in an organization.
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/update-self-hosted-runner-group-for-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}
    */
   public async actions$update$self$hosted$runner$group$for$org(
     params: Params$actions$update$self$hosted$runner$group$for$org,
@@ -19038,6 +19386,8 @@ export class Client<RequestOption> {
    * Lists the repositories with access to a self-hosted runner group configured in an organization.
    *
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/list-repo-access-to-self-hosted-runner-group-in-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories
    */
   public async actions$list$repo$access$to$self$hosted$runner$group$in$org(
     params: Params$actions$list$repo$access$to$self$hosted$runner$group$in$org,
@@ -19055,6 +19405,8 @@ export class Client<RequestOption> {
    * Set repository access for a self-hosted runner group in an organization
    * Replaces the list of repositories that have access to a self-hosted runner group configured in an organization.
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/set-repo-access-to-self-hosted-runner-group-in-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories
    */
   public async actions$set$repo$access$to$self$hosted$runner$group$in$org(
     params: Params$actions$set$repo$access$to$self$hosted$runner$group$in$org,
@@ -19072,6 +19424,8 @@ export class Client<RequestOption> {
    * Add repository access to a self-hosted runner group in an organization
    * Adds a repository to the list of selected repositories that can access a self-hosted runner group. The runner group must have `visibility` set to `selected`. For more information, see "[Create a self-hosted runner group for an organization](#create-a-self-hosted-runner-group-for-an-organization)."
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/add-repo-access-to-self-hosted-runner-group-in-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}
    */
   public async actions$add$repo$access$to$self$hosted$runner$group$in$org(
     params: Params$actions$add$repo$access$to$self$hosted$runner$group$in$org,
@@ -19087,6 +19441,8 @@ export class Client<RequestOption> {
    * Remove repository access to a self-hosted runner group in an organization
    * Removes a repository from the list of selected repositories that can access a self-hosted runner group. The runner group must have `visibility` set to `selected`. For more information, see "[Create a self-hosted runner group for an organization](#create-a-self-hosted-runner-group-for-an-organization)."
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/remove-repo-access-to-self-hosted-runner-group-in-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}
    */
   public async actions$remove$repo$access$to$self$hosted$runner$group$in$org(
     params: Params$actions$remove$repo$access$to$self$hosted$runner$group$in$org,
@@ -19102,6 +19458,8 @@ export class Client<RequestOption> {
    * List self-hosted runners in a group for an organization
    * Lists self-hosted runners that are in a specific organization group.
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/list-self-hosted-runners-in-group-for-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}/runners
    */
   public async actions$list$self$hosted$runners$in$group$for$org(
     params: Params$actions$list$self$hosted$runners$in$group$for$org,
@@ -19122,6 +19480,8 @@ export class Client<RequestOption> {
    * Set self-hosted runners in a group for an organization
    * Replaces the list of self-hosted runners that are part of an organization runner group.
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/set-self-hosted-runners-in-group-for-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}/runners
    */
   public async actions$set$self$hosted$runners$in$group$for$org(
     params: Params$actions$set$self$hosted$runners$in$group$for$org,
@@ -19138,6 +19498,8 @@ export class Client<RequestOption> {
    * Add a self-hosted runner to a group for an organization
    * Adds a self-hosted runner to a runner group configured in an organization.
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/add-self-hosted-runner-to-group-for-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}
    */
   public async actions$add$self$hosted$runner$to$group$for$org(
     params: Params$actions$add$self$hosted$runner$to$group$for$org,
@@ -19153,6 +19515,8 @@ export class Client<RequestOption> {
    * Remove a self-hosted runner from a group for an organization
    * Removes a self-hosted runner from a group configured in an organization. The runner is then returned to the default group.
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/remove-self-hosted-runner-from-group-for-org
+   * Request URI: /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}
    */
   public async actions$remove$self$hosted$runner$from$group$for$org(
     params: Params$actions$remove$self$hosted$runner$from$group$for$org,
@@ -19169,6 +19533,8 @@ export class Client<RequestOption> {
    * Lists all self-hosted runners configured in an organization.
    *
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/list-self-hosted-runners-for-org
+   * Request URI: /orgs/{org}/actions/runners
    */
   public async actions$list$self$hosted$runners$for$org(
     params: Params$actions$list$self$hosted$runners$for$org,
@@ -19189,6 +19555,8 @@ export class Client<RequestOption> {
    * Lists binaries for the runner application that you can download and run.
    *
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/list-runner-applications-for-org
+   * Request URI: /orgs/{org}/actions/runners/downloads
    */
   public async actions$list$runner$applications$for$org(
     params: Params$actions$list$runner$applications$for$org,
@@ -19213,6 +19581,8 @@ export class Client<RequestOption> {
    * ```
    * ./config.sh --url https://github.com/octo-org --token TOKEN
    * ```
+   * operationId: actions/create-registration-token-for-org
+   * Request URI: /orgs/{org}/actions/runners/registration-token
    */
   public async actions$create$registration$token$for$org(
     params: Params$actions$create$registration$token$for$org,
@@ -19238,6 +19608,8 @@ export class Client<RequestOption> {
    * ```
    * ./config.sh remove --token TOKEN
    * ```
+   * operationId: actions/create-remove-token-for-org
+   * Request URI: /orgs/{org}/actions/runners/remove-token
    */
   public async actions$create$remove$token$for$org(
     params: Params$actions$create$remove$token$for$org,
@@ -19254,6 +19626,8 @@ export class Client<RequestOption> {
    * Gets a specific self-hosted runner configured in an organization.
    *
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/get-self-hosted-runner-for-org
+   * Request URI: /orgs/{org}/actions/runners/{runner_id}
    */
   public async actions$get$self$hosted$runner$for$org(
     params: Params$actions$get$self$hosted$runner$for$org,
@@ -19270,6 +19644,8 @@ export class Client<RequestOption> {
    * Forces the removal of a self-hosted runner from an organization. You can use this endpoint to completely remove the runner when the machine you were using no longer exists.
    *
    * You must authenticate using an access token with the `admin:org` scope to use this endpoint.
+   * operationId: actions/delete-self-hosted-runner-from-org
+   * Request URI: /orgs/{org}/actions/runners/{runner_id}
    */
   public async actions$delete$self$hosted$runner$from$org(
     params: Params$actions$delete$self$hosted$runner$from$org,
@@ -19282,6 +19658,8 @@ export class Client<RequestOption> {
   /**
    * List organization secrets
    * Lists all secrets available in an organization without revealing their encrypted values. You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint.
+   * operationId: actions/list-org-secrets
+   * Request URI: /orgs/{org}/actions/secrets
    */
   public async actions$list$org$secrets(
     params: Params$actions$list$org$secrets,
@@ -19300,6 +19678,8 @@ export class Client<RequestOption> {
   /**
    * Get an organization public key
    * Gets your public key, which you need to encrypt secrets. You need to encrypt a secret before you can create or update secrets. You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint.
+   * operationId: actions/get-org-public-key
+   * Request URI: /orgs/{org}/actions/secrets/public-key
    */
   public async actions$get$org$public$key(
     params: Params$actions$get$org$public$key,
@@ -19314,6 +19694,8 @@ export class Client<RequestOption> {
   /**
    * Get an organization secret
    * Gets a single organization secret without revealing its encrypted value. You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint.
+   * operationId: actions/get-org-secret
+   * Request URI: /orgs/{org}/actions/secrets/{secret_name}
    */
   public async actions$get$org$secret(
     params: Params$actions$get$org$secret,
@@ -19402,6 +19784,8 @@ export class Client<RequestOption> {
    * # Print the base64 encoded secret
    * puts Base64.strict_encode64(encrypted_secret)
    * ```
+   * operationId: actions/create-or-update-org-secret
+   * Request URI: /orgs/{org}/actions/secrets/{secret_name}
    */
   public async actions$create$or$update$org$secret(
     params: Params$actions$create$or$update$org$secret,
@@ -19416,6 +19800,8 @@ export class Client<RequestOption> {
   /**
    * Delete an organization secret
    * Deletes a secret in an organization using the secret name. You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint.
+   * operationId: actions/delete-org-secret
+   * Request URI: /orgs/{org}/actions/secrets/{secret_name}
    */
   public async actions$delete$org$secret(
     params: Params$actions$delete$org$secret,
@@ -19428,6 +19814,8 @@ export class Client<RequestOption> {
   /**
    * List selected repositories for an organization secret
    * Lists all repositories that have been selected when the `visibility` for repository access to a secret is set to `selected`. You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint.
+   * operationId: actions/list-selected-repos-for-org-secret
+   * Request URI: /orgs/{org}/actions/secrets/{secret_name}/repositories
    */
   public async actions$list$selected$repos$for$org$secret(
     params: Params$actions$list$selected$repos$for$org$secret,
@@ -19443,6 +19831,8 @@ export class Client<RequestOption> {
   /**
    * Set selected repositories for an organization secret
    * Replaces all repositories for an organization secret when the `visibility` for repository access is set to `selected`. The visibility is set when you [Create or update an organization secret](https://docs.github.com/enterprise-server@2.22/rest/reference/actions#create-or-update-an-organization-secret). You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint.
+   * operationId: actions/set-selected-repos-for-org-secret
+   * Request URI: /orgs/{org}/actions/secrets/{secret_name}/repositories
    */
   public async actions$set$selected$repos$for$org$secret(
     params: Params$actions$set$selected$repos$for$org$secret,
@@ -19458,6 +19848,8 @@ export class Client<RequestOption> {
   /**
    * Add selected repository to an organization secret
    * Adds a repository to an organization secret when the `visibility` for repository access is set to `selected`. The visibility is set when you [Create or update an organization secret](https://docs.github.com/enterprise-server@2.22/rest/reference/actions#create-or-update-an-organization-secret). You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint.
+   * operationId: actions/add-selected-repo-to-org-secret
+   * Request URI: /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}
    */
   public async actions$add$selected$repo$to$org$secret(
     params: Params$actions$add$selected$repo$to$org$secret,
@@ -19472,6 +19864,8 @@ export class Client<RequestOption> {
   /**
    * Remove selected repository from an organization secret
    * Removes a repository from an organization secret when the `visibility` for repository access is set to `selected`. The visibility is set when you [Create or update an organization secret](https://docs.github.com/enterprise-server@2.22/rest/reference/actions#create-or-update-an-organization-secret). You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint.
+   * operationId: actions/remove-selected-repo-from-org-secret
+   * Request URI: /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}
    */
   public async actions$remove$selected$repo$from$org$secret(
     params: Params$actions$remove$selected$repo$from$org$secret,
@@ -19483,7 +19877,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** List public organization events */
+  /**
+   * List public organization events
+   * operationId: activity/list-public-org-events
+   * Request URI: /orgs/{org}/events
+   */
   public async activity$list$public$org$events(
     params: Params$activity$list$public$org$events,
     option?: RequestOption,
@@ -19498,7 +19896,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** List organization webhooks */
+  /**
+   * List organization webhooks
+   * operationId: orgs/list-webhooks
+   * Request URI: /orgs/{org}/hooks
+   */
   public async orgs$list$webhooks(
     params: Params$orgs$list$webhooks,
     option?: RequestOption,
@@ -19516,6 +19918,8 @@ export class Client<RequestOption> {
   /**
    * Create an organization webhook
    * Here's how you can create a hook that posts payloads in JSON format:
+   * operationId: orgs/create-webhook
+   * Request URI: /orgs/{org}/hooks
    */
   public async orgs$create$webhook(
     params: Params$orgs$create$webhook,
@@ -19531,6 +19935,8 @@ export class Client<RequestOption> {
   /**
    * Get an organization webhook
    * Returns a webhook configured in an organization. To get only the webhook `config` properties, see "[Get a webhook configuration for an organization](/rest/reference/orgs#get-a-webhook-configuration-for-an-organization)."
+   * operationId: orgs/get-webhook
+   * Request URI: /orgs/{org}/hooks/{hook_id}
    */
   public async orgs$get$webhook(
     params: Params$orgs$get$webhook,
@@ -19542,7 +19948,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete an organization webhook */
+  /**
+   * Delete an organization webhook
+   * operationId: orgs/delete-webhook
+   * Request URI: /orgs/{org}/hooks/{hook_id}
+   */
   public async orgs$delete$webhook(params: Params$orgs$delete$webhook, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/orgs/${params.parameter.org}/hooks/${params.parameter.hook_id}`;
     const headers = {};
@@ -19551,6 +19961,8 @@ export class Client<RequestOption> {
   /**
    * Update an organization webhook
    * Updates a webhook configured in an organization. When you update a webhook, the `secret` will be overwritten. If you previously had a `secret` set, you must provide the same `secret` or set a new `secret` or the secret will be removed. If you are only updating individual webhook `config` properties, use "[Update a webhook configuration for an organization](/rest/reference/orgs#update-a-webhook-configuration-for-an-organization)."
+   * operationId: orgs/update-webhook
+   * Request URI: /orgs/{org}/hooks/{hook_id}
    */
   public async orgs$update$webhook(
     params: Params$orgs$update$webhook,
@@ -19566,6 +19978,8 @@ export class Client<RequestOption> {
   /**
    * Ping an organization webhook
    * This will trigger a [ping event](https://docs.github.com/enterprise-server@2.22/webhooks/#ping-event) to be sent to the hook.
+   * operationId: orgs/ping-webhook
+   * Request URI: /orgs/{org}/hooks/{hook_id}/pings
    */
   public async orgs$ping$webhook(params: Params$orgs$ping$webhook, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/orgs/${params.parameter.org}/hooks/${params.parameter.hook_id}/pings`;
@@ -19577,6 +19991,8 @@ export class Client<RequestOption> {
    * Enables an authenticated GitHub App to find the organization's installation information.
    *
    * You must use a [JWT](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+   * operationId: apps/get-org-installation
+   * Request URI: /orgs/{org}/installation
    */
   public async apps$get$org$installation(
     params: Params$apps$get$org$installation,
@@ -19591,6 +20007,8 @@ export class Client<RequestOption> {
   /**
    * List app installations for an organization
    * Lists all GitHub Apps in an organization. The installation count includes all GitHub Apps installed on repositories in the organization. You must be an organization owner with `admin:read` scope to use this endpoint.
+   * operationId: orgs/list-app-installations
+   * Request URI: /orgs/{org}/installations
    */
   public async orgs$list$app$installations(
     params: Params$orgs$list$app$installations,
@@ -19614,6 +20032,8 @@ export class Client<RequestOption> {
    * reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by
    * the `pull_request` key. Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull
    * request id, use the "[List pull requests](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#list-pull-requests)" endpoint.
+   * operationId: issues/list-for-org
+   * Request URI: /orgs/{org}/issues
    */
   public async issues$list$for$org(
     params: Params$issues$list$for$org,
@@ -19638,6 +20058,8 @@ export class Client<RequestOption> {
   /**
    * List organization members
    * List all users who are members of an organization. If the authenticated user is also a member of this organization then both concealed and public members will be returned.
+   * operationId: orgs/list-members
+   * Request URI: /orgs/{org}/members
    */
   public async orgs$list$members(
     params: Params$orgs$list$members,
@@ -19658,6 +20080,8 @@ export class Client<RequestOption> {
   /**
    * Check organization membership for a user
    * Check if a user is, publicly or privately, a member of the organization.
+   * operationId: orgs/check-membership-for-user
+   * Request URI: /orgs/{org}/members/{username}
    */
   public async orgs$check$membership$for$user(
     params: Params$orgs$check$membership$for$user,
@@ -19670,6 +20094,8 @@ export class Client<RequestOption> {
   /**
    * Remove an organization member
    * Removing a user from this list will remove them from all teams and they will no longer have any access to the organization's repositories.
+   * operationId: orgs/remove-member
+   * Request URI: /orgs/{org}/members/{username}
    */
   public async orgs$remove$member(params: Params$orgs$remove$member, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/orgs/${params.parameter.org}/members/${params.parameter.username}`;
@@ -19679,6 +20105,8 @@ export class Client<RequestOption> {
   /**
    * Get organization membership for a user
    * In order to get a user's membership with an organization, the authenticated user must be an organization member.
+   * operationId: orgs/get-membership-for-user
+   * Request URI: /orgs/{org}/memberships/{username}
    */
   public async orgs$get$membership$for$user(
     params: Params$orgs$get$membership$for$user,
@@ -19701,6 +20129,8 @@ export class Client<RequestOption> {
    * **Rate limits**
    *
    * To prevent abuse, the authenticated user is limited to 50 organization invitations per 24 hour period. If the organization is more than one month old or on a paid plan, the limit is 500 invitations per 24 hour period.
+   * operationId: orgs/set-membership-for-user
+   * Request URI: /orgs/{org}/memberships/{username}
    */
   public async orgs$set$membership$for$user(
     params: Params$orgs$set$membership$for$user,
@@ -19718,6 +20148,8 @@ export class Client<RequestOption> {
    * In order to remove a user's membership with an organization, the authenticated user must be an organization owner.
    *
    * If the specified user is an active member of the organization, this will remove them from the organization. If the specified user has been invited to the organization, this will cancel their invitation. The specified user will receive an email notification in both cases.
+   * operationId: orgs/remove-membership-for-user
+   * Request URI: /orgs/{org}/memberships/{username}
    */
   public async orgs$remove$membership$for$user(
     params: Params$orgs$remove$membership$for$user,
@@ -19730,6 +20162,8 @@ export class Client<RequestOption> {
   /**
    * List outside collaborators for an organization
    * List all users who are outside collaborators of an organization.
+   * operationId: orgs/list-outside-collaborators
+   * Request URI: /orgs/{org}/outside_collaborators
    */
   public async orgs$list$outside$collaborators(
     params: Params$orgs$list$outside$collaborators,
@@ -19749,6 +20183,8 @@ export class Client<RequestOption> {
   /**
    * Convert an organization member to outside collaborator
    * When an organization member is converted to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The user will no longer be a member of the organization. For more information, see "[Converting an organization member to an outside collaborator](https://help.github.com/articles/converting-an-organization-member-to-an-outside-collaborator/)".
+   * operationId: orgs/convert-member-to-outside-collaborator
+   * Request URI: /orgs/{org}/outside_collaborators/{username}
    */
   public async orgs$convert$member$to$outside$collaborator(
     params: Params$orgs$convert$member$to$outside$collaborator,
@@ -19761,6 +20197,8 @@ export class Client<RequestOption> {
   /**
    * Remove outside collaborator from an organization
    * Removing a user from this list will remove them from all the organization's repositories.
+   * operationId: orgs/remove-outside-collaborator
+   * Request URI: /orgs/{org}/outside_collaborators/{username}
    */
   public async orgs$remove$outside$collaborator(
     params: Params$orgs$remove$outside$collaborator,
@@ -19773,6 +20211,8 @@ export class Client<RequestOption> {
   /**
    * List pre-receive hooks for an organization
    * List all pre-receive hooks that are enabled or testing for this organization as well as any disabled hooks that can be configured at the organization level. Globally disabled pre-receive hooks that do not allow downstream configuration are not listed.
+   * operationId: enterprise-admin/list-pre-receive-hooks-for-org
+   * Request URI: /orgs/{org}/pre-receive-hooks
    */
   public async enterprise$admin$list$pre$receive$hooks$for$org(
     params: Params$enterprise$admin$list$pre$receive$hooks$for$org,
@@ -19788,7 +20228,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get a pre-receive hook for an organization */
+  /**
+   * Get a pre-receive hook for an organization
+   * operationId: enterprise-admin/get-pre-receive-hook-for-org
+   * Request URI: /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}
+   */
   public async enterprise$admin$get$pre$receive$hook$for$org(
     params: Params$enterprise$admin$get$pre$receive$hook$for$org,
     option?: RequestOption,
@@ -19803,6 +20247,8 @@ export class Client<RequestOption> {
   /**
    * Remove pre-receive hook enforcement for an organization
    * Removes any overrides for this hook at the org level for this org.
+   * operationId: enterprise-admin/remove-pre-receive-hook-enforcement-for-org
+   * Request URI: /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}
    */
   public async enterprise$admin$remove$pre$receive$hook$enforcement$for$org(
     params: Params$enterprise$admin$remove$pre$receive$hook$enforcement$for$org,
@@ -19818,6 +20264,8 @@ export class Client<RequestOption> {
   /**
    * Update pre-receive hook enforcement for an organization
    * For pre-receive hooks which are allowed to be configured at the org level, you can set `enforcement` and `allow_downstream_configuration`
+   * operationId: enterprise-admin/update-pre-receive-hook-enforcement-for-org
+   * Request URI: /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}
    */
   public async enterprise$admin$update$pre$receive$hook$enforcement$for$org(
     params: Params$enterprise$admin$update$pre$receive$hook$enforcement$for$org,
@@ -19834,6 +20282,8 @@ export class Client<RequestOption> {
   /**
    * List organization projects
    * Lists the projects in an organization. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+   * operationId: projects/list-for-org
+   * Request URI: /orgs/{org}/projects
    */
   public async projects$list$for$org(
     params: Params$projects$list$for$org,
@@ -19853,6 +20303,8 @@ export class Client<RequestOption> {
   /**
    * Create an organization project
    * Creates an organization project board. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+   * operationId: projects/create-for-org
+   * Request URI: /orgs/{org}/projects
    */
   public async projects$create$for$org(
     params: Params$projects$create$for$org,
@@ -19868,6 +20320,8 @@ export class Client<RequestOption> {
   /**
    * List public organization members
    * Members of an organization can choose to have their membership publicized or not.
+   * operationId: orgs/list-public-members
+   * Request URI: /orgs/{org}/public_members
    */
   public async orgs$list$public$members(
     params: Params$orgs$list$public$members,
@@ -19883,7 +20337,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Check public organization membership for a user */
+  /**
+   * Check public organization membership for a user
+   * operationId: orgs/check-public-membership-for-user
+   * Request URI: /orgs/{org}/public_members/{username}
+   */
   public async orgs$check$public$membership$for$user(
     params: Params$orgs$check$public$membership$for$user,
     option?: RequestOption,
@@ -19897,6 +20355,8 @@ export class Client<RequestOption> {
    * The user can publicize their own membership. (A user cannot publicize the membership for another user.)
    *
    * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#http-verbs)."
+   * operationId: orgs/set-public-membership-for-authenticated-user
+   * Request URI: /orgs/{org}/public_members/{username}
    */
   public async orgs$set$public$membership$for$authenticated$user(
     params: Params$orgs$set$public$membership$for$authenticated$user,
@@ -19906,7 +20366,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("PUT", url, headers, undefined, undefined, option);
   }
-  /** Remove public organization membership for the authenticated user */
+  /**
+   * Remove public organization membership for the authenticated user
+   * operationId: orgs/remove-public-membership-for-authenticated-user
+   * Request URI: /orgs/{org}/public_members/{username}
+   */
   public async orgs$remove$public$membership$for$authenticated$user(
     params: Params$orgs$remove$public$membership$for$authenticated$user,
     option?: RequestOption,
@@ -19918,6 +20382,8 @@ export class Client<RequestOption> {
   /**
    * List organization repositories
    * Lists repositories for the specified organization.
+   * operationId: repos/list-for-org
+   * Request URI: /orgs/{org}/repos
    */
   public async repos$list$for$org(
     params: Params$repos$list$for$org,
@@ -19946,6 +20412,8 @@ export class Client<RequestOption> {
    *
    * *   `public_repo` scope or `repo` scope to create a public repository
    * *   `repo` scope to create a private repository
+   * operationId: repos/create-in-org
+   * Request URI: /orgs/{org}/repos
    */
   public async repos$create$in$org(
     params: Params$repos$create$in$org,
@@ -19961,6 +20429,8 @@ export class Client<RequestOption> {
   /**
    * List teams
    * Lists all teams in an organization that are visible to the authenticated user.
+   * operationId: teams/list
+   * Request URI: /orgs/{org}/teams
    */
   public async teams$list(
     params: Params$teams$list,
@@ -19981,6 +20451,8 @@ export class Client<RequestOption> {
    * To create a team, the authenticated user must be a member or owner of `{org}`. By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see "[Setting team creation permissions](https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization)."
    *
    * When you create a new team, you automatically become a team maintainer without explicitly adding yourself to the optional array of `maintainers`. For more information, see "[About teams](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-teams)".
+   * operationId: teams/create
+   * Request URI: /orgs/{org}/teams
    */
   public async teams$create(
     params: Params$teams$create,
@@ -19998,6 +20470,8 @@ export class Client<RequestOption> {
    * Gets a team using the team's `slug`. GitHub Enterprise Server generates the `slug` from the team `name`.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}`.
+   * operationId: teams/get-by-name
+   * Request URI: /orgs/{org}/teams/{team_slug}
    */
   public async teams$get$by$name(
     params: Params$teams$get$by$name,
@@ -20016,6 +20490,8 @@ export class Client<RequestOption> {
    * If you are an organization owner, deleting a parent team will delete all of its child teams as well.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/{org_id}/team/{team_id}`.
+   * operationId: teams/delete-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}
    */
   public async teams$delete$in$org(params: Params$teams$delete$in$org, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/orgs/${params.parameter.org}/teams/${params.parameter.team_slug}`;
@@ -20027,6 +20503,8 @@ export class Client<RequestOption> {
    * To edit a team, the authenticated user must either be an organization owner or a team maintainer.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PATCH /organizations/{org_id}/team/{team_id}`.
+   * operationId: teams/update-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}
    */
   public async teams$update$in$org(
     params: Params$teams$update$in$org,
@@ -20044,6 +20522,8 @@ export class Client<RequestOption> {
    * List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/discussions`.
+   * operationId: teams/list-discussions-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions
    */
   public async teams$list$discussions$in$org(
     params: Params$teams$list$discussions$in$org,
@@ -20067,6 +20547,8 @@ export class Client<RequestOption> {
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)" for details.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `POST /organizations/{org_id}/team/{team_id}/discussions`.
+   * operationId: teams/create-discussion-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions
    */
   public async teams$create$discussion$in$org(
     params: Params$teams$create$discussion$in$org,
@@ -20084,6 +20566,8 @@ export class Client<RequestOption> {
    * Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/discussions/{discussion_number}`.
+   * operationId: teams/get-discussion-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
    */
   public async teams$get$discussion$in$org(
     params: Params$teams$get$discussion$in$org,
@@ -20102,6 +20586,8 @@ export class Client<RequestOption> {
    * Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/{org_id}/team/{team_id}/discussions/{discussion_number}`.
+   * operationId: teams/delete-discussion-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
    */
   public async teams$delete$discussion$in$org(
     params: Params$teams$delete$discussion$in$org,
@@ -20118,6 +20604,8 @@ export class Client<RequestOption> {
    * Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PATCH /organizations/{org_id}/team/{team_id}/discussions/{discussion_number}`.
+   * operationId: teams/update-discussion-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
    */
   public async teams$update$discussion$in$org(
     params: Params$teams$update$discussion$in$org,
@@ -20137,6 +20625,8 @@ export class Client<RequestOption> {
    * List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/discussions/{discussion_number}/comments`.
+   * operationId: teams/list-discussion-comments-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments
    */
   public async teams$list$discussion$comments$in$org(
     params: Params$teams$list$discussion$comments$in$org,
@@ -20162,6 +20652,8 @@ export class Client<RequestOption> {
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)" for details.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `POST /organizations/{org_id}/team/{team_id}/discussions/{discussion_number}/comments`.
+   * operationId: teams/create-discussion-comment-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments
    */
   public async teams$create$discussion$comment$in$org(
     params: Params$teams$create$discussion$comment$in$org,
@@ -20181,6 +20673,8 @@ export class Client<RequestOption> {
    * Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/discussions/{discussion_number}/comments/{comment_number}`.
+   * operationId: teams/get-discussion-comment-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}
    */
   public async teams$get$discussion$comment$in$org(
     params: Params$teams$get$discussion$comment$in$org,
@@ -20199,6 +20693,8 @@ export class Client<RequestOption> {
    * Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/{org_id}/team/{team_id}/discussions/{discussion_number}/comments/{comment_number}`.
+   * operationId: teams/delete-discussion-comment-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}
    */
   public async teams$delete$discussion$comment$in$org(
     params: Params$teams$delete$discussion$comment$in$org,
@@ -20215,6 +20711,8 @@ export class Client<RequestOption> {
    * Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PATCH /organizations/{org_id}/team/{team_id}/discussions/{discussion_number}/comments/{comment_number}`.
+   * operationId: teams/update-discussion-comment-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}
    */
   public async teams$update$discussion$comment$in$org(
     params: Params$teams$update$discussion$comment$in$org,
@@ -20234,6 +20732,8 @@ export class Client<RequestOption> {
    * List the reactions to a [team discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussion-comments/). OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number/reactions`.
+   * operationId: reactions/list-for-team-discussion-comment-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions
    */
   public async reactions$list$for$team$discussion$comment$in$org(
     params: Params$reactions$list$for$team$discussion$comment$in$org,
@@ -20257,6 +20757,8 @@ export class Client<RequestOption> {
    * Create a reaction to a [team discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussion-comments). OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `POST /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number/reactions`.
+   * operationId: reactions/create-for-team-discussion-comment-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions
    */
   public async reactions$create$for$team$discussion$comment$in$org(
     params: Params$reactions$create$for$team$discussion$comment$in$org,
@@ -20276,6 +20778,8 @@ export class Client<RequestOption> {
    * **Note:** You can also specify a team or organization with `team_id` and `org_id` using the route `DELETE /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id`.
    *
    * Delete a reaction to a [team discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussion-comments). OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: reactions/delete-for-team-discussion-comment
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}
    */
   public async reactions$delete$for$team$discussion$comment(
     params: Params$reactions$delete$for$team$discussion$comment,
@@ -20292,6 +20796,8 @@ export class Client<RequestOption> {
    * List the reactions to a [team discussion](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussions). OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/discussions/:discussion_number/reactions`.
+   * operationId: reactions/list-for-team-discussion-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions
    */
   public async reactions$list$for$team$discussion$in$org(
     params: Params$reactions$list$for$team$discussion$in$org,
@@ -20315,6 +20821,8 @@ export class Client<RequestOption> {
    * Create a reaction to a [team discussion](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussions). OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `POST /organizations/:org_id/team/:team_id/discussions/:discussion_number/reactions`.
+   * operationId: reactions/create-for-team-discussion-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions
    */
   public async reactions$create$for$team$discussion$in$org(
     params: Params$reactions$create$for$team$discussion$in$org,
@@ -20334,6 +20842,8 @@ export class Client<RequestOption> {
    * **Note:** You can also specify a team or organization with `team_id` and `org_id` using the route `DELETE /organizations/:org_id/team/:team_id/discussions/:discussion_number/reactions/:reaction_id`.
    *
    * Delete a reaction to a [team discussion](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussions). OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: reactions/delete-for-team-discussion
+   * Request URI: /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}
    */
   public async reactions$delete$for$team$discussion(
     params: Params$reactions$delete$for$team$discussion,
@@ -20350,6 +20860,8 @@ export class Client<RequestOption> {
    * Team members will include the members of child teams.
    *
    * To list members in a team, the team must be visible to the authenticated user.
+   * operationId: teams/list-members-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/members
    */
   public async teams$list$members$in$org(
     params: Params$teams$list$members$in$org,
@@ -20375,6 +20887,8 @@ export class Client<RequestOption> {
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/memberships/{username}`.
    *
    * **Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create a team](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#create-a-team).
+   * operationId: teams/get-membership-for-user-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/memberships/{username}
    */
   public async teams$get$membership$for$user$in$org(
     params: Params$teams$get$membership$for$user$in$org,
@@ -20401,6 +20915,8 @@ export class Client<RequestOption> {
    * If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a team maintainer.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PUT /organizations/{org_id}/team/{team_id}/memberships/{username}`.
+   * operationId: teams/add-or-update-membership-for-user-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/memberships/{username}
    */
   public async teams$add$or$update$membership$for$user$in$org(
     params: Params$teams$add$or$update$membership$for$user$in$org,
@@ -20424,6 +20940,8 @@ export class Client<RequestOption> {
    * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub Enterprise Server team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub Enterprise Server](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/{org_id}/team/{team_id}/memberships/{username}`.
+   * operationId: teams/remove-membership-for-user-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/memberships/{username}
    */
   public async teams$remove$membership$for$user$in$org(
     params: Params$teams$remove$membership$for$user$in$org,
@@ -20440,6 +20958,8 @@ export class Client<RequestOption> {
    * Lists the organization projects for a team.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/projects`.
+   * operationId: teams/list-projects-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/projects
    */
   public async teams$list$projects$in$org(
     params: Params$teams$list$projects$in$org,
@@ -20460,6 +20980,8 @@ export class Client<RequestOption> {
    * Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. The response includes projects inherited from a parent team.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/projects/{project_id}`.
+   * operationId: teams/check-permissions-for-project-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/projects/{project_id}
    */
   public async teams$check$permissions$for$project$in$org(
     params: Params$teams$check$permissions$for$project$in$org,
@@ -20478,6 +21000,8 @@ export class Client<RequestOption> {
    * Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PUT /organizations/{org_id}/team/{team_id}/projects/{project_id}`.
+   * operationId: teams/add-or-update-project-permissions-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/projects/{project_id}
    */
   public async teams$add$or$update$project$permissions$in$org(
     params: Params$teams$add$or$update$project$permissions$in$org,
@@ -20496,6 +21020,8 @@ export class Client<RequestOption> {
    * Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. This endpoint removes the project from the team, but does not delete the project.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/{org_id}/team/{team_id}/projects/{project_id}`.
+   * operationId: teams/remove-project-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/projects/{project_id}
    */
   public async teams$remove$project$in$org(
     params: Params$teams$remove$project$in$org,
@@ -20512,6 +21038,8 @@ export class Client<RequestOption> {
    * Lists a team's repositories visible to the authenticated user.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/repos`.
+   * operationId: teams/list-repos-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/repos
    */
   public async teams$list$repos$in$org(
     params: Params$teams$list$repos$in$org,
@@ -20536,6 +21064,8 @@ export class Client<RequestOption> {
    * If a team doesn't have permission for the repository, you will receive a `404 Not Found` response status.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/repos/{owner}/{repo}`.
+   * operationId: teams/check-permissions-for-repo-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}
    */
   public async teams$check$permissions$for$repo$in$org(
     params: Params$teams$check$permissions$for$repo$in$org,
@@ -20556,6 +21086,8 @@ export class Client<RequestOption> {
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PUT /organizations/{org_id}/team/{team_id}/repos/{owner}/{repo}`.
    *
    * For more information about the permission levels, see "[Repository permission levels for an organization](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization)".
+   * operationId: teams/add-or-update-repo-permissions-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}
    */
   public async teams$add$or$update$repo$permissions$in$org(
     params: Params$teams$add$or$update$repo$permissions$in$org,
@@ -20574,6 +21106,8 @@ export class Client<RequestOption> {
    * If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. This does not delete the repository, it just removes it from the team.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/{org_id}/team/{team_id}/repos/{owner}/{repo}`.
+   * operationId: teams/remove-repo-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}
    */
   public async teams$remove$repo$in$org(
     params: Params$teams$remove$repo$in$org,
@@ -20590,6 +21124,8 @@ export class Client<RequestOption> {
    * Lists the child teams of the team specified by `{team_slug}`.
    *
    * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/{org_id}/team/{team_id}/teams`.
+   * operationId: teams/list-child-in-org
+   * Request URI: /orgs/{org}/teams/{team_slug}/teams
    */
   public async teams$list$child$in$org(
     params: Params$teams$list$child$in$org,
@@ -20605,7 +21141,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get a project card */
+  /**
+   * Get a project card
+   * operationId: projects/get-card
+   * Request URI: /projects/columns/cards/{card_id}
+   */
   public async projects$get$card(
     params: Params$projects$get$card,
     option?: RequestOption,
@@ -20616,13 +21156,21 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a project card */
+  /**
+   * Delete a project card
+   * operationId: projects/delete-card
+   * Request URI: /projects/columns/cards/{card_id}
+   */
   public async projects$delete$card(params: Params$projects$delete$card, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/projects/columns/cards/${params.parameter.card_id}`;
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update an existing project card */
+  /**
+   * Update an existing project card
+   * operationId: projects/update-card
+   * Request URI: /projects/columns/cards/{card_id}
+   */
   public async projects$update$card(
     params: Params$projects$update$card,
     option?: RequestOption,
@@ -20634,7 +21182,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PATCH", url, headers, params.requestBody, undefined, option);
   }
-  /** Move a project card */
+  /**
+   * Move a project card
+   * operationId: projects/move-card
+   * Request URI: /projects/columns/cards/{card_id}/moves
+   */
   public async projects$move$card(
     params: Params$projects$move$card,
     option?: RequestOption,
@@ -20646,7 +21198,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a project column */
+  /**
+   * Get a project column
+   * operationId: projects/get-column
+   * Request URI: /projects/columns/{column_id}
+   */
   public async projects$get$column(
     params: Params$projects$get$column,
     option?: RequestOption,
@@ -20657,13 +21213,21 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a project column */
+  /**
+   * Delete a project column
+   * operationId: projects/delete-column
+   * Request URI: /projects/columns/{column_id}
+   */
   public async projects$delete$column(params: Params$projects$delete$column, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/projects/columns/${params.parameter.column_id}`;
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update an existing project column */
+  /**
+   * Update an existing project column
+   * operationId: projects/update-column
+   * Request URI: /projects/columns/{column_id}
+   */
   public async projects$update$column(
     params: Params$projects$update$column,
     option?: RequestOption,
@@ -20675,7 +21239,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PATCH", url, headers, params.requestBody, undefined, option);
   }
-  /** List project cards */
+  /**
+   * List project cards
+   * operationId: projects/list-cards
+   * Request URI: /projects/columns/{column_id}/cards
+   */
   public async projects$list$cards(
     params: Params$projects$list$cards,
     option?: RequestOption,
@@ -20696,6 +21264,8 @@ export class Client<RequestOption> {
    * **Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.
    *
    * Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull request id, use the "[List pull requests](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#list-pull-requests)" endpoint.
+   * operationId: projects/create-card
+   * Request URI: /projects/columns/{column_id}/cards
    */
   public async projects$create$card(
     params: Params$projects$create$card,
@@ -20708,7 +21278,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Move a project column */
+  /**
+   * Move a project column
+   * operationId: projects/move-column
+   * Request URI: /projects/columns/{column_id}/moves
+   */
   public async projects$move$column(
     params: Params$projects$move$column,
     option?: RequestOption,
@@ -20723,6 +21297,8 @@ export class Client<RequestOption> {
   /**
    * Get a project
    * Gets a project by its `id`. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+   * operationId: projects/get
+   * Request URI: /projects/{project_id}
    */
   public async projects$get(
     params: Params$projects$get,
@@ -20737,6 +21313,8 @@ export class Client<RequestOption> {
   /**
    * Delete a project
    * Deletes a project board. Returns a `404 Not Found` status if projects are disabled.
+   * operationId: projects/delete
+   * Request URI: /projects/{project_id}
    */
   public async projects$delete(params: Params$projects$delete, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/projects/${params.parameter.project_id}`;
@@ -20746,6 +21324,8 @@ export class Client<RequestOption> {
   /**
    * Update a project
    * Updates a project board's information. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+   * operationId: projects/update
+   * Request URI: /projects/{project_id}
    */
   public async projects$update(
     params: Params$projects$update,
@@ -20761,6 +21341,8 @@ export class Client<RequestOption> {
   /**
    * List project collaborators
    * Lists the collaborators for an organization project. For a project, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners. You must be an organization owner or a project `admin` to list collaborators.
+   * operationId: projects/list-collaborators
+   * Request URI: /projects/{project_id}/collaborators
    */
   public async projects$list$collaborators(
     params: Params$projects$list$collaborators,
@@ -20780,6 +21362,8 @@ export class Client<RequestOption> {
   /**
    * Add project collaborator
    * Adds a collaborator to an organization project and sets their permission level. You must be an organization owner or a project `admin` to add a collaborator.
+   * operationId: projects/add-collaborator
+   * Request URI: /projects/{project_id}/collaborators/{username}
    */
   public async projects$add$collaborator(
     params: Params$projects$add$collaborator,
@@ -20794,6 +21378,8 @@ export class Client<RequestOption> {
   /**
    * Remove user as a collaborator
    * Removes a collaborator from an organization project. You must be an organization owner or a project `admin` to remove a collaborator.
+   * operationId: projects/remove-collaborator
+   * Request URI: /projects/{project_id}/collaborators/{username}
    */
   public async projects$remove$collaborator(
     params: Params$projects$remove$collaborator,
@@ -20806,6 +21392,8 @@ export class Client<RequestOption> {
   /**
    * Get project permission for a user
    * Returns the collaborator's permission level for an organization project. Possible values for the `permission` key: `admin`, `write`, `read`, `none`. You must be an organization owner or a project `admin` to review a user's permission level.
+   * operationId: projects/get-permission-for-user
+   * Request URI: /projects/{project_id}/collaborators/{username}/permission
    */
   public async projects$get$permission$for$user(
     params: Params$projects$get$permission$for$user,
@@ -20818,7 +21406,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** List project columns */
+  /**
+   * List project columns
+   * operationId: projects/list-columns
+   * Request URI: /projects/{project_id}/columns
+   */
   public async projects$list$columns(
     params: Params$projects$list$columns,
     option?: RequestOption,
@@ -20833,7 +21425,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Create a project column */
+  /**
+   * Create a project column
+   * operationId: projects/create-column
+   * Request URI: /projects/{project_id}/columns
+   */
   public async projects$create$column(
     params: Params$projects$create$column,
     option?: RequestOption,
@@ -20850,6 +21446,8 @@ export class Client<RequestOption> {
    * **Note:** Accessing this endpoint does not count against your REST API rate limit.
    *
    * **Note:** The `rate` object is deprecated. If you're writing new API client code or updating existing code, you should use the `core` object instead of the `rate` object. The `core` object contains the same information that is present in the `rate` object.
+   * operationId: rate-limit/get
+   * Request URI: /rate_limit
    */
   public async rate$limit$get(option?: RequestOption): Promise<Response$rate$limit$get$Status$200["application/json"]> {
     const url = this.baseUrl + `/rate_limit`;
@@ -20864,6 +21462,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Reactions API. We recommend migrating your existing code to use the new delete reactions endpoints. For more information, see this [blog post](https://developer.github.com/changes/2020-02-26-new-delete-reactions-endpoints/).
    *
    * OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), when deleting a [team discussion](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussions) or [team discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussion-comments).
+   * operationId: reactions/delete-legacy
+   * Request URI: /reactions/{reaction_id}
    */
   public async reactions$delete$legacy(params: Params$reactions$delete$legacy, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/reactions/${params.parameter.reaction_id}`;
@@ -20875,6 +21475,8 @@ export class Client<RequestOption> {
    * When you pass the `scarlet-witch-preview` media type, requests to get a repository will also return the repository's code of conduct if it can be detected from the repository's code of conduct file.
    *
    * The `parent` and `source` objects are present when the repository is a fork. `parent` is the repository this repository was forked from, `source` is the ultimate source for the network.
+   * operationId: repos/get
+   * Request URI: /repos/{owner}/{repo}
    */
   public async repos$get(
     params: Params$repos$get,
@@ -20892,6 +21494,8 @@ export class Client<RequestOption> {
    *
    * If an organization owner has configured the organization to prevent members from deleting organization-owned
    * repositories, you will get a `403 Forbidden` response.
+   * operationId: repos/delete
+   * Request URI: /repos/{owner}/{repo}
    */
   public async repos$delete(params: Params$repos$delete, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/repos/${params.parameter.owner}/${params.parameter.repo}`;
@@ -20901,6 +21505,8 @@ export class Client<RequestOption> {
   /**
    * Update a repository
    * **Note**: To edit a repository's topics, use the [Replace all repository topics](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#replace-all-repository-topics) endpoint.
+   * operationId: repos/update
+   * Request URI: /repos/{owner}/{repo}
    */
   public async repos$update(
     params: Params$repos$update,
@@ -20916,6 +21522,8 @@ export class Client<RequestOption> {
   /**
    * List artifacts for a repository
    * Lists all artifacts for a repository. Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint.
+   * operationId: actions/list-artifacts-for-repo
+   * Request URI: /repos/{owner}/{repo}/actions/artifacts
    */
   public async actions$list$artifacts$for$repo(
     params: Params$actions$list$artifacts$for$repo,
@@ -20934,6 +21542,8 @@ export class Client<RequestOption> {
   /**
    * Get an artifact
    * Gets a specific artifact for a workflow run. Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint.
+   * operationId: actions/get-artifact
+   * Request URI: /repos/{owner}/{repo}/actions/artifacts/{artifact_id}
    */
   public async actions$get$artifact(
     params: Params$actions$get$artifact,
@@ -20950,6 +21560,8 @@ export class Client<RequestOption> {
   /**
    * Delete an artifact
    * Deletes an artifact for a workflow run. You must authenticate using an access token with the `repo` scope to use this endpoint. GitHub Apps must have the `actions:write` permission to use this endpoint.
+   * operationId: actions/delete-artifact
+   * Request URI: /repos/{owner}/{repo}/actions/artifacts/{artifact_id}
    */
   public async actions$delete$artifact(params: Params$actions$delete$artifact, option?: RequestOption): Promise<void> {
     const url =
@@ -20964,6 +21576,8 @@ export class Client<RequestOption> {
    * the response header to find the URL for the download. The `:archive_format` must be `zip`. Anyone with read access to
    * the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope.
    * GitHub Apps must have the `actions:read` permission to use this endpoint.
+   * operationId: actions/download-artifact
+   * Request URI: /repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}
    */
   public async actions$download$artifact(
     params: Params$actions$download$artifact,
@@ -20978,6 +21592,8 @@ export class Client<RequestOption> {
   /**
    * Get a job for a workflow run
    * Gets a specific job in a workflow run. Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint.
+   * operationId: actions/get-job-for-workflow-run
+   * Request URI: /repos/{owner}/{repo}/actions/jobs/{job_id}
    */
   public async actions$get$job$for$workflow$run(
     params: Params$actions$get$job$for$workflow$run,
@@ -20997,6 +21613,8 @@ export class Client<RequestOption> {
    * for `Location:` in the response header to find the URL for the download. Anyone with read access to the repository can
    * use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must
    * have the `actions:read` permission to use this endpoint.
+   * operationId: actions/download-job-logs-for-workflow-run
+   * Request URI: /repos/{owner}/{repo}/actions/jobs/{job_id}/logs
    */
   public async actions$download$job$logs$for$workflow$run(
     params: Params$actions$download$job$logs$for$workflow$run,
@@ -21011,6 +21629,8 @@ export class Client<RequestOption> {
   /**
    * List self-hosted runners for a repository
    * Lists all self-hosted runners configured in a repository. You must authenticate using an access token with the `repo` scope to use this endpoint.
+   * operationId: actions/list-self-hosted-runners-for-repo
+   * Request URI: /repos/{owner}/{repo}/actions/runners
    */
   public async actions$list$self$hosted$runners$for$repo(
     params: Params$actions$list$self$hosted$runners$for$repo,
@@ -21031,6 +21651,8 @@ export class Client<RequestOption> {
    * Lists binaries for the runner application that you can download and run.
    *
    * You must authenticate using an access token with the `repo` scope to use this endpoint.
+   * operationId: actions/list-runner-applications-for-repo
+   * Request URI: /repos/{owner}/{repo}/actions/runners/downloads
    */
   public async actions$list$runner$applications$for$repo(
     params: Params$actions$list$runner$applications$for$repo,
@@ -21054,6 +21676,8 @@ export class Client<RequestOption> {
    * ```
    * ./config.sh --url https://github.com/octo-org/octo-repo-artifacts --token TOKEN
    * ```
+   * operationId: actions/create-registration-token-for-repo
+   * Request URI: /repos/{owner}/{repo}/actions/runners/registration-token
    */
   public async actions$create$registration$token$for$repo(
     params: Params$actions$create$registration$token$for$repo,
@@ -21078,6 +21702,8 @@ export class Client<RequestOption> {
    * ```
    * ./config.sh remove --token TOKEN
    * ```
+   * operationId: actions/create-remove-token-for-repo
+   * Request URI: /repos/{owner}/{repo}/actions/runners/remove-token
    */
   public async actions$create$remove$token$for$repo(
     params: Params$actions$create$remove$token$for$repo,
@@ -21095,6 +21721,8 @@ export class Client<RequestOption> {
    *
    * You must authenticate using an access token with the `repo` scope to use this
    * endpoint.
+   * operationId: actions/get-self-hosted-runner-for-repo
+   * Request URI: /repos/{owner}/{repo}/actions/runners/{runner_id}
    */
   public async actions$get$self$hosted$runner$for$repo(
     params: Params$actions$get$self$hosted$runner$for$repo,
@@ -21114,6 +21742,8 @@ export class Client<RequestOption> {
    *
    * You must authenticate using an access token with the `repo`
    * scope to use this endpoint.
+   * operationId: actions/delete-self-hosted-runner-from-repo
+   * Request URI: /repos/{owner}/{repo}/actions/runners/{runner_id}
    */
   public async actions$delete$self$hosted$runner$from$repo(
     params: Params$actions$delete$self$hosted$runner$from$repo,
@@ -21130,6 +21760,8 @@ export class Client<RequestOption> {
    * Lists all workflow runs for a repository. You can use parameters to narrow the list of results. For more information about using parameters, see [Parameters](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#parameters).
    *
    * Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint.
+   * operationId: actions/list-workflow-runs-for-repo
+   * Request URI: /repos/{owner}/{repo}/actions/runs
    */
   public async actions$list$workflow$runs$for$repo(
     params: Params$actions$list$workflow$runs$for$repo,
@@ -21152,6 +21784,8 @@ export class Client<RequestOption> {
   /**
    * Get a workflow run
    * Gets a specific workflow run. Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint.
+   * operationId: actions/get-workflow-run
+   * Request URI: /repos/{owner}/{repo}/actions/runs/{run_id}
    */
   public async actions$get$workflow$run(
     params: Params$actions$get$workflow$run,
@@ -21170,6 +21804,8 @@ export class Client<RequestOption> {
    * Delete a specific workflow run. Anyone with write access to the repository can use this endpoint. If the repository is
    * private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:write` permission to use
    * this endpoint.
+   * operationId: actions/delete-workflow-run
+   * Request URI: /repos/{owner}/{repo}/actions/runs/{run_id}
    */
   public async actions$delete$workflow$run(
     params: Params$actions$delete$workflow$run,
@@ -21184,6 +21820,8 @@ export class Client<RequestOption> {
   /**
    * List workflow run artifacts
    * Lists artifacts for a workflow run. Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint.
+   * operationId: actions/list-workflow-run-artifacts
+   * Request URI: /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts
    */
   public async actions$list$workflow$run$artifacts(
     params: Params$actions$list$workflow$run$artifacts,
@@ -21204,6 +21842,8 @@ export class Client<RequestOption> {
   /**
    * Cancel a workflow run
    * Cancels a workflow run using its `id`. You must authenticate using an access token with the `repo` scope to use this endpoint. GitHub Apps must have the `actions:write` permission to use this endpoint.
+   * operationId: actions/cancel-workflow-run
+   * Request URI: /repos/{owner}/{repo}/actions/runs/{run_id}/cancel
    */
   public async actions$cancel$workflow$run(
     params: Params$actions$cancel$workflow$run,
@@ -21218,6 +21858,8 @@ export class Client<RequestOption> {
   /**
    * List jobs for a workflow run
    * Lists jobs for a workflow run. Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint. You can use parameters to narrow the list of results. For more information about using parameters, see [Parameters](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#parameters).
+   * operationId: actions/list-jobs-for-workflow-run
+   * Request URI: /repos/{owner}/{repo}/actions/runs/{run_id}/jobs
    */
   public async actions$list$jobs$for$workflow$run(
     params: Params$actions$list$jobs$for$workflow$run,
@@ -21242,6 +21884,8 @@ export class Client<RequestOption> {
    * `Location:` in the response header to find the URL for the download. Anyone with read access to the repository can use
    * this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have
    * the `actions:read` permission to use this endpoint.
+   * operationId: actions/download-workflow-run-logs
+   * Request URI: /repos/{owner}/{repo}/actions/runs/{run_id}/logs
    */
   public async actions$download$workflow$run$logs(
     params: Params$actions$download$workflow$run$logs,
@@ -21256,6 +21900,8 @@ export class Client<RequestOption> {
   /**
    * Delete workflow run logs
    * Deletes all logs for a workflow run. You must authenticate using an access token with the `repo` scope to use this endpoint. GitHub Apps must have the `actions:write` permission to use this endpoint.
+   * operationId: actions/delete-workflow-run-logs
+   * Request URI: /repos/{owner}/{repo}/actions/runs/{run_id}/logs
    */
   public async actions$delete$workflow$run$logs(
     params: Params$actions$delete$workflow$run$logs,
@@ -21270,6 +21916,8 @@ export class Client<RequestOption> {
   /**
    * Re-run a workflow
    * Re-runs your workflow run using its `id`. You must authenticate using an access token with the `repo` scope to use this endpoint. GitHub Apps must have the `actions:write` permission to use this endpoint.
+   * operationId: actions/re-run-workflow
+   * Request URI: /repos/{owner}/{repo}/actions/runs/{run_id}/rerun
    */
   public async actions$re$run$workflow(params: Params$actions$re$run$workflow, option?: RequestOption): Promise<void> {
     const url =
@@ -21281,6 +21929,8 @@ export class Client<RequestOption> {
   /**
    * List repository secrets
    * Lists all secrets available in a repository without revealing their encrypted values. You must authenticate using an access token with the `repo` scope to use this endpoint. GitHub Apps must have the `secrets` repository permission to use this endpoint.
+   * operationId: actions/list-repo-secrets
+   * Request URI: /repos/{owner}/{repo}/actions/secrets
    */
   public async actions$list$repo$secrets(
     params: Params$actions$list$repo$secrets,
@@ -21299,6 +21949,8 @@ export class Client<RequestOption> {
   /**
    * Get a repository public key
    * Gets your public key, which you need to encrypt secrets. You need to encrypt a secret before you can create or update secrets. Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `secrets` repository permission to use this endpoint.
+   * operationId: actions/get-repo-public-key
+   * Request URI: /repos/{owner}/{repo}/actions/secrets/public-key
    */
   public async actions$get$repo$public$key(
     params: Params$actions$get$repo$public$key,
@@ -21313,6 +21965,8 @@ export class Client<RequestOption> {
   /**
    * Get a repository secret
    * Gets a single repository secret without revealing its encrypted value. You must authenticate using an access token with the `repo` scope to use this endpoint. GitHub Apps must have the `secrets` repository permission to use this endpoint.
+   * operationId: actions/get-repo-secret
+   * Request URI: /repos/{owner}/{repo}/actions/secrets/{secret_name}
    */
   public async actions$get$repo$secret(
     params: Params$actions$get$repo$secret,
@@ -21403,6 +22057,8 @@ export class Client<RequestOption> {
    * # Print the base64 encoded secret
    * puts Base64.strict_encode64(encrypted_secret)
    * ```
+   * operationId: actions/create-or-update-repo-secret
+   * Request URI: /repos/{owner}/{repo}/actions/secrets/{secret_name}
    */
   public async actions$create$or$update$repo$secret(
     params: Params$actions$create$or$update$repo$secret,
@@ -21419,6 +22075,8 @@ export class Client<RequestOption> {
   /**
    * Delete a repository secret
    * Deletes a secret in a repository using the secret name. You must authenticate using an access token with the `repo` scope to use this endpoint. GitHub Apps must have the `secrets` repository permission to use this endpoint.
+   * operationId: actions/delete-repo-secret
+   * Request URI: /repos/{owner}/{repo}/actions/secrets/{secret_name}
    */
   public async actions$delete$repo$secret(
     params: Params$actions$delete$repo$secret,
@@ -21433,6 +22091,8 @@ export class Client<RequestOption> {
   /**
    * List repository workflows
    * Lists the workflows in a repository. Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint.
+   * operationId: actions/list-repo-workflows
+   * Request URI: /repos/{owner}/{repo}/actions/workflows
    */
   public async actions$list$repo$workflows(
     params: Params$actions$list$repo$workflows,
@@ -21451,6 +22111,8 @@ export class Client<RequestOption> {
   /**
    * Get a workflow
    * Gets a specific workflow. You can replace `workflow_id` with the workflow file name. For example, you could use `main.yaml`. Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope. GitHub Apps must have the `actions:read` permission to use this endpoint.
+   * operationId: actions/get-workflow
+   * Request URI: /repos/{owner}/{repo}/actions/workflows/{workflow_id}
    */
   public async actions$get$workflow(
     params: Params$actions$get$workflow,
@@ -21471,6 +22133,8 @@ export class Client<RequestOption> {
    * You must configure your GitHub Actions workflow to run when the [`workflow_dispatch` webhook](/developers/webhooks-and-events/webhook-events-and-payloads#workflow_dispatch) event occurs. The `inputs` are configured in the workflow file. For more information about how to configure the `workflow_dispatch` event in the workflow file, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)."
    *
    * You must authenticate using an access token with the `repo` scope to use this endpoint. GitHub Apps must have the `actions:write` permission to use this endpoint. For more information, see "[Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line)."
+   * operationId: actions/create-workflow-dispatch
+   * Request URI: /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
    */
   public async actions$create$workflow$dispatch(
     params: Params$actions$create$workflow$dispatch,
@@ -21489,6 +22153,8 @@ export class Client<RequestOption> {
    * List all workflow runs for a workflow. You can replace `workflow_id` with the workflow file name. For example, you could use `main.yaml`. You can use parameters to narrow the list of results. For more information about using parameters, see [Parameters](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#parameters).
    *
    * Anyone with read access to the repository can use this endpoint. If the repository is private you must use an access token with the `repo` scope.
+   * operationId: actions/list-workflow-runs
+   * Request URI: /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs
    */
   public async actions$list$workflow$runs(
     params: Params$actions$list$workflow$runs,
@@ -21513,6 +22179,8 @@ export class Client<RequestOption> {
   /**
    * List assignees
    * Lists the [available assignees](https://help.github.com/articles/assigning-issues-and-pull-requests-to-other-github-users/) for issues in a repository.
+   * operationId: issues/list-assignees
+   * Request URI: /repos/{owner}/{repo}/assignees
    */
   public async issues$list$assignees(
     params: Params$issues$list$assignees,
@@ -21535,6 +22203,8 @@ export class Client<RequestOption> {
    * If the `assignee` can be assigned to issues in the repository, a `204` header with no content is returned.
    *
    * Otherwise a `404` status code is returned.
+   * operationId: issues/check-user-can-be-assigned
+   * Request URI: /repos/{owner}/{repo}/assignees/{assignee}
    */
   public async issues$check$user$can$be$assigned(
     params: Params$issues$check$user$can$be$assigned,
@@ -21545,7 +22215,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** List branches */
+  /**
+   * List branches
+   * operationId: repos/list-branches
+   * Request URI: /repos/{owner}/{repo}/branches
+   */
   public async repos$list$branches(
     params: Params$repos$list$branches,
     option?: RequestOption,
@@ -21561,7 +22235,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get a branch */
+  /**
+   * Get a branch
+   * operationId: repos/get-branch
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}
+   */
   public async repos$get$branch(
     params: Params$repos$get$branch,
     option?: RequestOption,
@@ -21576,6 +22254,8 @@ export class Client<RequestOption> {
   /**
    * Get branch protection
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/get-branch-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection
    */
   public async repos$get$branch$protection(
     params: Params$repos$get$branch$protection,
@@ -21598,6 +22278,8 @@ export class Client<RequestOption> {
    * **Note**: Passing new arrays of `users` and `teams` replaces their previous values.
    *
    * **Note**: The list of users, apps, and teams in total is limited to 100 items.
+   * operationId: repos/update-branch-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection
    */
   public async repos$update$branch$protection(
     params: Params$repos$update$branch$protection,
@@ -21615,6 +22297,8 @@ export class Client<RequestOption> {
   /**
    * Delete branch protection
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/delete-branch-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection
    */
   public async repos$delete$branch$protection(
     params: Params$repos$delete$branch$protection,
@@ -21629,6 +22313,8 @@ export class Client<RequestOption> {
   /**
    * Get admin branch protection
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/get-admin-branch-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins
    */
   public async repos$get$admin$branch$protection(
     params: Params$repos$get$admin$branch$protection,
@@ -21647,6 +22333,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
+   * operationId: repos/set-admin-branch-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins
    */
   public async repos$set$admin$branch$protection(
     params: Params$repos$set$admin$branch$protection,
@@ -21665,6 +22353,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
+   * operationId: repos/delete-admin-branch-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins
    */
   public async repos$delete$admin$branch$protection(
     params: Params$repos$delete$admin$branch$protection,
@@ -21679,6 +22369,8 @@ export class Client<RequestOption> {
   /**
    * Get pull request review protection
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/get-pull-request-review-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews
    */
   public async repos$get$pull$request$review$protection(
     params: Params$repos$get$pull$request$review$protection,
@@ -21697,6 +22389,8 @@ export class Client<RequestOption> {
   /**
    * Delete pull request review protection
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/delete-pull-request-review-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews
    */
   public async repos$delete$pull$request$review$protection(
     params: Params$repos$delete$pull$request$review$protection,
@@ -21715,6 +22409,8 @@ export class Client<RequestOption> {
    * Updating pull request review enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
    *
    * **Note**: Passing new arrays of `users` and `teams` replaces their previous values.
+   * operationId: repos/update-pull-request-review-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews
    */
   public async repos$update$pull$request$review$protection(
     params: Params$repos$update$pull$request$review$protection,
@@ -21736,6 +22432,8 @@ export class Client<RequestOption> {
    * When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of `true` indicates you must sign commits on this branch. For more information, see [Signing commits with GPG](https://help.github.com/articles/signing-commits-with-gpg) in GitHub Help.
    *
    * **Note**: You must enable branch protection to require signed commits.
+   * operationId: repos/get-commit-signature-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_signatures
    */
   public async repos$get$commit$signature$protection(
     params: Params$repos$get$commit$signature$protection,
@@ -21754,6 +22452,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits.
+   * operationId: repos/create-commit-signature-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_signatures
    */
   public async repos$create$commit$signature$protection(
     params: Params$repos$create$commit$signature$protection,
@@ -21772,6 +22472,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits.
+   * operationId: repos/delete-commit-signature-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_signatures
    */
   public async repos$delete$commit$signature$protection(
     params: Params$repos$delete$commit$signature$protection,
@@ -21786,6 +22488,8 @@ export class Client<RequestOption> {
   /**
    * Get status checks protection
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/get-status-checks-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks
    */
   public async repos$get$status$checks$protection(
     params: Params$repos$get$status$checks$protection,
@@ -21802,6 +22506,8 @@ export class Client<RequestOption> {
   /**
    * Remove status check protection
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/remove-status-check-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks
    */
   public async repos$remove$status$check$protection(
     params: Params$repos$remove$status$check$protection,
@@ -21818,6 +22524,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled.
+   * operationId: repos/update-status-check-protection
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks
    */
   public async repos$update$status$check$protection(
     params: Params$repos$update$status$check$protection,
@@ -21835,6 +22543,8 @@ export class Client<RequestOption> {
   /**
    * Get all status check contexts
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/get-all-status-check-contexts
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts
    */
   public async repos$get$all$status$check$contexts(
     params: Params$repos$get$all$status$check$contexts,
@@ -21851,6 +22561,8 @@ export class Client<RequestOption> {
   /**
    * Set status check contexts
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/set-status-check-contexts
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts
    */
   public async repos$set$status$check$contexts(
     params: Params$repos$set$status$check$contexts,
@@ -21868,6 +22580,8 @@ export class Client<RequestOption> {
   /**
    * Add status check contexts
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/add-status-check-contexts
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts
    */
   public async repos$add$status$check$contexts(
     params: Params$repos$add$status$check$contexts,
@@ -21885,6 +22599,8 @@ export class Client<RequestOption> {
   /**
    * Remove status check contexts
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: repos/remove-status-check-contexts
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts
    */
   public async repos$remove$status$check$contexts(
     params: Params$repos$remove$status$check$contexts,
@@ -21906,6 +22622,8 @@ export class Client<RequestOption> {
    * Lists who has access to this protected branch.
    *
    * **Note**: Users, apps, and teams `restrictions` are only available for organization-owned repositories.
+   * operationId: repos/get-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions
    */
   public async repos$get$access$restrictions(
     params: Params$repos$get$access$restrictions,
@@ -21924,6 +22642,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * Disables the ability to restrict who can push to this branch.
+   * operationId: repos/delete-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions
    */
   public async repos$delete$access$restrictions(
     params: Params$repos$delete$access$restrictions,
@@ -21940,6 +22660,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * Lists the GitHub Apps that have push access to this branch. Only installed GitHub Apps with `write` access to the `contents` permission can be added as authorized actors on a protected branch.
+   * operationId: repos/get-apps-with-access-to-protected-branch
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps
    */
   public async repos$get$apps$with$access$to$protected$branch(
     params: Params$repos$get$apps$with$access$to$protected$branch,
@@ -21962,6 +22684,8 @@ export class Client<RequestOption> {
    * | Type    | Description                                                                                                                                                |
    * | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
    * | `array` | The GitHub Apps that have push access to this branch. Use the app's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
+   * operationId: repos/set-app-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps
    */
   public async repos$set$app$access$restrictions(
     params: Params$repos$set$app$access$restrictions,
@@ -21985,6 +22709,8 @@ export class Client<RequestOption> {
    * | Type    | Description                                                                                                                                                |
    * | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
    * | `array` | The GitHub Apps that have push access to this branch. Use the app's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
+   * operationId: repos/add-app-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps
    */
   public async repos$add$app$access$restrictions(
     params: Params$repos$add$app$access$restrictions,
@@ -22008,6 +22734,8 @@ export class Client<RequestOption> {
    * | Type    | Description                                                                                                                                                |
    * | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
    * | `array` | The GitHub Apps that have push access to this branch. Use the app's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
+   * operationId: repos/remove-app-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps
    */
   public async repos$remove$app$access$restrictions(
     params: Params$repos$remove$app$access$restrictions,
@@ -22027,6 +22755,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * Lists the teams who have push access to this branch. The list includes child teams.
+   * operationId: repos/get-teams-with-access-to-protected-branch
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams
    */
   public async repos$get$teams$with$access$to$protected$branch(
     params: Params$repos$get$teams$with$access$to$protected$branch,
@@ -22049,6 +22779,8 @@ export class Client<RequestOption> {
    * | Type    | Description                                                                                                                                |
    * | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
    * | `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
+   * operationId: repos/set-team-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams
    */
   public async repos$set$team$access$restrictions(
     params: Params$repos$set$team$access$restrictions,
@@ -22072,6 +22804,8 @@ export class Client<RequestOption> {
    * | Type    | Description                                                                                                                                |
    * | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
    * | `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
+   * operationId: repos/add-team-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams
    */
   public async repos$add$team$access$restrictions(
     params: Params$repos$add$team$access$restrictions,
@@ -22095,6 +22829,8 @@ export class Client<RequestOption> {
    * | Type    | Description                                                                                                                                         |
    * | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
    * | `array` | Teams that should no longer have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
+   * operationId: repos/remove-team-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams
    */
   public async repos$remove$team$access$restrictions(
     params: Params$repos$remove$team$access$restrictions,
@@ -22114,6 +22850,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * Lists the people who have push access to this branch.
+   * operationId: repos/get-users-with-access-to-protected-branch
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users
    */
   public async repos$get$users$with$access$to$protected$branch(
     params: Params$repos$get$users$with$access$to$protected$branch,
@@ -22136,6 +22874,8 @@ export class Client<RequestOption> {
    * | Type    | Description                                                                                                                   |
    * | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
    * | `array` | Usernames for people who can have push access. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
+   * operationId: repos/set-user-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users
    */
   public async repos$set$user$access$restrictions(
     params: Params$repos$set$user$access$restrictions,
@@ -22159,6 +22899,8 @@ export class Client<RequestOption> {
    * | Type    | Description                                                                                                                   |
    * | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
    * | `array` | Usernames for people who can have push access. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
+   * operationId: repos/add-user-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users
    */
   public async repos$add$user$access$restrictions(
     params: Params$repos$add$user$access$restrictions,
@@ -22182,6 +22924,8 @@ export class Client<RequestOption> {
    * | Type    | Description                                                                                                                                   |
    * | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
    * | `array` | Usernames of the people who should no longer have push access. **Note**: The list of users, apps, and teams in total is limited to 100 items. |
+   * operationId: repos/remove-user-access-restrictions
+   * Request URI: /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users
    */
   public async repos$remove$user$access$restrictions(
     params: Params$repos$remove$user$access$restrictions,
@@ -22203,6 +22947,8 @@ export class Client<RequestOption> {
    * Creates a new check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to create check runs.
    *
    * In a check suite, GitHub limits the number of check runs with the same name to 1000. Once these check runs exceed 1000, GitHub will start to automatically delete older check runs.
+   * operationId: checks/create
+   * Request URI: /repos/{owner}/{repo}/check-runs
    */
   public async checks$create(
     params: Params$checks$create,
@@ -22220,6 +22966,8 @@ export class Client<RequestOption> {
    * **Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.
    *
    * Gets a single check run using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.
+   * operationId: checks/get
+   * Request URI: /repos/{owner}/{repo}/check-runs/{check_run_id}
    */
   public async checks$get(
     params: Params$checks$get,
@@ -22238,6 +22986,8 @@ export class Client<RequestOption> {
    * **Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.
    *
    * Updates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs.
+   * operationId: checks/update
+   * Request URI: /repos/{owner}/{repo}/check-runs/{check_run_id}
    */
   public async checks$update(
     params: Params$checks$update,
@@ -22255,6 +23005,8 @@ export class Client<RequestOption> {
   /**
    * List check run annotations
    * Lists annotations for a check run using the annotation `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get annotations for a check run. OAuth Apps and authenticated users must have the `repo` scope to get annotations for a check run in a private repository.
+   * operationId: checks/list-annotations
+   * Request URI: /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations
    */
   public async checks$list$annotations(
     params: Params$checks$list$annotations,
@@ -22277,6 +23029,8 @@ export class Client<RequestOption> {
    * **Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.
    *
    * By default, check suites are automatically created when you create a [check run](https://docs.github.com/enterprise-server@2.22/rest/reference/checks#check-runs). You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using "[Update repository preferences for check suites](https://docs.github.com/enterprise-server@2.22/rest/reference/checks#update-repository-preferences-for-check-suites)". Your GitHub App must have the `checks:write` permission to create check suites.
+   * operationId: checks/create-suite
+   * Request URI: /repos/{owner}/{repo}/check-suites
    */
   public async checks$create$suite(
     params: Params$checks$create$suite,
@@ -22292,6 +23046,8 @@ export class Client<RequestOption> {
   /**
    * Update repository preferences for check suites
    * Changes the default automatic flow when creating check suites. By default, a check suite is automatically created each time code is pushed to a repository. When you disable the automatic creation of check suites, you can manually [Create a check suite](https://docs.github.com/enterprise-server@2.22/rest/reference/checks#create-a-check-suite). You must have admin permissions in the repository to set preferences for check suites.
+   * operationId: checks/set-suites-preferences
+   * Request URI: /repos/{owner}/{repo}/check-suites/preferences
    */
   public async checks$set$suites$preferences(
     params: Params$checks$set$suites$preferences,
@@ -22309,6 +23065,8 @@ export class Client<RequestOption> {
    * **Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.
    *
    * Gets a single check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.
+   * operationId: checks/get-suite
+   * Request URI: /repos/{owner}/{repo}/check-suites/{check_suite_id}
    */
   public async checks$get$suite(
     params: Params$checks$get$suite,
@@ -22327,6 +23085,8 @@ export class Client<RequestOption> {
    * **Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.
    *
    * Lists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.
+   * operationId: checks/list-for-suite
+   * Request URI: /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs
    */
   public async checks$list$for$suite(
     params: Params$checks$list$for$suite,
@@ -22352,6 +23112,8 @@ export class Client<RequestOption> {
    * Triggers GitHub to rerequest an existing check suite, without pushing new code to a repository. This endpoint will trigger the [`check_suite` webhook](https://docs.github.com/enterprise-server@2.22/webhooks/event-payloads/#check_suite) event with the action `rerequested`. When a check suite is `rerequested`, its `status` is reset to `queued` and the `conclusion` is cleared.
    *
    * To rerequest a check suite, your GitHub App must have the `checks:read` permission on a private repository or pull access to a public repository.
+   * operationId: checks/rerequest-suite
+   * Request URI: /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest
    */
   public async checks$rerequest$suite(params: Params$checks$rerequest$suite, option?: RequestOption): Promise<void> {
     const url =
@@ -22363,6 +23125,8 @@ export class Client<RequestOption> {
   /**
    * List code scanning alerts for a repository
    * Lists all open code scanning alerts for the default branch (usually `main` or `master`). You must use an access token with the `security_events` scope to use this endpoint. GitHub Apps must have the `security_events` read permission to use this endpoint.
+   * operationId: code-scanning/list-alerts-for-repo
+   * Request URI: /repos/{owner}/{repo}/code-scanning/alerts
    */
   public async code$scanning$list$alerts$for$repo(
     params: Params$code$scanning$list$alerts$for$repo,
@@ -22383,6 +23147,8 @@ export class Client<RequestOption> {
    * Gets a single code scanning alert. You must use an access token with the `security_events` scope to use this endpoint. GitHub Apps must have the `security_events` read permission to use this endpoint.
    *
    * The security `alert_number` is found at the end of the security alert's URL. For example, the security alert ID for `https://github.com/Octo-org/octo-repo/security/code-scanning/88` is `88`.
+   * operationId: code-scanning/get-alert
+   * Request URI: /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}
    */
   public async code$scanning$get$alert(
     params: Params$code$scanning$get$alert,
@@ -22399,6 +23165,8 @@ export class Client<RequestOption> {
   /**
    * Update a code scanning alert
    * Updates the status of a single code scanning alert. You must use an access token with the `security_events` scope to use this endpoint. GitHub Apps must have the `security_events` write permission to use this endpoint.
+   * operationId: code-scanning/update-alert
+   * Request URI: /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}
    */
   public async code$scanning$update$alert(
     params: Params$code$scanning$update$alert,
@@ -22416,6 +23184,8 @@ export class Client<RequestOption> {
   /**
    * List recent code scanning analyses for a repository
    * List the details of recent code scanning analyses for a repository. You must use an access token with the `security_events` scope to use this endpoint. GitHub Apps must have the `security_events` read permission to use this endpoint.
+   * operationId: code-scanning/list-recent-analyses
+   * Request URI: /repos/{owner}/{repo}/code-scanning/analyses
    */
   public async code$scanning$list$recent$analyses(
     params: Params$code$scanning$list$recent$analyses,
@@ -22434,6 +23204,8 @@ export class Client<RequestOption> {
   /**
    * Upload a SARIF file
    * Upload a SARIF file containing the results of a code scanning analysis to make the results available in a repository. You must use an access token with the `security_events` scope to use this endpoint. GitHub Apps must have the `security_events` write permission to use this endpoint.
+   * operationId: code-scanning/upload-sarif
+   * Request URI: /repos/{owner}/{repo}/code-scanning/sarifs
    */
   public async code$scanning$upload$sarif(
     params: Params$code$scanning$upload$sarif,
@@ -22450,6 +23222,8 @@ export class Client<RequestOption> {
    * For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.
    *
    * Team members will include the members of child teams.
+   * operationId: repos/list-collaborators
+   * Request URI: /repos/{owner}/{repo}/collaborators
    */
   public async repos$list$collaborators(
     params: Params$repos$list$collaborators,
@@ -22471,6 +23245,8 @@ export class Client<RequestOption> {
    * For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.
    *
    * Team members will include the members of child teams.
+   * operationId: repos/check-collaborator
+   * Request URI: /repos/{owner}/{repo}/collaborators/{username}
    */
   public async repos$check$collaborator(
     params: Params$repos$check$collaborator,
@@ -22495,6 +23271,8 @@ export class Client<RequestOption> {
    * **Rate limits**
    *
    * To prevent abuse, you are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository.
+   * operationId: repos/add-collaborator
+   * Request URI: /repos/{owner}/{repo}/collaborators/{username}
    */
   public async repos$add$collaborator(
     params: Params$repos$add$collaborator,
@@ -22509,7 +23287,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PUT", url, headers, params.requestBody, undefined, option);
   }
-  /** Remove a repository collaborator */
+  /**
+   * Remove a repository collaborator
+   * operationId: repos/remove-collaborator
+   * Request URI: /repos/{owner}/{repo}/collaborators/{username}
+   */
   public async repos$remove$collaborator(
     params: Params$repos$remove$collaborator,
     option?: RequestOption,
@@ -22523,6 +23305,8 @@ export class Client<RequestOption> {
   /**
    * Get repository permissions for a user
    * Checks the repository permission of a collaborator. The possible repository permissions are `admin`, `write`, `read`, and `none`.
+   * operationId: repos/get-collaborator-permission-level
+   * Request URI: /repos/{owner}/{repo}/collaborators/{username}/permission
    */
   public async repos$get$collaborator$permission$level(
     params: Params$repos$get$collaborator$permission$level,
@@ -22541,6 +23325,8 @@ export class Client<RequestOption> {
    * Commit Comments use [these custom media types](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#custom-media-types). You can read more about the use of media types in the API [here](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types/).
    *
    * Comments are ordered by ascending ID.
+   * operationId: repos/list-commit-comments-for-repo
+   * Request URI: /repos/{owner}/{repo}/comments
    */
   public async repos$list$commit$comments$for$repo(
     params: Params$repos$list$commit$comments$for$repo,
@@ -22556,7 +23342,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get a commit comment */
+  /**
+   * Get a commit comment
+   * operationId: repos/get-commit-comment
+   * Request URI: /repos/{owner}/{repo}/comments/{comment_id}
+   */
   public async repos$get$commit$comment(
     params: Params$repos$get$commit$comment,
     option?: RequestOption,
@@ -22569,7 +23359,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a commit comment */
+  /**
+   * Delete a commit comment
+   * operationId: repos/delete-commit-comment
+   * Request URI: /repos/{owner}/{repo}/comments/{comment_id}
+   */
   public async repos$delete$commit$comment(
     params: Params$repos$delete$commit$comment,
     option?: RequestOption,
@@ -22580,7 +23374,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update a commit comment */
+  /**
+   * Update a commit comment
+   * operationId: repos/update-commit-comment
+   * Request URI: /repos/{owner}/{repo}/comments/{comment_id}
+   */
   public async repos$update$commit$comment(
     params: Params$repos$update$commit$comment,
     option?: RequestOption,
@@ -22597,6 +23395,8 @@ export class Client<RequestOption> {
   /**
    * List reactions for a commit comment
    * List the reactions to a [commit comment](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#comments).
+   * operationId: reactions/list-for-commit-comment
+   * Request URI: /repos/{owner}/{repo}/comments/{comment_id}/reactions
    */
   public async reactions$list$for$commit$comment(
     params: Params$reactions$list$for$commit$comment,
@@ -22618,6 +23418,8 @@ export class Client<RequestOption> {
   /**
    * Create reaction for a commit comment
    * Create a reaction to a [commit comment](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#comments). A response with a `Status: 200 OK` means that you already added the reaction type to this commit comment.
+   * operationId: reactions/create-for-commit-comment
+   * Request URI: /repos/{owner}/{repo}/comments/{comment_id}/reactions
    */
   public async reactions$create$for$commit$comment(
     params: Params$reactions$create$for$commit$comment,
@@ -22642,6 +23444,8 @@ export class Client<RequestOption> {
    * **Note:** You can also specify a repository by `repository_id` using the route `DELETE /repositories/:repository_id/comments/:comment_id/reactions/:reaction_id`.
    *
    * Delete a reaction to a [commit comment](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#comments).
+   * operationId: reactions/delete-for-commit-comment
+   * Request URI: /repos/{owner}/{repo}/comments/{comment_id}/reactions/{reaction_id}
    */
   public async reactions$delete$for$commit$comment(
     params: Params$reactions$delete$for$commit$comment,
@@ -22683,6 +23487,8 @@ export class Client<RequestOption> {
    * | `malformed_signature` | There was an error parsing the signature. |
    * | `invalid` | The signature could not be cryptographically verified using the key whose key-id was found in the signature. |
    * | `valid` | None of the above errors applied, so the signature is considered to be verified. |
+   * operationId: repos/list-commits
+   * Request URI: /repos/{owner}/{repo}/commits
    */
   public async repos$list$commits(
     params: Params$repos$list$commits,
@@ -22708,6 +23514,8 @@ export class Client<RequestOption> {
    * Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * Returns all branches where the given commit SHA is the HEAD, or latest commit for the branch.
+   * operationId: repos/list-branches-for-head-commit
+   * Request URI: /repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head
    */
   public async repos$list$branches$for$head$commit(
     params: Params$repos$list$branches$for$head$commit,
@@ -22724,6 +23532,8 @@ export class Client<RequestOption> {
   /**
    * List commit comments
    * Use the `:commit_sha` to specify the commit that will have its comments listed.
+   * operationId: repos/list-comments-for-commit
+   * Request URI: /repos/{owner}/{repo}/commits/{commit_sha}/comments
    */
   public async repos$list$comments$for$commit(
     params: Params$repos$list$comments$for$commit,
@@ -22746,6 +23556,8 @@ export class Client<RequestOption> {
    * Create a comment for a commit using its `:commit_sha`.
    *
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)" for details.
+   * operationId: repos/create-commit-comment
+   * Request URI: /repos/{owner}/{repo}/commits/{commit_sha}/comments
    */
   public async repos$create$commit$comment(
     params: Params$repos$create$commit$comment,
@@ -22763,6 +23575,8 @@ export class Client<RequestOption> {
   /**
    * List pull requests associated with a commit
    * Lists all pull requests containing the provided commit SHA, which can be from any point in the commit history. The results will include open and closed pull requests. Additional preview headers may be required to see certain details for associated pull requests, such as whether a pull request is in a draft state. For more information about previews that might affect this endpoint, see the [List pull requests](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#list-pull-requests) endpoint.
+   * operationId: repos/list-pull-requests-associated-with-commit
+   * Request URI: /repos/{owner}/{repo}/commits/{commit_sha}/pulls
    */
   public async repos$list$pull$requests$associated$with$commit(
     params: Params$repos$list$pull$requests$associated$with$commit,
@@ -22818,6 +23632,8 @@ export class Client<RequestOption> {
    * | `malformed_signature` | There was an error parsing the signature. |
    * | `invalid` | The signature could not be cryptographically verified using the key whose key-id was found in the signature. |
    * | `valid` | None of the above errors applied, so the signature is considered to be verified. |
+   * operationId: repos/get-commit
+   * Request URI: /repos/{owner}/{repo}/commits/{ref}
    */
   public async repos$get$commit(
     params: Params$repos$get$commit,
@@ -22835,6 +23651,8 @@ export class Client<RequestOption> {
    * **Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.
    *
    * Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.
+   * operationId: checks/list-for-ref
+   * Request URI: /repos/{owner}/{repo}/commits/{ref}/check-runs
    */
   public async checks$list$for$ref(
     params: Params$checks$list$for$ref,
@@ -22860,6 +23678,8 @@ export class Client<RequestOption> {
    * **Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.
    *
    * Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.
+   * operationId: checks/list-suites-for-ref
+   * Request URI: /repos/{owner}/{repo}/commits/{ref}/check-suites
    */
   public async checks$list$suites$for$ref(
     params: Params$checks$list$suites$for$ref,
@@ -22890,6 +23710,8 @@ export class Client<RequestOption> {
    * *   **failure** if any of the contexts report as `error` or `failure`
    * *   **pending** if there are no statuses or a context is `pending`
    * *   **success** if the latest status for all contexts is `success`
+   * operationId: repos/get-combined-status-for-ref
+   * Request URI: /repos/{owner}/{repo}/commits/{ref}/status
    */
   public async repos$get$combined$status$for$ref(
     params: Params$repos$get$combined$status$for$ref,
@@ -22907,6 +23729,8 @@ export class Client<RequestOption> {
    * Users with pull access in a repository can view commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name. Statuses are returned in reverse chronological order. The first status in the list will be the latest one.
    *
    * This resource is also available via a legacy route: `GET /repos/:owner/:repo/statuses/:ref`.
+   * operationId: repos/list-commit-statuses-for-ref
+   * Request URI: /repos/{owner}/{repo}/commits/{ref}/statuses
    */
   public async repos$list$commit$statuses$for$ref(
     params: Params$repos$list$commit$statuses$for$ref,
@@ -22929,6 +23753,8 @@ export class Client<RequestOption> {
    * Returns the contents of the repository's code of conduct file, if one is detected.
    *
    * A code of conduct is detected if there is a file named `CODE_OF_CONDUCT` in the root directory of the repository. GitHub detects which code of conduct it is using fuzzy matching.
+   * operationId: codes-of-conduct/get-for-repo
+   * Request URI: /repos/{owner}/{repo}/community/code_of_conduct
    */
   public async codes$of$conduct$get$for$repo(
     params: Params$codes$of$conduct$get$for$repo,
@@ -22983,6 +23809,8 @@ export class Client<RequestOption> {
    * | `malformed_signature` | There was an error parsing the signature. |
    * | `invalid` | The signature could not be cryptographically verified using the key whose key-id was found in the signature. |
    * | `valid` | None of the above errors applied, so the signature is considered to be verified. |
+   * operationId: repos/compare-commits
+   * Request URI: /repos/{owner}/{repo}/compare/{base}...{head}
    */
   public async repos$compare$commits(
     params: Params$repos$compare$commits,
@@ -23030,6 +23858,8 @@ export class Client<RequestOption> {
    *
    * If the submodule repository is not hosted on github.com, the Git URLs (`git_url` and `_links["git"]`) and the
    * github.com URLs (`html_url` and `_links["html"]`) will have null values.
+   * operationId: repos/get-content
+   * Request URI: /repos/{owner}/{repo}/contents/{path}
    */
   public async repos$get$content<ResponseContentType extends ResponseContentType$repos$get$content>(
     params: Params$repos$get$content<ResponseContentType>,
@@ -23048,6 +23878,8 @@ export class Client<RequestOption> {
   /**
    * Create or update file contents
    * Creates a new file or replaces an existing file in a repository.
+   * operationId: repos/create-or-update-file-contents
+   * Request URI: /repos/{owner}/{repo}/contents/{path}
    */
   public async repos$create$or$update$file$contents(
     params: Params$repos$create$or$update$file$contents,
@@ -23075,6 +23907,8 @@ export class Client<RequestOption> {
    * The `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.
    *
    * You must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.
+   * operationId: repos/delete-file
+   * Request URI: /repos/{owner}/{repo}/contents/{path}
    */
   public async repos$delete$file(
     params: Params$repos$delete$file,
@@ -23093,6 +23927,8 @@ export class Client<RequestOption> {
    * Lists contributors to the specified repository and sorts them by the number of commits per contributor in descending order. This endpoint may return information that is a few hours old because the GitHub REST API v3 caches contributor data to improve performance.
    *
    * GitHub identifies contributors by author email address. This endpoint groups contribution counts by GitHub user, which includes all associated email addresses. To improve performance, only the first 500 author email addresses in the repository link to GitHub users. The rest will appear as anonymous contributors without associated GitHub user information.
+   * operationId: repos/list-contributors
+   * Request URI: /repos/{owner}/{repo}/contributors
    */
   public async repos$list$contributors(
     params: Params$repos$list$contributors,
@@ -23112,6 +23948,8 @@ export class Client<RequestOption> {
   /**
    * List deployments
    * Simple filtering of deployments is available via query parameters:
+   * operationId: repos/list-deployments
+   * Request URI: /repos/{owner}/{repo}/deployments
    */
   public async repos$list$deployments(
     params: Params$repos$list$deployments,
@@ -23178,6 +24016,8 @@ export class Client<RequestOption> {
    * #### Failed commit status checks
    * This error happens when the `required_contexts` parameter indicates that one or more contexts need to have a `success`
    * status for the commit to be deployed, but one or more of the required contexts do not have a state of `success`.
+   * operationId: repos/create-deployment
+   * Request URI: /repos/{owner}/{repo}/deployments
    */
   public async repos$create$deployment(
     params: Params$repos$create$deployment,
@@ -23192,7 +24032,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a deployment */
+  /**
+   * Get a deployment
+   * operationId: repos/get-deployment
+   * Request URI: /repos/{owner}/{repo}/deployments/{deployment_id}
+   */
   public async repos$get$deployment(
     params: Params$repos$get$deployment,
     option?: RequestOption,
@@ -23215,6 +24059,8 @@ export class Client<RequestOption> {
    * *   Mark the active deployment as inactive by adding any non-successful deployment status.
    *
    * For more information, see "[Create a deployment](https://docs.github.com/enterprise-server@2.22/rest/reference/repos/#create-a-deployment)" and "[Create a deployment status](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#create-a-deployment-status)."
+   * operationId: repos/delete-deployment
+   * Request URI: /repos/{owner}/{repo}/deployments/{deployment_id}
    */
   public async repos$delete$deployment(params: Params$repos$delete$deployment, option?: RequestOption): Promise<void> {
     const url =
@@ -23226,6 +24072,8 @@ export class Client<RequestOption> {
   /**
    * List deployment statuses
    * Users with pull access can view deployment statuses for a deployment:
+   * operationId: repos/list-deployment-statuses
+   * Request URI: /repos/{owner}/{repo}/deployments/{deployment_id}/statuses
    */
   public async repos$list$deployment$statuses(
     params: Params$repos$list$deployment$statuses,
@@ -23248,6 +24096,8 @@ export class Client<RequestOption> {
    * Users with `push` access can create deployment statuses for a given deployment.
    *
    * GitHub Apps require `read & write` access to "Deployments" and `read-only` access to "Repo contents" (for private repos). OAuth Apps require the `repo_deployment` scope.
+   * operationId: repos/create-deployment-status
+   * Request URI: /repos/{owner}/{repo}/deployments/{deployment_id}/statuses
    */
   public async repos$create$deployment$status(
     params: Params$repos$create$deployment$status,
@@ -23265,6 +24115,8 @@ export class Client<RequestOption> {
   /**
    * Get a deployment status
    * Users with pull access can view a deployment status for a deployment:
+   * operationId: repos/get-deployment-status
+   * Request URI: /repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}
    */
   public async repos$get$deployment$status(
     params: Params$repos$get$deployment$status,
@@ -23290,6 +24142,8 @@ export class Client<RequestOption> {
    *   - GitHub Apps with both `metadata:read` and `contents:read&write` permissions.
    *
    * This input example shows how you can use the `client_payload` as a test to debug your workflow.
+   * operationId: repos/create-dispatch-event
+   * Request URI: /repos/{owner}/{repo}/dispatches
    */
   public async repos$create$dispatch$event(
     params: Params$repos$create$dispatch$event,
@@ -23301,7 +24155,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** List repository events */
+  /**
+   * List repository events
+   * operationId: activity/list-repo-events
+   * Request URI: /repos/{owner}/{repo}/events
+   */
   public async activity$list$repo$events(
     params: Params$activity$list$repo$events,
     option?: RequestOption,
@@ -23316,7 +24174,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** List forks */
+  /**
+   * List forks
+   * operationId: repos/list-forks
+   * Request URI: /repos/{owner}/{repo}/forks
+   */
   public async repos$list$forks(
     params: Params$repos$list$forks,
     option?: RequestOption,
@@ -23337,6 +24199,8 @@ export class Client<RequestOption> {
    * Create a fork for the authenticated user.
    *
    * **Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub Enterprise Server Support](https://support.github.com/contact) or [GitHub Enterprise Server Premium Support](https://premium.githubsupport.com).
+   * operationId: repos/create-fork
+   * Request URI: /repos/{owner}/{repo}/forks
    */
   public async repos$create$fork(
     params: Params$repos$create$fork,
@@ -23349,7 +24213,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Create a blob */
+  /**
+   * Create a blob
+   * operationId: git/create-blob
+   * Request URI: /repos/{owner}/{repo}/git/blobs
+   */
   public async git$create$blob(
     params: Params$git$create$blob,
     option?: RequestOption,
@@ -23366,6 +24234,8 @@ export class Client<RequestOption> {
    * The `content` in the response will always be Base64 encoded.
    *
    * _Note_: This API supports blobs up to 100 megabytes in size.
+   * operationId: git/get-blob
+   * Request URI: /repos/{owner}/{repo}/git/blobs/{file_sha}
    */
   public async git$get$blob(
     params: Params$git$get$blob,
@@ -23410,6 +24280,8 @@ export class Client<RequestOption> {
    * | `malformed_signature` | There was an error parsing the signature. |
    * | `invalid` | The signature could not be cryptographically verified using the key whose key-id was found in the signature. |
    * | `valid` | None of the above errors applied, so the signature is considered to be verified. |
+   * operationId: git/create-commit
+   * Request URI: /repos/{owner}/{repo}/git/commits
    */
   public async git$create$commit(
     params: Params$git$create$commit,
@@ -23454,6 +24326,8 @@ export class Client<RequestOption> {
    * | `malformed_signature` | There was an error parsing the signature. |
    * | `invalid` | The signature could not be cryptographically verified using the key whose key-id was found in the signature. |
    * | `valid` | None of the above errors applied, so the signature is considered to be verified. |
+   * operationId: git/get-commit
+   * Request URI: /repos/{owner}/{repo}/git/commits/{commit_sha}
    */
   public async git$get$commit(
     params: Params$git$get$commit,
@@ -23476,6 +24350,8 @@ export class Client<RequestOption> {
    * **Note:** You need to explicitly [request a pull request](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#get-a-pull-request) to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see "[Checking mergeability of pull requests](https://docs.github.com/enterprise-server@2.22/rest/guides/getting-started-with-the-git-database-api#checking-mergeability-of-pull-requests)".
    *
    * If you request matching references for a branch named `feature` but the branch `feature` doesn't exist, the response can still include other matching head refs that start with the word `feature`, such as `featureA` and `featureB`.
+   * operationId: git/list-matching-refs
+   * Request URI: /repos/{owner}/{repo}/git/matching-refs/{ref}
    */
   public async git$list$matching$refs(
     params: Params$git$list$matching$refs,
@@ -23498,6 +24374,8 @@ export class Client<RequestOption> {
    * Returns a single reference from your Git database. The `:ref` in the URL must be formatted as `heads/<branch name>` for branches and `tags/<tag name>` for tags. If the `:ref` doesn't match an existing ref, a `404` is returned.
    *
    * **Note:** You need to explicitly [request a pull request](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#get-a-pull-request) to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see "[Checking mergeability of pull requests](https://docs.github.com/enterprise-server@2.22/rest/guides/getting-started-with-the-git-database-api#checking-mergeability-of-pull-requests)".
+   * operationId: git/get-ref
+   * Request URI: /repos/{owner}/{repo}/git/ref/{ref}
    */
   public async git$get$ref(
     params: Params$git$get$ref,
@@ -23513,6 +24391,8 @@ export class Client<RequestOption> {
   /**
    * Create a reference
    * Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches.
+   * operationId: git/create-ref
+   * Request URI: /repos/{owner}/{repo}/git/refs
    */
   public async git$create$ref(
     params: Params$git$create$ref,
@@ -23525,14 +24405,22 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Delete a reference */
+  /**
+   * Delete a reference
+   * operationId: git/delete-ref
+   * Request URI: /repos/{owner}/{repo}/git/refs/{ref}
+   */
   public async git$delete$ref(params: Params$git$delete$ref, option?: RequestOption): Promise<void> {
     const url =
       this.baseUrl + `/repos/${params.parameter.owner}/${params.parameter.repo}/git/refs/${params.parameter.ref}`;
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update a reference */
+  /**
+   * Update a reference
+   * operationId: git/update-ref
+   * Request URI: /repos/{owner}/{repo}/git/refs/{ref}
+   */
   public async git$update$ref(
     params: Params$git$update$ref,
     option?: RequestOption,
@@ -23577,6 +24465,8 @@ export class Client<RequestOption> {
    * | `malformed_signature` | There was an error parsing the signature. |
    * | `invalid` | The signature could not be cryptographically verified using the key whose key-id was found in the signature. |
    * | `valid` | None of the above errors applied, so the signature is considered to be verified. |
+   * operationId: git/create-tag
+   * Request URI: /repos/{owner}/{repo}/git/tags
    */
   public async git$create$tag(
     params: Params$git$create$tag,
@@ -23619,6 +24509,8 @@ export class Client<RequestOption> {
    * | `malformed_signature` | There was an error parsing the signature. |
    * | `invalid` | The signature could not be cryptographically verified using the key whose key-id was found in the signature. |
    * | `valid` | None of the above errors applied, so the signature is considered to be verified. |
+   * operationId: git/get-tag
+   * Request URI: /repos/{owner}/{repo}/git/tags/{tag_sha}
    */
   public async git$get$tag(
     params: Params$git$get$tag,
@@ -23636,6 +24528,8 @@ export class Client<RequestOption> {
    * The tree creation API accepts nested entries. If you specify both a tree and a nested path modifying that tree, this endpoint will overwrite the contents of the tree with the new path contents, and create a new tree structure.
    *
    * If you use this endpoint to add, delete, or modify the file contents in a tree, you will need to commit the tree and then update a branch to point to the commit. For more information see "[Create a commit](https://docs.github.com/enterprise-server@2.22/rest/reference/git#create-a-commit)" and "[Update a reference](https://docs.github.com/enterprise-server@2.22/rest/reference/git#update-a-reference)."
+   * operationId: git/create-tree
+   * Request URI: /repos/{owner}/{repo}/git/trees
    */
   public async git$create$tree(
     params: Params$git$create$tree,
@@ -23653,6 +24547,8 @@ export class Client<RequestOption> {
    * Returns a single tree using the SHA1 value for that tree.
    *
    * If `truncated` is `true` in the response then the number of items in the `tree` array exceeded our maximum limit. If you need to fetch more items, use the non-recursive method of fetching trees, and fetch one sub-tree at a time.
+   * operationId: git/get-tree
+   * Request URI: /repos/{owner}/{repo}/git/trees/{tree_sha}
    */
   public async git$get$tree(
     params: Params$git$get$tree,
@@ -23668,7 +24564,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** List repository webhooks */
+  /**
+   * List repository webhooks
+   * operationId: repos/list-webhooks
+   * Request URI: /repos/{owner}/{repo}/hooks
+   */
   public async repos$list$webhooks(
     params: Params$repos$list$webhooks,
     option?: RequestOption,
@@ -23687,6 +24587,8 @@ export class Client<RequestOption> {
    * Create a repository webhook
    * Repositories can have multiple webhooks installed. Each webhook should have a unique `config`. Multiple webhooks can
    * share the same `config` as long as those webhooks do not have any `events` that overlap.
+   * operationId: repos/create-webhook
+   * Request URI: /repos/{owner}/{repo}/hooks
    */
   public async repos$create$webhook(
     params: Params$repos$create$webhook,
@@ -23702,6 +24604,8 @@ export class Client<RequestOption> {
   /**
    * Get a repository webhook
    * Returns a webhook configured in a repository. To get only the webhook `config` properties, see "[Get a webhook configuration for a repository](/rest/reference/repos#get-a-webhook-configuration-for-a-repository)."
+   * operationId: repos/get-webhook
+   * Request URI: /repos/{owner}/{repo}/hooks/{hook_id}
    */
   public async repos$get$webhook(
     params: Params$repos$get$webhook,
@@ -23714,7 +24618,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a repository webhook */
+  /**
+   * Delete a repository webhook
+   * operationId: repos/delete-webhook
+   * Request URI: /repos/{owner}/{repo}/hooks/{hook_id}
+   */
   public async repos$delete$webhook(params: Params$repos$delete$webhook, option?: RequestOption): Promise<void> {
     const url =
       this.baseUrl + `/repos/${params.parameter.owner}/${params.parameter.repo}/hooks/${params.parameter.hook_id}`;
@@ -23724,6 +24632,8 @@ export class Client<RequestOption> {
   /**
    * Update a repository webhook
    * Updates a webhook configured in a repository. If you previously had a `secret` set, you must provide the same `secret` or set a new `secret` or the secret will be removed. If you are only updating individual webhook `config` properties, use "[Update a webhook configuration for a repository](/rest/reference/repos#update-a-webhook-configuration-for-a-repository)."
+   * operationId: repos/update-webhook
+   * Request URI: /repos/{owner}/{repo}/hooks/{hook_id}
    */
   public async repos$update$webhook(
     params: Params$repos$update$webhook,
@@ -23740,6 +24650,8 @@ export class Client<RequestOption> {
   /**
    * Ping a repository webhook
    * This will trigger a [ping event](https://docs.github.com/enterprise-server@2.22/webhooks/#ping-event) to be sent to the hook.
+   * operationId: repos/ping-webhook
+   * Request URI: /repos/{owner}/{repo}/hooks/{hook_id}/pings
    */
   public async repos$ping$webhook(params: Params$repos$ping$webhook, option?: RequestOption): Promise<void> {
     const url =
@@ -23753,6 +24665,8 @@ export class Client<RequestOption> {
    * This will trigger the hook with the latest push to the current repository if the hook is subscribed to `push` events. If the hook is not subscribed to `push` events, the server will respond with 204 but no test POST will be generated.
    *
    * **Note**: Previously `/repos/:owner/:repo/hooks/:hook_id/test`
+   * operationId: repos/test-push-webhook
+   * Request URI: /repos/{owner}/{repo}/hooks/{hook_id}/tests
    */
   public async repos$test$push$webhook(params: Params$repos$test$push$webhook, option?: RequestOption): Promise<void> {
     const url =
@@ -23766,6 +24680,8 @@ export class Client<RequestOption> {
    * Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.
    *
    * You must use a [JWT](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+   * operationId: apps/get-repo-installation
+   * Request URI: /repos/{owner}/{repo}/installation
    */
   public async apps$get$repo$installation(
     params: Params$apps$get$repo$installation,
@@ -23780,6 +24696,8 @@ export class Client<RequestOption> {
   /**
    * List repository invitations
    * When authenticating as a user with admin rights to a repository, this endpoint will list all currently open repository invitations.
+   * operationId: repos/list-invitations
+   * Request URI: /repos/{owner}/{repo}/invitations
    */
   public async repos$list$invitations(
     params: Params$repos$list$invitations,
@@ -23795,7 +24713,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Delete a repository invitation */
+  /**
+   * Delete a repository invitation
+   * operationId: repos/delete-invitation
+   * Request URI: /repos/{owner}/{repo}/invitations/{invitation_id}
+   */
   public async repos$delete$invitation(params: Params$repos$delete$invitation, option?: RequestOption): Promise<void> {
     const url =
       this.baseUrl +
@@ -23803,7 +24725,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update a repository invitation */
+  /**
+   * Update a repository invitation
+   * operationId: repos/update-invitation
+   * Request URI: /repos/{owner}/{repo}/invitations/{invitation_id}
+   */
   public async repos$update$invitation(
     params: Params$repos$update$invitation,
     option?: RequestOption,
@@ -23825,6 +24751,8 @@ export class Client<RequestOption> {
    * reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by
    * the `pull_request` key. Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull
    * request id, use the "[List pull requests](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#list-pull-requests)" endpoint.
+   * operationId: issues/list-for-repo
+   * Request URI: /repos/{owner}/{repo}/issues
    */
   public async issues$list$for$repo(
     params: Params$issues$list$for$repo,
@@ -23854,6 +24782,8 @@ export class Client<RequestOption> {
    * Any user with pull access to a repository can create an issue. If [issues are disabled in the repository](https://help.github.com/articles/disabling-issues/), the API returns a `410 Gone` status.
    *
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-abuse-rate-limits)" for details.
+   * operationId: issues/create
+   * Request URI: /repos/{owner}/{repo}/issues
    */
   public async issues$create(
     params: Params$issues$create,
@@ -23869,6 +24799,8 @@ export class Client<RequestOption> {
   /**
    * List issue comments for a repository
    * By default, Issue Comments are ordered by ascending ID.
+   * operationId: issues/list-comments-for-repo
+   * Request URI: /repos/{owner}/{repo}/issues/comments
    */
   public async issues$list$comments$for$repo(
     params: Params$issues$list$comments$for$repo,
@@ -23887,7 +24819,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get an issue comment */
+  /**
+   * Get an issue comment
+   * operationId: issues/get-comment
+   * Request URI: /repos/{owner}/{repo}/issues/comments/{comment_id}
+   */
   public async issues$get$comment(
     params: Params$issues$get$comment,
     option?: RequestOption,
@@ -23900,7 +24836,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete an issue comment */
+  /**
+   * Delete an issue comment
+   * operationId: issues/delete-comment
+   * Request URI: /repos/{owner}/{repo}/issues/comments/{comment_id}
+   */
   public async issues$delete$comment(params: Params$issues$delete$comment, option?: RequestOption): Promise<void> {
     const url =
       this.baseUrl +
@@ -23908,7 +24848,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update an issue comment */
+  /**
+   * Update an issue comment
+   * operationId: issues/update-comment
+   * Request URI: /repos/{owner}/{repo}/issues/comments/{comment_id}
+   */
   public async issues$update$comment(
     params: Params$issues$update$comment,
     option?: RequestOption,
@@ -23925,6 +24869,8 @@ export class Client<RequestOption> {
   /**
    * List reactions for an issue comment
    * List the reactions to an [issue comment](https://docs.github.com/enterprise-server@2.22/rest/reference/issues#comments).
+   * operationId: reactions/list-for-issue-comment
+   * Request URI: /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions
    */
   public async reactions$list$for$issue$comment(
     params: Params$reactions$list$for$issue$comment,
@@ -23946,6 +24892,8 @@ export class Client<RequestOption> {
   /**
    * Create reaction for an issue comment
    * Create a reaction to an [issue comment](https://docs.github.com/enterprise-server@2.22/rest/reference/issues#comments). A response with a `Status: 200 OK` means that you already added the reaction type to this issue comment.
+   * operationId: reactions/create-for-issue-comment
+   * Request URI: /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions
    */
   public async reactions$create$for$issue$comment(
     params: Params$reactions$create$for$issue$comment,
@@ -23970,6 +24918,8 @@ export class Client<RequestOption> {
    * **Note:** You can also specify a repository by `repository_id` using the route `DELETE delete /repositories/:repository_id/issues/comments/:comment_id/reactions/:reaction_id`.
    *
    * Delete a reaction to an [issue comment](https://docs.github.com/enterprise-server@2.22/rest/reference/issues#comments).
+   * operationId: reactions/delete-for-issue-comment
+   * Request URI: /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions/{reaction_id}
    */
   public async reactions$delete$for$issue$comment(
     params: Params$reactions$delete$for$issue$comment,
@@ -23981,7 +24931,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** List issue events for a repository */
+  /**
+   * List issue events for a repository
+   * operationId: issues/list-events-for-repo
+   * Request URI: /repos/{owner}/{repo}/issues/events
+   */
   public async issues$list$events$for$repo(
     params: Params$issues$list$events$for$repo,
     option?: RequestOption,
@@ -23996,7 +24950,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get an issue event */
+  /**
+   * Get an issue event
+   * operationId: issues/get-event
+   * Request URI: /repos/{owner}/{repo}/issues/events/{event_id}
+   */
   public async issues$get$event(
     params: Params$issues$get$event,
     option?: RequestOption,
@@ -24022,6 +24980,8 @@ export class Client<RequestOption> {
    * reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by
    * the `pull_request` key. Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull
    * request id, use the "[List pull requests](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#list-pull-requests)" endpoint.
+   * operationId: issues/get
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}
    */
   public async issues$get(
     params: Params$issues$get,
@@ -24038,6 +24998,8 @@ export class Client<RequestOption> {
   /**
    * Update an issue
    * Issue owners and users with push access can edit an issue.
+   * operationId: issues/update
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}
    */
   public async issues$update(
     params: Params$issues$update,
@@ -24055,6 +25017,8 @@ export class Client<RequestOption> {
   /**
    * Add assignees to an issue
    * Adds up to 10 assignees to an issue. Users already assigned to an issue are not replaced.
+   * operationId: issues/add-assignees
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/assignees
    */
   public async issues$add$assignees(
     params: Params$issues$add$assignees,
@@ -24072,6 +25036,8 @@ export class Client<RequestOption> {
   /**
    * Remove assignees from an issue
    * Removes one or more assignees from an issue.
+   * operationId: issues/remove-assignees
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/assignees
    */
   public async issues$remove$assignees(
     params: Params$issues$remove$assignees,
@@ -24089,6 +25055,8 @@ export class Client<RequestOption> {
   /**
    * List issue comments
    * Issue Comments are ordered by ascending ID.
+   * operationId: issues/list-comments
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/comments
    */
   public async issues$list$comments(
     params: Params$issues$list$comments,
@@ -24110,6 +25078,8 @@ export class Client<RequestOption> {
   /**
    * Create an issue comment
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-abuse-rate-limits)" for details.
+   * operationId: issues/create-comment
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/comments
    */
   public async issues$create$comment(
     params: Params$issues$create$comment,
@@ -24124,7 +25094,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** List issue events */
+  /**
+   * List issue events
+   * operationId: issues/list-events
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/events
+   */
   public async issues$list$events(
     params: Params$issues$list$events,
     option?: RequestOption,
@@ -24141,7 +25115,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** List labels for an issue */
+  /**
+   * List labels for an issue
+   * operationId: issues/list-labels-on-issue
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/labels
+   */
   public async issues$list$labels$on$issue(
     params: Params$issues$list$labels$on$issue,
     option?: RequestOption,
@@ -24161,6 +25139,8 @@ export class Client<RequestOption> {
   /**
    * Set labels for an issue
    * Removes any previous labels and sets the new labels for an issue.
+   * operationId: issues/set-labels
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/labels
    */
   public async issues$set$labels(
     params: Params$issues$set$labels,
@@ -24175,7 +25155,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PUT", url, headers, params.requestBody, undefined, option);
   }
-  /** Add labels to an issue */
+  /**
+   * Add labels to an issue
+   * operationId: issues/add-labels
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/labels
+   */
   public async issues$add$labels(
     params: Params$issues$add$labels,
     option?: RequestOption,
@@ -24189,7 +25173,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Remove all labels from an issue */
+  /**
+   * Remove all labels from an issue
+   * operationId: issues/remove-all-labels
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/labels
+   */
   public async issues$remove$all$labels(
     params: Params$issues$remove$all$labels,
     option?: RequestOption,
@@ -24203,6 +25191,8 @@ export class Client<RequestOption> {
   /**
    * Remove a label from an issue
    * Removes the specified label from the issue, and returns the remaining labels on the issue. This endpoint returns a `404 Not Found` status if the label does not exist.
+   * operationId: issues/remove-label
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/labels/{name}
    */
   public async issues$remove$label(
     params: Params$issues$remove$label,
@@ -24221,6 +25211,8 @@ export class Client<RequestOption> {
    * Users with push access can lock an issue or pull request's conversation.
    *
    * Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#http-verbs)."
+   * operationId: issues/lock
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/lock
    */
   public async issues$lock(params: Params$issues$lock, option?: RequestOption): Promise<void> {
     const url =
@@ -24234,6 +25226,8 @@ export class Client<RequestOption> {
   /**
    * Unlock an issue
    * Users with push access can unlock an issue's conversation.
+   * operationId: issues/unlock
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/lock
    */
   public async issues$unlock(params: Params$issues$unlock, option?: RequestOption): Promise<void> {
     const url =
@@ -24245,6 +25239,8 @@ export class Client<RequestOption> {
   /**
    * List reactions for an issue
    * List the reactions to an [issue](https://docs.github.com/enterprise-server@2.22/rest/reference/issues).
+   * operationId: reactions/list-for-issue
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/reactions
    */
   public async reactions$list$for$issue(
     params: Params$reactions$list$for$issue,
@@ -24266,6 +25262,8 @@ export class Client<RequestOption> {
   /**
    * Create reaction for an issue
    * Create a reaction to an [issue](https://docs.github.com/enterprise-server@2.22/rest/reference/issues/). A response with a `Status: 200 OK` means that you already added the reaction type to this issue.
+   * operationId: reactions/create-for-issue
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/reactions
    */
   public async reactions$create$for$issue(
     params: Params$reactions$create$for$issue,
@@ -24285,6 +25283,8 @@ export class Client<RequestOption> {
    * **Note:** You can also specify a repository by `repository_id` using the route `DELETE /repositories/:repository_id/issues/:issue_number/reactions/:reaction_id`.
    *
    * Delete a reaction to an [issue](https://docs.github.com/enterprise-server@2.22/rest/reference/issues/).
+   * operationId: reactions/delete-for-issue
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/reactions/{reaction_id}
    */
   public async reactions$delete$for$issue(
     params: Params$reactions$delete$for$issue,
@@ -24296,7 +25296,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** List timeline events for an issue */
+  /**
+   * List timeline events for an issue
+   * operationId: issues/list-events-for-timeline
+   * Request URI: /repos/{owner}/{repo}/issues/{issue_number}/timeline
+   */
   public async issues$list$events$for$timeline(
     params: Params$issues$list$events$for$timeline,
     option?: RequestOption,
@@ -24313,7 +25317,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** List deploy keys */
+  /**
+   * List deploy keys
+   * operationId: repos/list-deploy-keys
+   * Request URI: /repos/{owner}/{repo}/keys
+   */
   public async repos$list$deploy$keys(
     params: Params$repos$list$deploy$keys,
     option?: RequestOption,
@@ -24331,6 +25339,8 @@ export class Client<RequestOption> {
   /**
    * Create a deploy key
    * You can create a read-only deploy key.
+   * operationId: repos/create-deploy-key
+   * Request URI: /repos/{owner}/{repo}/keys
    */
   public async repos$create$deploy$key(
     params: Params$repos$create$deploy$key,
@@ -24343,7 +25353,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a deploy key */
+  /**
+   * Get a deploy key
+   * operationId: repos/get-deploy-key
+   * Request URI: /repos/{owner}/{repo}/keys/{key_id}
+   */
   public async repos$get$deploy$key(
     params: Params$repos$get$deploy$key,
     option?: RequestOption,
@@ -24358,6 +25372,8 @@ export class Client<RequestOption> {
   /**
    * Delete a deploy key
    * Deploy keys are immutable. If you need to update a key, remove the key and create a new one instead.
+   * operationId: repos/delete-deploy-key
+   * Request URI: /repos/{owner}/{repo}/keys/{key_id}
    */
   public async repos$delete$deploy$key(params: Params$repos$delete$deploy$key, option?: RequestOption): Promise<void> {
     const url =
@@ -24365,7 +25381,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** List labels for a repository */
+  /**
+   * List labels for a repository
+   * operationId: issues/list-labels-for-repo
+   * Request URI: /repos/{owner}/{repo}/labels
+   */
   public async issues$list$labels$for$repo(
     params: Params$issues$list$labels$for$repo,
     option?: RequestOption,
@@ -24380,7 +25400,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Create a label */
+  /**
+   * Create a label
+   * operationId: issues/create-label
+   * Request URI: /repos/{owner}/{repo}/labels
+   */
   public async issues$create$label(
     params: Params$issues$create$label,
     option?: RequestOption,
@@ -24392,7 +25416,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a label */
+  /**
+   * Get a label
+   * operationId: issues/get-label
+   * Request URI: /repos/{owner}/{repo}/labels/{name}
+   */
   public async issues$get$label(
     params: Params$issues$get$label,
     option?: RequestOption,
@@ -24404,14 +25432,22 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a label */
+  /**
+   * Delete a label
+   * operationId: issues/delete-label
+   * Request URI: /repos/{owner}/{repo}/labels/{name}
+   */
   public async issues$delete$label(params: Params$issues$delete$label, option?: RequestOption): Promise<void> {
     const url =
       this.baseUrl + `/repos/${params.parameter.owner}/${params.parameter.repo}/labels/${params.parameter.name}`;
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update a label */
+  /**
+   * Update a label
+   * operationId: issues/update-label
+   * Request URI: /repos/{owner}/{repo}/labels/{name}
+   */
   public async issues$update$label(
     params: Params$issues$update$label,
     option?: RequestOption,
@@ -24427,6 +25463,8 @@ export class Client<RequestOption> {
   /**
    * List repository languages
    * Lists languages for the specified repository. The value shown for each language is the number of bytes of code written in that language.
+   * operationId: repos/list-languages
+   * Request URI: /repos/{owner}/{repo}/languages
    */
   public async repos$list$languages(
     params: Params$repos$list$languages,
@@ -24443,6 +25481,8 @@ export class Client<RequestOption> {
    * This method returns the contents of the repository's license file, if one is detected.
    *
    * Similar to [Get repository content](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#get-repository-content), this method also supports [custom media types](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types) for retrieving the raw license content or rendered license HTML.
+   * operationId: licenses/get-for-repo
+   * Request URI: /repos/{owner}/{repo}/license
    */
   public async licenses$get$for$repo(
     params: Params$licenses$get$for$repo,
@@ -24454,7 +25494,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Merge a branch */
+  /**
+   * Merge a branch
+   * operationId: repos/merge
+   * Request URI: /repos/{owner}/{repo}/merges
+   */
   public async repos$merge(
     params: Params$repos$merge,
     option?: RequestOption,
@@ -24466,7 +25510,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** List milestones */
+  /**
+   * List milestones
+   * operationId: issues/list-milestones
+   * Request URI: /repos/{owner}/{repo}/milestones
+   */
   public async issues$list$milestones(
     params: Params$issues$list$milestones,
     option?: RequestOption,
@@ -24484,7 +25532,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Create a milestone */
+  /**
+   * Create a milestone
+   * operationId: issues/create-milestone
+   * Request URI: /repos/{owner}/{repo}/milestones
+   */
   public async issues$create$milestone(
     params: Params$issues$create$milestone,
     option?: RequestOption,
@@ -24496,7 +25548,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a milestone */
+  /**
+   * Get a milestone
+   * operationId: issues/get-milestone
+   * Request URI: /repos/{owner}/{repo}/milestones/{milestone_number}
+   */
   public async issues$get$milestone(
     params: Params$issues$get$milestone,
     option?: RequestOption,
@@ -24509,7 +25565,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a milestone */
+  /**
+   * Delete a milestone
+   * operationId: issues/delete-milestone
+   * Request URI: /repos/{owner}/{repo}/milestones/{milestone_number}
+   */
   public async issues$delete$milestone(params: Params$issues$delete$milestone, option?: RequestOption): Promise<void> {
     const url =
       this.baseUrl +
@@ -24517,7 +25577,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Update a milestone */
+  /**
+   * Update a milestone
+   * operationId: issues/update-milestone
+   * Request URI: /repos/{owner}/{repo}/milestones/{milestone_number}
+   */
   public async issues$update$milestone(
     params: Params$issues$update$milestone,
     option?: RequestOption,
@@ -24531,7 +25595,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PATCH", url, headers, params.requestBody, undefined, option);
   }
-  /** List labels for issues in a milestone */
+  /**
+   * List labels for issues in a milestone
+   * operationId: issues/list-labels-for-milestone
+   * Request URI: /repos/{owner}/{repo}/milestones/{milestone_number}/labels
+   */
   public async issues$list$labels$for$milestone(
     params: Params$issues$list$labels$for$milestone,
     option?: RequestOption,
@@ -24551,6 +25619,8 @@ export class Client<RequestOption> {
   /**
    * List repository notifications for the authenticated user
    * List all notifications for the current user.
+   * operationId: activity/list-repo-notifications-for-authenticated-user
+   * Request URI: /repos/{owner}/{repo}/notifications
    */
   public async activity$list$repo$notifications$for$authenticated$user(
     params: Params$activity$list$repo$notifications$for$authenticated$user,
@@ -24573,6 +25643,8 @@ export class Client<RequestOption> {
   /**
    * Mark repository notifications as read
    * Marks all notifications in a repository as "read" removes them from the [default view on GitHub Enterprise Server](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub Enterprise Server will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the [List repository notifications for the authenticated user](https://docs.github.com/enterprise-server@2.22/rest/reference/activity#list-repository-notifications-for-the-authenticated-user) endpoint and pass the query parameter `all=false`.
+   * operationId: activity/mark-repo-notifications-as-read
+   * Request URI: /repos/{owner}/{repo}/notifications
    */
   public async activity$mark$repo$notifications$as$read(
     params: Params$activity$mark$repo$notifications$as$read,
@@ -24584,7 +25656,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PUT", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a GitHub Enterprise Server Pages site */
+  /**
+   * Get a GitHub Enterprise Server Pages site
+   * operationId: repos/get-pages
+   * Request URI: /repos/{owner}/{repo}/pages
+   */
   public async repos$get$pages(
     params: Params$repos$get$pages,
     option?: RequestOption,
@@ -24598,6 +25674,8 @@ export class Client<RequestOption> {
   /**
    * Update information about a GitHub Enterprise Server Pages site
    * Updates information for a GitHub Enterprise Server Pages site. For more information, see "[About GitHub Pages](/github/working-with-github-pages/about-github-pages).
+   * operationId: repos/update-information-about-pages-site
+   * Request URI: /repos/{owner}/{repo}/pages
    */
   public async repos$update$information$about$pages$site(
     params: Params$repos$update$information$about$pages$site,
@@ -24612,6 +25690,8 @@ export class Client<RequestOption> {
   /**
    * Create a GitHub Enterprise Server Pages site
    * Configures a GitHub Enterprise Server Pages site. For more information, see "[About GitHub Pages](/github/working-with-github-pages/about-github-pages)."
+   * operationId: repos/create-pages-site
+   * Request URI: /repos/{owner}/{repo}/pages
    */
   public async repos$create$pages$site(
     params: Params$repos$create$pages$site,
@@ -24624,13 +25704,21 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Delete a GitHub Enterprise Server Pages site */
+  /**
+   * Delete a GitHub Enterprise Server Pages site
+   * operationId: repos/delete-pages-site
+   * Request URI: /repos/{owner}/{repo}/pages
+   */
   public async repos$delete$pages$site(params: Params$repos$delete$pages$site, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/repos/${params.parameter.owner}/${params.parameter.repo}/pages`;
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** List GitHub Enterprise Server Pages builds */
+  /**
+   * List GitHub Enterprise Server Pages builds
+   * operationId: repos/list-pages-builds
+   * Request URI: /repos/{owner}/{repo}/pages/builds
+   */
   public async repos$list$pages$builds(
     params: Params$repos$list$pages$builds,
     option?: RequestOption,
@@ -24650,6 +25738,8 @@ export class Client<RequestOption> {
    * You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.
    *
    * Build requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes.
+   * operationId: repos/request-pages-build
+   * Request URI: /repos/{owner}/{repo}/pages/builds
    */
   public async repos$request$pages$build(
     params: Params$repos$request$pages$build,
@@ -24661,7 +25751,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, undefined, undefined, option);
   }
-  /** Get latest Pages build */
+  /**
+   * Get latest Pages build
+   * operationId: repos/get-latest-pages-build
+   * Request URI: /repos/{owner}/{repo}/pages/builds/latest
+   */
   public async repos$get$latest$pages$build(
     params: Params$repos$get$latest$pages$build,
     option?: RequestOption,
@@ -24672,7 +25766,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Get GitHub Enterprise Server Pages build */
+  /**
+   * Get GitHub Enterprise Server Pages build
+   * operationId: repos/get-pages-build
+   * Request URI: /repos/{owner}/{repo}/pages/builds/{build_id}
+   */
   public async repos$get$pages$build(
     params: Params$repos$get$pages$build,
     option?: RequestOption,
@@ -24688,6 +25786,8 @@ export class Client<RequestOption> {
   /**
    * List pre-receive hooks for a repository
    * List all pre-receive hooks that are enabled or testing for this repository as well as any disabled hooks that are allowed to be enabled at the repository level. Pre-receive hooks that are disabled at a higher level and are not configurable will not be listed.
+   * operationId: enterprise-admin/list-pre-receive-hooks-for-repo
+   * Request URI: /repos/{owner}/{repo}/pre-receive-hooks
    */
   public async enterprise$admin$list$pre$receive$hooks$for$repo(
     params: Params$enterprise$admin$list$pre$receive$hooks$for$repo,
@@ -24703,7 +25803,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get a pre-receive hook for a repository */
+  /**
+   * Get a pre-receive hook for a repository
+   * operationId: enterprise-admin/get-pre-receive-hook-for-repo
+   * Request URI: /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}
+   */
   public async enterprise$admin$get$pre$receive$hook$for$repo(
     params: Params$enterprise$admin$get$pre$receive$hook$for$repo,
     option?: RequestOption,
@@ -24721,6 +25825,8 @@ export class Client<RequestOption> {
    * Deletes any overridden enforcement on this repository for the specified hook.
    *
    * Responds with effective values inherited from owner and/or global level.
+   * operationId: enterprise-admin/remove-pre-receive-hook-enforcement-for-repo
+   * Request URI: /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}
    */
   public async enterprise$admin$remove$pre$receive$hook$enforcement$for$repo(
     params: Params$enterprise$admin$remove$pre$receive$hook$enforcement$for$repo,
@@ -24737,6 +25843,8 @@ export class Client<RequestOption> {
   /**
    * Update pre-receive hook enforcement for a repository
    * For pre-receive hooks which are allowed to be configured at the repo level, you can set `enforcement`
+   * operationId: enterprise-admin/update-pre-receive-hook-enforcement-for-repo
+   * Request URI: /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}
    */
   public async enterprise$admin$update$pre$receive$hook$enforcement$for$repo(
     params: Params$enterprise$admin$update$pre$receive$hook$enforcement$for$repo,
@@ -24754,6 +25862,8 @@ export class Client<RequestOption> {
   /**
    * List repository projects
    * Lists the projects in a repository. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+   * operationId: projects/list-for-repo
+   * Request URI: /repos/{owner}/{repo}/projects
    */
   public async projects$list$for$repo(
     params: Params$projects$list$for$repo,
@@ -24773,6 +25883,8 @@ export class Client<RequestOption> {
   /**
    * Create a repository project
    * Creates a repository project board. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.
+   * operationId: projects/create-for-repo
+   * Request URI: /repos/{owner}/{repo}/projects
    */
   public async projects$create$for$repo(
     params: Params$projects$create$for$repo,
@@ -24788,6 +25900,8 @@ export class Client<RequestOption> {
   /**
    * List pull requests
    * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+   * operationId: pulls/list
+   * Request URI: /repos/{owner}/{repo}/pulls
    */
   public async pulls$list(
     params: Params$pulls$list,
@@ -24817,6 +25931,8 @@ export class Client<RequestOption> {
    * You can create a new pull request.
    *
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)" for details.
+   * operationId: pulls/create
+   * Request URI: /repos/{owner}/{repo}/pulls
    */
   public async pulls$create(
     params: Params$pulls$create,
@@ -24832,6 +25948,8 @@ export class Client<RequestOption> {
   /**
    * List review comments in a repository
    * Lists review comments for all pull requests in a repository. By default, review comments are in ascending order by ID.
+   * operationId: pulls/list-review-comments-for-repo
+   * Request URI: /repos/{owner}/{repo}/pulls/comments
    */
   public async pulls$list$review$comments$for$repo(
     params: Params$pulls$list$review$comments$for$repo,
@@ -24853,6 +25971,8 @@ export class Client<RequestOption> {
   /**
    * Get a review comment for a pull request
    * Provides details for a review comment.
+   * operationId: pulls/get-review-comment
+   * Request URI: /repos/{owner}/{repo}/pulls/comments/{comment_id}
    */
   public async pulls$get$review$comment(
     params: Params$pulls$get$review$comment,
@@ -24869,6 +25989,8 @@ export class Client<RequestOption> {
   /**
    * Delete a review comment for a pull request
    * Deletes a review comment.
+   * operationId: pulls/delete-review-comment
+   * Request URI: /repos/{owner}/{repo}/pulls/comments/{comment_id}
    */
   public async pulls$delete$review$comment(
     params: Params$pulls$delete$review$comment,
@@ -24883,6 +26005,8 @@ export class Client<RequestOption> {
   /**
    * Update a review comment for a pull request
    * Enables you to edit a review comment.
+   * operationId: pulls/update-review-comment
+   * Request URI: /repos/{owner}/{repo}/pulls/comments/{comment_id}
    */
   public async pulls$update$review$comment(
     params: Params$pulls$update$review$comment,
@@ -24900,6 +26024,8 @@ export class Client<RequestOption> {
   /**
    * List reactions for a pull request review comment
    * List the reactions to a [pull request review comment](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#review-comments).
+   * operationId: reactions/list-for-pull-request-review-comment
+   * Request URI: /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions
    */
   public async reactions$list$for$pull$request$review$comment(
     params: Params$reactions$list$for$pull$request$review$comment,
@@ -24921,6 +26047,8 @@ export class Client<RequestOption> {
   /**
    * Create reaction for a pull request review comment
    * Create a reaction to a [pull request review comment](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#comments). A response with a `Status: 200 OK` means that you already added the reaction type to this pull request review comment.
+   * operationId: reactions/create-for-pull-request-review-comment
+   * Request URI: /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions
    */
   public async reactions$create$for$pull$request$review$comment(
     params: Params$reactions$create$for$pull$request$review$comment,
@@ -24945,6 +26073,8 @@ export class Client<RequestOption> {
    * **Note:** You can also specify a repository by `repository_id` using the route `DELETE /repositories/:repository_id/pulls/comments/:comment_id/reactions/:reaction_id.`
    *
    * Delete a reaction to a [pull request review comment](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#review-comments).
+   * operationId: reactions/delete-for-pull-request-comment
+   * Request URI: /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}
    */
   public async reactions$delete$for$pull$request$comment(
     params: Params$reactions$delete$for$pull$request$comment,
@@ -24973,6 +26103,8 @@ export class Client<RequestOption> {
    * *   If [rebased](https://help.github.com/articles/about-merge-methods-on-github/#rebasing-and-merging-your-commits), `merge_commit_sha` represents the commit that the base branch was updated to.
    *
    * Pass the appropriate [media type](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats.
+   * operationId: pulls/get
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}
    */
   public async pulls$get(
     params: Params$pulls$get,
@@ -24990,6 +26122,8 @@ export class Client<RequestOption> {
    * Draft pull requests are available in public repositories with GitHub Free and GitHub Free for organizations, GitHub Pro, and legacy per-repository billing plans, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
    *
    * To open or update a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open or update a pull request.
+   * operationId: pulls/update
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}
    */
   public async pulls$update(
     params: Params$pulls$update,
@@ -25006,6 +26140,8 @@ export class Client<RequestOption> {
   /**
    * List review comments on a pull request
    * Lists all review comments for a pull request. By default, review comments are in ascending order by ID.
+   * operationId: pulls/list-review-comments
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/comments
    */
   public async pulls$list$review$comments(
     params: Params$pulls$list$review$comments,
@@ -25036,6 +26172,8 @@ export class Client<RequestOption> {
    * **Note:** The position value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
    *
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)" for details.
+   * operationId: pulls/create-review-comment
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/comments
    */
   public async pulls$create$review$comment(
     params: Params$pulls$create$review$comment,
@@ -25055,6 +26193,8 @@ export class Client<RequestOption> {
    * Creates a reply to a review comment for a pull request. For the `comment_id`, provide the ID of the review comment you are replying to. This must be the ID of a _top-level review comment_, not a reply to that comment. Replies to replies are not supported.
    *
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)" for details.
+   * operationId: pulls/create-reply-for-review-comment
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies
    */
   public async pulls$create$reply$for$review$comment(
     params: Params$pulls$create$reply$for$review$comment,
@@ -25072,6 +26212,8 @@ export class Client<RequestOption> {
   /**
    * List commits on a pull request
    * Lists a maximum of 250 commits for a pull request. To receive a complete commit list for pull requests with more than 250 commits, use the [List commits](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#list-commits) endpoint.
+   * operationId: pulls/list-commits
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/commits
    */
   public async pulls$list$commits(
     params: Params$pulls$list$commits,
@@ -25092,6 +26234,8 @@ export class Client<RequestOption> {
   /**
    * List pull requests files
    * **Note:** Responses include a maximum of 3000 files. The paginated response returns 30 files per page by default.
+   * operationId: pulls/list-files
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/files
    */
   public async pulls$list$files(
     params: Params$pulls$list$files,
@@ -25109,7 +26253,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Check if a pull request has been merged */
+  /**
+   * Check if a pull request has been merged
+   * operationId: pulls/check-if-merged
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/merge
+   */
   public async pulls$check$if$merged(params: Params$pulls$check$if$merged, option?: RequestOption): Promise<void> {
     const url =
       this.baseUrl +
@@ -25120,6 +26268,8 @@ export class Client<RequestOption> {
   /**
    * Merge a pull request
    * This endpoint triggers [notifications](https://docs.github.com/enterprise-server@2.22/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-abuse-rate-limits)" for details.
+   * operationId: pulls/merge
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/merge
    */
   public async pulls$merge(
     params: Params$pulls$merge,
@@ -25134,7 +26284,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PUT", url, headers, params.requestBody, undefined, option);
   }
-  /** List requested reviewers for a pull request */
+  /**
+   * List requested reviewers for a pull request
+   * operationId: pulls/list-requested-reviewers
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers
+   */
   public async pulls$list$requested$reviewers(
     params: Params$pulls$list$requested$reviewers,
     option?: RequestOption,
@@ -25154,6 +26308,8 @@ export class Client<RequestOption> {
   /**
    * Request reviewers for a pull request
    * This endpoint triggers [notifications](https://docs.github.com/enterprise-server@2.22/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-abuse-rate-limits)" for details.
+   * operationId: pulls/request-reviewers
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers
    */
   public async pulls$request$reviewers(
     params: Params$pulls$request$reviewers,
@@ -25168,7 +26324,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Remove requested reviewers from a pull request */
+  /**
+   * Remove requested reviewers from a pull request
+   * operationId: pulls/remove-requested-reviewers
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers
+   */
   public async pulls$remove$requested$reviewers(
     params: Params$pulls$remove$requested$reviewers,
     option?: RequestOption,
@@ -25184,6 +26344,8 @@ export class Client<RequestOption> {
   /**
    * List reviews for a pull request
    * The list of reviews returns in chronological order.
+   * operationId: pulls/list-reviews
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/reviews
    */
   public async pulls$list$reviews(
     params: Params$pulls$list$reviews,
@@ -25210,6 +26372,8 @@ export class Client<RequestOption> {
    * **Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#get-a-pull-request) endpoint.
    *
    * The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
+   * operationId: pulls/create-review
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/reviews
    */
   public async pulls$create$review(
     params: Params$pulls$create$review,
@@ -25224,7 +26388,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get a review for a pull request */
+  /**
+   * Get a review for a pull request
+   * operationId: pulls/get-review
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}
+   */
   public async pulls$get$review(
     params: Params$pulls$get$review,
     option?: RequestOption,
@@ -25240,6 +26408,8 @@ export class Client<RequestOption> {
   /**
    * Update a review for a pull request
    * Update the review summary comment with new text.
+   * operationId: pulls/update-review
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}
    */
   public async pulls$update$review(
     params: Params$pulls$update$review,
@@ -25254,7 +26424,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PUT", url, headers, params.requestBody, undefined, option);
   }
-  /** Delete a pending review for a pull request */
+  /**
+   * Delete a pending review for a pull request
+   * operationId: pulls/delete-pending-review
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}
+   */
   public async pulls$delete$pending$review(
     params: Params$pulls$delete$pending$review,
     option?: RequestOption,
@@ -25270,6 +26444,8 @@ export class Client<RequestOption> {
   /**
    * List comments for a pull request review
    * List comments for a specific pull request review.
+   * operationId: pulls/list-comments-for-review
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments
    */
   public async pulls$list$comments$for$review(
     params: Params$pulls$list$comments$for$review,
@@ -25290,6 +26466,8 @@ export class Client<RequestOption> {
   /**
    * Dismiss a review for a pull request
    * **Note:** To dismiss a pull request review on a [protected branch](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#branches), you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews.
+   * operationId: pulls/dismiss-review
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/dismissals
    */
   public async pulls$dismiss$review(
     params: Params$pulls$dismiss$review,
@@ -25304,7 +26482,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PUT", url, headers, params.requestBody, undefined, option);
   }
-  /** Submit a review for a pull request */
+  /**
+   * Submit a review for a pull request
+   * operationId: pulls/submit-review
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/events
+   */
   public async pulls$submit$review(
     params: Params$pulls$submit$review,
     option?: RequestOption,
@@ -25321,6 +26503,8 @@ export class Client<RequestOption> {
   /**
    * Update a pull request branch
    * Updates the pull request branch with the latest upstream changes by merging HEAD from the base branch into the pull request branch.
+   * operationId: pulls/update-branch
+   * Request URI: /repos/{owner}/{repo}/pulls/{pull_number}/update-branch
    */
   public async pulls$update$branch(
     params: Params$pulls$update$branch,
@@ -25340,6 +26524,8 @@ export class Client<RequestOption> {
    * Gets the preferred README for a repository.
    *
    * READMEs support [custom media types](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#custom-media-types) for retrieving the raw content or rendered HTML.
+   * operationId: repos/get-readme
+   * Request URI: /repos/{owner}/{repo}/readme
    */
   public async repos$get$readme(
     params: Params$repos$get$readme,
@@ -25359,6 +26545,8 @@ export class Client<RequestOption> {
    * This returns a list of releases, which does not include regular Git tags that have not been associated with a release. To get a list of Git tags, use the [Repository Tags API](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#list-repository-tags).
    *
    * Information about published releases are available to everyone. Only users with push access will receive listings for draft releases.
+   * operationId: repos/list-releases
+   * Request URI: /repos/{owner}/{repo}/releases
    */
   public async repos$list$releases(
     params: Params$repos$list$releases,
@@ -25379,6 +26567,8 @@ export class Client<RequestOption> {
    * Users with push access to the repository can create a release.
    *
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)" for details.
+   * operationId: repos/create-release
+   * Request URI: /repos/{owner}/{repo}/releases
    */
   public async repos$create$release(
     params: Params$repos$create$release,
@@ -25394,6 +26584,8 @@ export class Client<RequestOption> {
   /**
    * Get a release asset
    * To download the asset's binary content, set the `Accept` header of the request to [`application/octet-stream`](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types). The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a `200` or `302` response.
+   * operationId: repos/get-release-asset
+   * Request URI: /repos/{owner}/{repo}/releases/assets/{asset_id}
    */
   public async repos$get$release$asset(
     params: Params$repos$get$release$asset,
@@ -25407,7 +26599,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Delete a release asset */
+  /**
+   * Delete a release asset
+   * operationId: repos/delete-release-asset
+   * Request URI: /repos/{owner}/{repo}/releases/assets/{asset_id}
+   */
   public async repos$delete$release$asset(
     params: Params$repos$delete$release$asset,
     option?: RequestOption,
@@ -25421,6 +26617,8 @@ export class Client<RequestOption> {
   /**
    * Update a release asset
    * Users with push access to the repository can edit a release asset.
+   * operationId: repos/update-release-asset
+   * Request URI: /repos/{owner}/{repo}/releases/assets/{asset_id}
    */
   public async repos$update$release$asset(
     params: Params$repos$update$release$asset,
@@ -25440,6 +26638,8 @@ export class Client<RequestOption> {
    * View the latest published full release for the repository.
    *
    * The latest release is the most recent non-prerelease, non-draft release, sorted by the `created_at` attribute. The `created_at` attribute is the date of the commit used for the release, and not the date when the release was drafted or published.
+   * operationId: repos/get-latest-release
+   * Request URI: /repos/{owner}/{repo}/releases/latest
    */
   public async repos$get$latest$release(
     params: Params$repos$get$latest$release,
@@ -25454,6 +26654,8 @@ export class Client<RequestOption> {
   /**
    * Get a release by tag name
    * Get a published release with the specified tag.
+   * operationId: repos/get-release-by-tag
+   * Request URI: /repos/{owner}/{repo}/releases/tags/{tag}
    */
   public async repos$get$release$by$tag(
     params: Params$repos$get$release$by$tag,
@@ -25469,6 +26671,8 @@ export class Client<RequestOption> {
   /**
    * Get a release
    * **Note:** This returns an `upload_url` key corresponding to the endpoint for uploading release assets. This key is a [hypermedia resource](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#hypermedia).
+   * operationId: repos/get-release
+   * Request URI: /repos/{owner}/{repo}/releases/{release_id}
    */
   public async repos$get$release(
     params: Params$repos$get$release,
@@ -25485,6 +26689,8 @@ export class Client<RequestOption> {
   /**
    * Delete a release
    * Users with push access to the repository can delete a release.
+   * operationId: repos/delete-release
+   * Request URI: /repos/{owner}/{repo}/releases/{release_id}
    */
   public async repos$delete$release(params: Params$repos$delete$release, option?: RequestOption): Promise<void> {
     const url =
@@ -25496,6 +26702,8 @@ export class Client<RequestOption> {
   /**
    * Update a release
    * Users with push access to the repository can edit a release.
+   * operationId: repos/update-release
+   * Request URI: /repos/{owner}/{repo}/releases/{release_id}
    */
   public async repos$update$release(
     params: Params$repos$update$release,
@@ -25510,7 +26718,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PATCH", url, headers, params.requestBody, undefined, option);
   }
-  /** List release assets */
+  /**
+   * List release assets
+   * operationId: repos/list-release-assets
+   * Request URI: /repos/{owner}/{repo}/releases/{release_id}/assets
+   */
   public async repos$list$release$assets(
     params: Params$repos$list$release$assets,
     option?: RequestOption,
@@ -25547,6 +26759,8 @@ export class Client<RequestOption> {
    * *   GitHub Enterprise Server renames asset filenames that have special characters, non-alphanumeric characters, and leading or trailing periods. The "[List assets for a release](https://docs.github.com/enterprise-server@2.22/rest/reference/repos#list-assets-for-a-release)"
    * endpoint lists the renamed filenames. For more information and help, contact [GitHub Enterprise Server Support](https://support.github.com/contact).
    * *   If you upload an asset with the same filename as another uploaded asset, you'll receive an error and must delete the old file before you can re-upload the new asset.
+   * operationId: repos/upload-release-asset
+   * Request URI: /repos/{owner}/{repo}/releases/{release_id}/assets
    */
   public async repos$upload$release$asset(
     params: Params$repos$upload$release$asset,
@@ -25570,6 +26784,8 @@ export class Client<RequestOption> {
    * Lists the people that have starred the repository.
    *
    * You can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types/) via the `Accept` header:
+   * operationId: activity/list-stargazers-for-repo
+   * Request URI: /repos/{owner}/{repo}/stargazers
    */
   public async activity$list$stargazers$for$repo<
     ResponseContentType extends ResponseContentType$activity$list$stargazers$for$repo
@@ -25590,6 +26806,8 @@ export class Client<RequestOption> {
   /**
    * Get the weekly commit activity
    * Returns a weekly aggregate of the number of additions and deletions pushed to a repository.
+   * operationId: repos/get-code-frequency-stats
+   * Request URI: /repos/{owner}/{repo}/stats/code_frequency
    */
   public async repos$get$code$frequency$stats(
     params: Params$repos$get$code$frequency$stats,
@@ -25604,6 +26822,8 @@ export class Client<RequestOption> {
   /**
    * Get the last year of commit activity
    * Returns the last year of commit activity grouped by week. The `days` array is a group of commits per day, starting on `Sunday`.
+   * operationId: repos/get-commit-activity-stats
+   * Request URI: /repos/{owner}/{repo}/stats/commit_activity
    */
   public async repos$get$commit$activity$stats(
     params: Params$repos$get$commit$activity$stats,
@@ -25624,6 +26844,8 @@ export class Client<RequestOption> {
    * *   `a` - Number of additions
    * *   `d` - Number of deletions
    * *   `c` - Number of commits
+   * operationId: repos/get-contributors-stats
+   * Request URI: /repos/{owner}/{repo}/stats/contributors
    */
   public async repos$get$contributors$stats(
     params: Params$repos$get$contributors$stats,
@@ -25640,6 +26862,8 @@ export class Client<RequestOption> {
    * Returns the total commit counts for the `owner` and total commit counts in `all`. `all` is everyone combined, including the `owner` in the last 52 weeks. If you'd like to get the commit counts for non-owners, you can subtract `owner` from `all`.
    *
    * The array order is oldest week (index 0) to most recent week.
+   * operationId: repos/get-participation-stats
+   * Request URI: /repos/{owner}/{repo}/stats/participation
    */
   public async repos$get$participation$stats(
     params: Params$repos$get$participation$stats,
@@ -25660,6 +26884,8 @@ export class Client<RequestOption> {
    * *   Number of commits
    *
    * For example, `[2, 14, 25]` indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.
+   * operationId: repos/get-punch-card-stats
+   * Request URI: /repos/{owner}/{repo}/stats/punch_card
    */
   public async repos$get$punch$card$stats(
     params: Params$repos$get$punch$card$stats,
@@ -25676,6 +26902,8 @@ export class Client<RequestOption> {
    * Users with push access in a repository can create commit statuses for a given SHA.
    *
    * Note: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error.
+   * operationId: repos/create-commit-status
+   * Request URI: /repos/{owner}/{repo}/statuses/{sha}
    */
   public async repos$create$commit$status(
     params: Params$repos$create$commit$status,
@@ -25692,6 +26920,8 @@ export class Client<RequestOption> {
   /**
    * List watchers
    * Lists the people watching the specified repository.
+   * operationId: activity/list-watchers-for-repo
+   * Request URI: /repos/{owner}/{repo}/subscribers
    */
   public async activity$list$watchers$for$repo(
     params: Params$activity$list$watchers$for$repo,
@@ -25707,7 +26937,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get a repository subscription */
+  /**
+   * Get a repository subscription
+   * operationId: activity/get-repo-subscription
+   * Request URI: /repos/{owner}/{repo}/subscription
+   */
   public async activity$get$repo$subscription(
     params: Params$activity$get$repo$subscription,
     option?: RequestOption,
@@ -25721,6 +26955,8 @@ export class Client<RequestOption> {
   /**
    * Set a repository subscription
    * If you would like to watch a repository, set `subscribed` to `true`. If you would like to ignore notifications made within a repository, set `ignored` to `true`. If you would like to stop watching a repository, [delete the repository's subscription](https://docs.github.com/enterprise-server@2.22/rest/reference/activity#delete-a-repository-subscription) completely.
+   * operationId: activity/set-repo-subscription
+   * Request URI: /repos/{owner}/{repo}/subscription
    */
   public async activity$set$repo$subscription(
     params: Params$activity$set$repo$subscription,
@@ -25736,6 +26972,8 @@ export class Client<RequestOption> {
   /**
    * Delete a repository subscription
    * This endpoint should only be used to stop watching a repository. To control whether or not you wish to receive notifications from a repository, [set the repository's subscription manually](https://docs.github.com/enterprise-server@2.22/rest/reference/activity#set-a-repository-subscription).
+   * operationId: activity/delete-repo-subscription
+   * Request URI: /repos/{owner}/{repo}/subscription
    */
   public async activity$delete$repo$subscription(
     params: Params$activity$delete$repo$subscription,
@@ -25745,7 +26983,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** List repository tags */
+  /**
+   * List repository tags
+   * operationId: repos/list-tags
+   * Request URI: /repos/{owner}/{repo}/tags
+   */
   public async repos$list$tags(
     params: Params$repos$list$tags,
     option?: RequestOption,
@@ -25766,6 +27008,8 @@ export class Client<RequestOption> {
    * `master`) will be used. Please make sure your HTTP framework is configured to follow redirects or you will need to use
    * the `Location` header to make a second `GET` request.
    * **Note**: For private repositories, these links are temporary and expire after five minutes.
+   * operationId: repos/download-tarball-archive
+   * Request URI: /repos/{owner}/{repo}/tarball/{ref}
    */
   public async repos$download$tarball$archive(
     params: Params$repos$download$tarball$archive,
@@ -25776,7 +27020,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** List repository teams */
+  /**
+   * List repository teams
+   * operationId: repos/list-teams
+   * Request URI: /repos/{owner}/{repo}/teams
+   */
   public async repos$list$teams(
     params: Params$repos$list$teams,
     option?: RequestOption,
@@ -25791,7 +27039,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get all repository topics */
+  /**
+   * Get all repository topics
+   * operationId: repos/get-all-topics
+   * Request URI: /repos/{owner}/{repo}/topics
+   */
   public async repos$get$all$topics(
     params: Params$repos$get$all$topics,
     option?: RequestOption,
@@ -25802,7 +27054,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Replace all repository topics */
+  /**
+   * Replace all repository topics
+   * operationId: repos/replace-all-topics
+   * Request URI: /repos/{owner}/{repo}/topics
+   */
   public async repos$replace$all$topics(
     params: Params$repos$replace$all$topics,
     option?: RequestOption,
@@ -25817,6 +27073,8 @@ export class Client<RequestOption> {
   /**
    * Transfer a repository
    * A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original `owner`, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see [about repository transfers](https://help.github.com/articles/about-repository-transfers/).
+   * operationId: repos/transfer
+   * Request URI: /repos/{owner}/{repo}/transfer
    */
   public async repos$transfer(
     params: Params$repos$transfer,
@@ -25832,6 +27090,8 @@ export class Client<RequestOption> {
   /**
    * Enable vulnerability alerts
    * Enables dependency alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see "[About security alerts for vulnerable dependencies](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)".
+   * operationId: repos/enable-vulnerability-alerts
+   * Request URI: /repos/{owner}/{repo}/vulnerability-alerts
    */
   public async repos$enable$vulnerability$alerts(
     params: Params$repos$enable$vulnerability$alerts,
@@ -25844,6 +27104,8 @@ export class Client<RequestOption> {
   /**
    * Disable vulnerability alerts
    * Disables dependency alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see "[About security alerts for vulnerable dependencies](https://help.github.com/en/articles/about-security-alerts-for-vulnerable-dependencies)".
+   * operationId: repos/disable-vulnerability-alerts
+   * Request URI: /repos/{owner}/{repo}/vulnerability-alerts
    */
   public async repos$disable$vulnerability$alerts(
     params: Params$repos$disable$vulnerability$alerts,
@@ -25859,6 +27121,8 @@ export class Client<RequestOption> {
    * `master`) will be used. Please make sure your HTTP framework is configured to follow redirects or you will need to use
    * the `Location` header to make a second `GET` request.
    * **Note**: For private repositories, these links are temporary and expire after five minutes.
+   * operationId: repos/download-zipball-archive
+   * Request URI: /repos/{owner}/{repo}/zipball/{ref}
    */
   public async repos$download$zipball$archive(
     params: Params$repos$download$zipball$archive,
@@ -25879,6 +27143,8 @@ export class Client<RequestOption> {
    *
    * *   `public_repo` scope or `repo` scope to create a public repository
    * *   `repo` scope to create a private repository
+   * operationId: repos/create-using-template
+   * Request URI: /repos/{template_owner}/{template_repo}/generate
    */
   public async repos$create$using$template(
     params: Params$repos$create$using$template,
@@ -25896,6 +27162,8 @@ export class Client<RequestOption> {
    * Lists all public repositories in the order that they were created.
    *
    * Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#link-header) to get the URL for the next page of repositories.
+   * operationId: repos/list-public
+   * Request URI: /repositories
    */
   public async repos$list$public(
     params: Params$repos$list$public,
@@ -25931,6 +27199,8 @@ export class Client<RequestOption> {
    * *   Only files smaller than 384 KB are searchable.
    * *   You must always include at least one search term when searching source code. For example, searching for [`language:go`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago&type=Code) is not valid, while [`amazing
    * language:go`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ago&type=Code) is.
+   * operationId: search/code
+   * Request URI: /search/code
    */
   public async search$code(
     params: Params$search$code,
@@ -25959,6 +27229,8 @@ export class Client<RequestOption> {
    * For example, if you want to find commits related to CSS in the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository. Your query would look something like this:
    *
    * `q=repo:octocat/Spoon-Knife+css`
+   * operationId: search/commits
+   * Request URI: /search/commits
    */
   public async search$commits(
     params: Params$search$commits,
@@ -25991,6 +27263,8 @@ export class Client<RequestOption> {
    * This query searches for the keyword `windows`, within any open issue that is labeled as `bug`. The search runs across repositories whose primary language is Python. The results are sorted by creation date in ascending order, which means the oldest issues appear first in the search results.
    *
    * **Note:** For [user-to-server](https://docs.github.com/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) GitHub App requests, you can't retrieve a combination of issues and pull requests in a single query. Requests that don't include the `is:issue` or `is:pull-request` qualifier will receive an HTTP `422 Unprocessable Entity` response. To get results for both issues and pull requests, you must send separate queries for issues and pull requests. For more information about the `is` qualifier, see "[Searching only issues or pull requests](https://docs.github.com/github/searching-for-information-on-github/searching-issues-and-pull-requests#search-only-issues-or-pull-requests)."
+   * operationId: search/issues-and-pull-requests
+   * Request URI: /search/issues
    */
   public async search$issues$and$pull$requests(
     params: Params$search$issues$and$pull$requests,
@@ -26020,6 +27294,8 @@ export class Client<RequestOption> {
    * `q=bug+defect+enhancement&repository_id=64778136`
    *
    * The labels that best match the query appear first in the search results.
+   * operationId: search/labels
+   * Request URI: /search/labels
    */
   public async search$labels(
     params: Params$search$labels,
@@ -26052,6 +27328,8 @@ export class Client<RequestOption> {
    * When you include the `mercy` preview header, you can also search for multiple topics by adding more `topic:` instances. For example, your query might look like this:
    *
    * `q=topic:ruby+topic:rails`
+   * operationId: search/repos
+   * Request URI: /search/repositories
    */
   public async search$repos(
     params: Params$search$repos,
@@ -26081,6 +27359,8 @@ export class Client<RequestOption> {
    * `q=ruby+is:featured`
    *
    * This query searches for topics with the keyword `ruby` and limits the results to find only topics that are featured. The topics that are the best match for the query appear first in the search results.
+   * operationId: search/topics
+   * Request URI: /search/topics
    */
   public async search$topics(
     params: Params$search$topics,
@@ -26106,6 +27386,8 @@ export class Client<RequestOption> {
    * `q=tom+repos:%3E42+followers:%3E1000`
    *
    * This query searches for users with the name `tom`. The results are restricted to users with more than 42 repositories and over 1,000 followers.
+   * operationId: search/users
+   * Request URI: /search/users
    */
   public async search$users(
     params: Params$search$users,
@@ -26138,6 +27420,8 @@ export class Client<RequestOption> {
    * | `CONFIGURING` | The job is running                |
    * | `DONE`        | The job has finished correctly    |
    * | `FAILED`      | The job has finished unexpectedly |
+   * operationId: enterprise-admin/get-configuration-status
+   * Request URI: /setup/api/configcheck
    */
   public async enterprise$admin$get$configuration$status(
     option?: RequestOption,
@@ -26151,6 +27435,8 @@ export class Client<RequestOption> {
   /**
    * Start a configuration process
    * This endpoint allows you to start a configuration process at any time for your updated settings to take effect:
+   * operationId: enterprise-admin/start-configuration-process
+   * Request URI: /setup/api/configure
    */
   public async enterprise$admin$start$configuration$process(option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/setup/api/configure`;
@@ -26160,6 +27446,8 @@ export class Client<RequestOption> {
   /**
    * Get the maintenance status
    * Check your installation's maintenance status:
+   * operationId: enterprise-admin/get-maintenance-status
+   * Request URI: /setup/api/maintenance
    */
   public async enterprise$admin$get$maintenance$status(
     option?: RequestOption,
@@ -26175,6 +27463,8 @@ export class Client<RequestOption> {
    * The possible values for `enabled` are `true` and `false`. When it's `false`, the attribute `when` is ignored and the maintenance mode is turned off. `when` defines the time period when the maintenance was enabled.
    *
    * The possible values for `when` are `now` or any date parseable by [mojombo/chronic](https://github.com/mojombo/chronic).
+   * operationId: enterprise-admin/enable-or-disable-maintenance-mode
+   * Request URI: /setup/api/maintenance
    */
   public async enterprise$admin$enable$or$disable$maintenance$mode(
     params: Params$enterprise$admin$enable$or$disable$maintenance$mode,
@@ -26187,7 +27477,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Get settings */
+  /**
+   * Get settings
+   * operationId: enterprise-admin/get-settings
+   * Request URI: /setup/api/settings
+   */
   public async enterprise$admin$get$settings(
     option?: RequestOption,
   ): Promise<Response$enterprise$admin$get$settings$Status$200["application/json"]> {
@@ -26200,6 +27494,8 @@ export class Client<RequestOption> {
   /**
    * Set settings
    * For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@2.22/rest/reference/enterprise-admin#get-settings).
+   * operationId: enterprise-admin/set-settings
+   * Request URI: /setup/api/settings
    */
   public async enterprise$admin$set$settings(
     params: Params$enterprise$admin$set$settings,
@@ -26211,7 +27507,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("PUT", url, headers, params.requestBody, undefined, option);
   }
-  /** Get all authorized SSH keys */
+  /**
+   * Get all authorized SSH keys
+   * operationId: enterprise-admin/get-all-authorized-ssh-keys
+   * Request URI: /setup/api/settings/authorized-keys
+   */
   public async enterprise$admin$get$all$authorized$ssh$keys(
     option?: RequestOption,
   ): Promise<Response$enterprise$admin$get$all$authorized$ssh$keys$Status$200["application/json"]> {
@@ -26221,7 +27521,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Add an authorized SSH key */
+  /**
+   * Add an authorized SSH key
+   * operationId: enterprise-admin/add-authorized-ssh-key
+   * Request URI: /setup/api/settings/authorized-keys
+   */
   public async enterprise$admin$add$authorized$ssh$key(
     params: Params$enterprise$admin$add$authorized$ssh$key,
     option?: RequestOption,
@@ -26233,7 +27537,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("POST", url, headers, params.requestBody, undefined, option);
   }
-  /** Remove an authorized SSH key */
+  /**
+   * Remove an authorized SSH key
+   * operationId: enterprise-admin/remove-authorized-ssh-key
+   * Request URI: /setup/api/settings/authorized-keys
+   */
   public async enterprise$admin$remove$authorized$ssh$key(
     params: Params$enterprise$admin$remove$authorized$ssh$key,
     option?: RequestOption,
@@ -26257,6 +27565,8 @@ export class Client<RequestOption> {
    * 2.  If you set up your instance via the web interface before accessing the API, your calls to this endpoint do not need the password parameter.
    *
    * For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@2.22/rest/reference/enterprise-admin#get-settings).
+   * operationId: enterprise-admin/create-enterprise-server-license
+   * Request URI: /setup/api/start
    */
   public async enterprise$admin$create$enterprise$server$license(
     params: Params$enterprise$admin$create$enterprise$server$license,
@@ -26271,6 +27581,8 @@ export class Client<RequestOption> {
   /**
    * Upgrade a license
    * This API upgrades your license and also triggers the configuration process:
+   * operationId: enterprise-admin/upgrade-license
+   * Request URI: /setup/api/upgrade
    */
   public async enterprise$admin$upgrade$license(
     params: Params$enterprise$admin$upgrade$license,
@@ -26286,6 +27598,8 @@ export class Client<RequestOption> {
    * @deprecated
    * Get a team (Legacy)
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the [Get a team by name](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#get-a-team-by-name) endpoint.
+   * operationId: teams/get-legacy
+   * Request URI: /teams/{team_id}
    */
   public async teams$get$legacy(
     params: Params$teams$get$legacy,
@@ -26305,6 +27619,8 @@ export class Client<RequestOption> {
    * To delete a team, the authenticated user must be an organization owner or team maintainer.
    *
    * If you are an organization owner, deleting a parent team will delete all of its child teams as well.
+   * operationId: teams/delete-legacy
+   * Request URI: /teams/{team_id}
    */
   public async teams$delete$legacy(params: Params$teams$delete$legacy, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/teams/${params.parameter.team_id}`;
@@ -26319,6 +27635,8 @@ export class Client<RequestOption> {
    * To edit a team, the authenticated user must either be an organization owner or a team maintainer.
    *
    * **Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.
+   * operationId: teams/update-legacy
+   * Request URI: /teams/{team_id}
    */
   public async teams$update$legacy(
     params: Params$teams$update$legacy,
@@ -26337,6 +27655,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [`List discussions`](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#list-discussions) endpoint.
    *
    * List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: teams/list-discussions-legacy
+   * Request URI: /teams/{team_id}/discussions
    */
   public async teams$list$discussions$legacy(
     params: Params$teams$list$discussions$legacy,
@@ -26361,6 +27681,8 @@ export class Client<RequestOption> {
    * Creates a new discussion post on a team's page. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)" for details.
+   * operationId: teams/create-discussion-legacy
+   * Request URI: /teams/{team_id}/discussions
    */
   public async teams$create$discussion$legacy(
     params: Params$teams$create$discussion$legacy,
@@ -26379,6 +27701,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Get a discussion](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#get-a-discussion) endpoint.
    *
    * Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: teams/get-discussion-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}
    */
   public async teams$get$discussion$legacy(
     params: Params$teams$get$discussion$legacy,
@@ -26396,6 +27720,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [`Delete a discussion`](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#delete-a-discussion) endpoint.
    *
    * Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: teams/delete-discussion-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}
    */
   public async teams$delete$discussion$legacy(
     params: Params$teams$delete$discussion$legacy,
@@ -26411,6 +27737,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Update a discussion](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#update-a-discussion) endpoint.
    *
    * Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: teams/update-discussion-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}
    */
   public async teams$update$discussion$legacy(
     params: Params$teams$update$discussion$legacy,
@@ -26429,6 +27757,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [List discussion comments](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#list-discussion-comments) endpoint.
    *
    * List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: teams/list-discussion-comments-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}/comments
    */
   public async teams$list$discussion$comments$legacy(
     params: Params$teams$list$discussion$comments$legacy,
@@ -26454,6 +27784,8 @@ export class Client<RequestOption> {
    * Creates a new comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
    *
    * This endpoint triggers [notifications](https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://docs.github.com/enterprise-server@2.22/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)" for details.
+   * operationId: teams/create-discussion-comment-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}/comments
    */
   public async teams$create$discussion$comment$legacy(
     params: Params$teams$create$discussion$comment$legacy,
@@ -26473,6 +27805,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Get a discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#get-a-discussion-comment) endpoint.
    *
    * Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: teams/get-discussion-comment-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}
    */
   public async teams$get$discussion$comment$legacy(
     params: Params$teams$get$discussion$comment$legacy,
@@ -26492,6 +27826,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Delete a discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#delete-a-discussion-comment) endpoint.
    *
    * Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: teams/delete-discussion-comment-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}
    */
   public async teams$delete$discussion$comment$legacy(
     params: Params$teams$delete$discussion$comment$legacy,
@@ -26509,6 +27845,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Update a discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#update-a-discussion-comment) endpoint.
    *
    * Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: teams/update-discussion-comment-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}
    */
   public async teams$update$discussion$comment$legacy(
     params: Params$teams$update$discussion$comment$legacy,
@@ -26529,6 +27867,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [`List reactions for a team discussion comment`](https://docs.github.com/enterprise-server@2.22/rest/reference/reactions#list-reactions-for-a-team-discussion-comment) endpoint.
    *
    * List the reactions to a [team discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussion-comments). OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: reactions/list-for-team-discussion-comment-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions
    */
   public async reactions$list$for$team$discussion$comment$legacy(
     params: Params$reactions$list$for$team$discussion$comment$legacy,
@@ -26553,6 +27893,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new "[Create reaction for a team discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/reactions#create-reaction-for-a-team-discussion-comment)" endpoint.
    *
    * Create a reaction to a [team discussion comment](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussion-comments). OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment.
+   * operationId: reactions/create-for-team-discussion-comment-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions
    */
   public async reactions$create$for$team$discussion$comment$legacy(
     params: Params$reactions$create$for$team$discussion$comment$legacy,
@@ -26573,6 +27915,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [`List reactions for a team discussion`](https://docs.github.com/enterprise-server@2.22/rest/reference/reactions#list-reactions-for-a-team-discussion) endpoint.
    *
    * List the reactions to a [team discussion](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussions). OAuth access tokens require the `read:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: reactions/list-for-team-discussion-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}/reactions
    */
   public async reactions$list$for$team$discussion$legacy(
     params: Params$reactions$list$for$team$discussion$legacy,
@@ -26596,6 +27940,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [`Create reaction for a team discussion`](https://docs.github.com/enterprise-server@2.22/rest/reference/reactions#create-reaction-for-a-team-discussion) endpoint.
    *
    * Create a reaction to a [team discussion](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#discussions). OAuth access tokens require the `write:discussion` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion.
+   * operationId: reactions/create-for-team-discussion-legacy
+   * Request URI: /teams/{team_id}/discussions/{discussion_number}/reactions
    */
   public async reactions$create$for$team$discussion$legacy(
     params: Params$reactions$create$for$team$discussion$legacy,
@@ -26615,6 +27961,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [`List team members`](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#list-team-members) endpoint.
    *
    * Team members will include the members of child teams.
+   * operationId: teams/list-members-legacy
+   * Request URI: /teams/{team_id}/members
    */
   public async teams$list$members$legacy(
     params: Params$teams$list$members$legacy,
@@ -26639,6 +27987,8 @@ export class Client<RequestOption> {
    * We recommend using the [Get team membership for a user](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#get-team-membership-for-a-user) endpoint instead. It allows you to get both active and pending memberships.
    *
    * To list members in a team, the team must be visible to the authenticated user.
+   * operationId: teams/get-member-legacy
+   * Request URI: /teams/{team_id}/members/{username}
    */
   public async teams$get$member$legacy(params: Params$teams$get$member$legacy, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/teams/${params.parameter.team_id}/members/${params.parameter.username}`;
@@ -26659,6 +28009,8 @@ export class Client<RequestOption> {
    * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub Enterprise Server team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub Enterprise Server](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
    *
    * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#http-verbs)."
+   * operationId: teams/add-member-legacy
+   * Request URI: /teams/{team_id}/members/{username}
    */
   public async teams$add$member$legacy(params: Params$teams$add$member$legacy, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/teams/${params.parameter.team_id}/members/${params.parameter.username}`;
@@ -26677,6 +28029,8 @@ export class Client<RequestOption> {
    * To remove a team member, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. Removing a team member does not delete the user, it just removes them from the team.
    *
    * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub Enterprise Server team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub Enterprise Server](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
+   * operationId: teams/remove-member-legacy
+   * Request URI: /teams/{team_id}/members/{username}
    */
   public async teams$remove$member$legacy(
     params: Params$teams$remove$member$legacy,
@@ -26696,6 +28050,8 @@ export class Client<RequestOption> {
    * To get a user's membership with a team, the team must be visible to the authenticated user.
    *
    * **Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create a team](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#create-a-team).
+   * operationId: teams/get-membership-for-user-legacy
+   * Request URI: /teams/{team_id}/memberships/{username}
    */
   public async teams$get$membership$for$user$legacy(
     params: Params$teams$get$membership$for$user$legacy,
@@ -26721,6 +28077,8 @@ export class Client<RequestOption> {
    * If the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the "pending" state until the user accepts the invitation, at which point the membership will transition to the "active" state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.
    *
    * If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a team maintainer.
+   * operationId: teams/add-or-update-membership-for-user-legacy
+   * Request URI: /teams/{team_id}/memberships/{username}
    */
   public async teams$add$or$update$membership$for$user$legacy(
     params: Params$teams$add$or$update$membership$for$user$legacy,
@@ -26743,6 +28101,8 @@ export class Client<RequestOption> {
    * To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. Removing team membership does not delete the user, it just removes their membership from the team.
    *
    * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub Enterprise Server team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub Enterprise Server](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
+   * operationId: teams/remove-membership-for-user-legacy
+   * Request URI: /teams/{team_id}/memberships/{username}
    */
   public async teams$remove$membership$for$user$legacy(
     params: Params$teams$remove$membership$for$user$legacy,
@@ -26758,6 +28118,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [`List team projects`](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#list-team-projects) endpoint.
    *
    * Lists the organization projects for a team.
+   * operationId: teams/list-projects-legacy
+   * Request URI: /teams/{team_id}/projects
    */
   public async teams$list$projects$legacy(
     params: Params$teams$list$projects$legacy,
@@ -26779,6 +28141,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Check team permissions for a project](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#check-team-permissions-for-a-project) endpoint.
    *
    * Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. The response includes projects inherited from a parent team.
+   * operationId: teams/check-permissions-for-project-legacy
+   * Request URI: /teams/{team_id}/projects/{project_id}
    */
   public async teams$check$permissions$for$project$legacy(
     params: Params$teams$check$permissions$for$project$legacy,
@@ -26796,6 +28160,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Add or update team project permissions](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#add-or-update-team-project-permissions) endpoint.
    *
    * Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization.
+   * operationId: teams/add-or-update-project-permissions-legacy
+   * Request URI: /teams/{team_id}/projects/{project_id}
    */
   public async teams$add$or$update$project$permissions$legacy(
     params: Params$teams$add$or$update$project$permissions$legacy,
@@ -26813,6 +28179,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Remove a project from a team](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#remove-a-project-from-a-team) endpoint.
    *
    * Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it.
+   * operationId: teams/remove-project-legacy
+   * Request URI: /teams/{team_id}/projects/{project_id}
    */
   public async teams$remove$project$legacy(
     params: Params$teams$remove$project$legacy,
@@ -26826,6 +28194,8 @@ export class Client<RequestOption> {
    * @deprecated
    * List team repositories (Legacy)
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [List team repositories](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#list-team-repositories) endpoint.
+   * operationId: teams/list-repos-legacy
+   * Request URI: /teams/{team_id}/repos
    */
   public async teams$list$repos$legacy(
     params: Params$teams$list$repos$legacy,
@@ -26849,6 +28219,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Check team permissions for a repository](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#check-team-permissions-for-a-repository) endpoint.
    *
    * You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types/) via the `Accept` header:
+   * operationId: teams/check-permissions-for-repo-legacy
+   * Request URI: /teams/{team_id}/repos/{owner}/{repo}
    */
   public async teams$check$permissions$for$repo$legacy(
     params: Params$teams$check$permissions$for$repo$legacy,
@@ -26869,6 +28241,8 @@ export class Client<RequestOption> {
    * To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization.
    *
    * Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#http-verbs)."
+   * operationId: teams/add-or-update-repo-permissions-legacy
+   * Request URI: /teams/{team_id}/repos/{owner}/{repo}
    */
   public async teams$add$or$update$repo$permissions$legacy(
     params: Params$teams$add$or$update$repo$permissions$legacy,
@@ -26887,6 +28261,8 @@ export class Client<RequestOption> {
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [Remove a repository from a team](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#remove-a-repository-from-a-team) endpoint.
    *
    * If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team.
+   * operationId: teams/remove-repo-legacy
+   * Request URI: /teams/{team_id}/repos/{owner}/{repo}
    */
   public async teams$remove$repo$legacy(
     params: Params$teams$remove$repo$legacy,
@@ -26901,6 +28277,8 @@ export class Client<RequestOption> {
    * @deprecated
    * List child teams (Legacy)
    * **Deprecation Notice:** This endpoint route is deprecated and will be removed from the Teams API. We recommend migrating your existing code to use the new [`List child teams`](https://docs.github.com/enterprise-server@2.22/rest/reference/teams#list-child-teams) endpoint.
+   * operationId: teams/list-child-legacy
+   * Request URI: /teams/{team_id}/teams
    */
   public async teams$list$child$legacy(
     params: Params$teams$list$child$legacy,
@@ -26921,6 +28299,8 @@ export class Client<RequestOption> {
    * If the authenticated user is authenticated through basic authentication or OAuth with the `user` scope, then the response lists public and private profile information.
    *
    * If the authenticated user is authenticated through OAuth without the `user` scope, then the response lists only public profile information.
+   * operationId: users/get-authenticated
+   * Request URI: /user
    */
   public async users$get$authenticated(
     option?: RequestOption,
@@ -26934,6 +28314,8 @@ export class Client<RequestOption> {
   /**
    * Update the authenticated user
    * **Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.
+   * operationId: users/update-authenticated
+   * Request URI: /user
    */
   public async users$update$authenticated(
     params: Params$users$update$authenticated,
@@ -26949,6 +28331,8 @@ export class Client<RequestOption> {
   /**
    * List email addresses for the authenticated user
    * Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the `user:email` scope.
+   * operationId: users/list-emails-for-authenticated
+   * Request URI: /user/emails
    */
   public async users$list$emails$for$authenticated(
     params: Params$users$list$emails$for$authenticated,
@@ -26967,6 +28351,8 @@ export class Client<RequestOption> {
   /**
    * Add an email address for the authenticated user
    * This endpoint is accessible with the `user` scope.
+   * operationId: users/add-email-for-authenticated
+   * Request URI: /user/emails
    */
   public async users$add$email$for$authenticated(
     params: Params$users$add$email$for$authenticated,
@@ -26982,6 +28368,8 @@ export class Client<RequestOption> {
   /**
    * Delete an email address for the authenticated user
    * This endpoint is accessible with the `user` scope.
+   * operationId: users/delete-email-for-authenticated
+   * Request URI: /user/emails
    */
   public async users$delete$email$for$authenticated(
     params: Params$users$delete$email$for$authenticated,
@@ -26996,6 +28384,8 @@ export class Client<RequestOption> {
   /**
    * List followers of the authenticated user
    * Lists the people following the authenticated user.
+   * operationId: users/list-followers-for-authenticated-user
+   * Request URI: /user/followers
    */
   public async users$list$followers$for$authenticated$user(
     params: Params$users$list$followers$for$authenticated$user,
@@ -27014,6 +28404,8 @@ export class Client<RequestOption> {
   /**
    * List the people the authenticated user follows
    * Lists the people who the authenticated user follows.
+   * operationId: users/list-followed-by-authenticated
+   * Request URI: /user/following
    */
   public async users$list$followed$by$authenticated(
     params: Params$users$list$followed$by$authenticated,
@@ -27029,7 +28421,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Check if a person is followed by the authenticated user */
+  /**
+   * Check if a person is followed by the authenticated user
+   * operationId: users/check-person-is-followed-by-authenticated
+   * Request URI: /user/following/{username}
+   */
   public async users$check$person$is$followed$by$authenticated(
     params: Params$users$check$person$is$followed$by$authenticated,
     option?: RequestOption,
@@ -27043,6 +28439,8 @@ export class Client<RequestOption> {
    * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#http-verbs)."
    *
    * Following a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.
+   * operationId: users/follow
+   * Request URI: /user/following/{username}
    */
   public async users$follow(params: Params$users$follow, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/user/following/${params.parameter.username}`;
@@ -27052,6 +28450,8 @@ export class Client<RequestOption> {
   /**
    * Unfollow a user
    * Unfollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.
+   * operationId: users/unfollow
+   * Request URI: /user/following/{username}
    */
   public async users$unfollow(params: Params$users$unfollow, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/user/following/${params.parameter.username}`;
@@ -27061,6 +28461,8 @@ export class Client<RequestOption> {
   /**
    * List GPG keys for the authenticated user
    * Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: users/list-gpg-keys-for-authenticated
+   * Request URI: /user/gpg_keys
    */
   public async users$list$gpg$keys$for$authenticated(
     params: Params$users$list$gpg$keys$for$authenticated,
@@ -27079,6 +28481,8 @@ export class Client<RequestOption> {
   /**
    * Create a GPG key for the authenticated user
    * Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: users/create-gpg-key-for-authenticated
+   * Request URI: /user/gpg_keys
    */
   public async users$create$gpg$key$for$authenticated(
     params: Params$users$create$gpg$key$for$authenticated,
@@ -27094,6 +28498,8 @@ export class Client<RequestOption> {
   /**
    * Get a GPG key for the authenticated user
    * View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: users/get-gpg-key-for-authenticated
+   * Request URI: /user/gpg_keys/{gpg_key_id}
    */
   public async users$get$gpg$key$for$authenticated(
     params: Params$users$get$gpg$key$for$authenticated,
@@ -27108,6 +28514,8 @@ export class Client<RequestOption> {
   /**
    * Delete a GPG key for the authenticated user
    * Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: users/delete-gpg-key-for-authenticated
+   * Request URI: /user/gpg_keys/{gpg_key_id}
    */
   public async users$delete$gpg$key$for$authenticated(
     params: Params$users$delete$gpg$key$for$authenticated,
@@ -27126,6 +28534,8 @@ export class Client<RequestOption> {
    * The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
    *
    * You can find the permissions for the installation under the `permissions` key.
+   * operationId: apps/list-installations-for-authenticated-user
+   * Request URI: /user/installations
    */
   public async apps$list$installations$for$authenticated$user(
     params: Params$apps$list$installations$for$authenticated$user,
@@ -27150,6 +28560,8 @@ export class Client<RequestOption> {
    * You must use a [user-to-server OAuth access token](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.
    *
    * The access the user has to each repository is included in the hash under the `permissions` key.
+   * operationId: apps/list-installation-repos-for-authenticated-user
+   * Request URI: /user/installations/{installation_id}/repositories
    */
   public async apps$list$installation$repos$for$authenticated$user(
     params: Params$apps$list$installation$repos$for$authenticated$user,
@@ -27170,6 +28582,8 @@ export class Client<RequestOption> {
    * Add a single repository to an installation. The authenticated user must have admin access to the repository.
    *
    * You must use a personal access token (which you can create via the [command line](https://docs.github.com/enterprise-server@2.22/github/authenticating-to-github/creating-a-personal-access-token) or [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication)) to access this endpoint.
+   * operationId: apps/add-repo-to-installation
+   * Request URI: /user/installations/{installation_id}/repositories/{repository_id}
    */
   public async apps$add$repo$to$installation(
     params: Params$apps$add$repo$to$installation,
@@ -27186,6 +28600,8 @@ export class Client<RequestOption> {
    * Remove a single repository from an installation. The authenticated user must have admin access to the repository.
    *
    * You must use a personal access token (which you can create via the [command line](https://docs.github.com/enterprise-server@2.22/github/authenticating-to-github/creating-a-personal-access-token) or [Basic Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/other-authentication-methods#basic-authentication)) to access this endpoint.
+   * operationId: apps/remove-repo-from-installation
+   * Request URI: /user/installations/{installation_id}/repositories/{repository_id}
    */
   public async apps$remove$repo$from$installation(
     params: Params$apps$remove$repo$from$installation,
@@ -27205,6 +28621,8 @@ export class Client<RequestOption> {
    * reason, "Issues" endpoints may return both issues and pull requests in the response. You can identify pull requests by
    * the `pull_request` key. Be aware that the `id` of a pull request returned from "Issues" endpoints will be an _issue id_. To find out the pull
    * request id, use the "[List pull requests](https://docs.github.com/enterprise-server@2.22/rest/reference/pulls#list-pull-requests)" endpoint.
+   * operationId: issues/list-for-authenticated-user
+   * Request URI: /user/issues
    */
   public async issues$list$for$authenticated$user(
     params: Params$issues$list$for$authenticated$user,
@@ -27229,6 +28647,8 @@ export class Client<RequestOption> {
   /**
    * List public SSH keys for the authenticated user
    * Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: users/list-public-ssh-keys-for-authenticated
+   * Request URI: /user/keys
    */
   public async users$list$public$ssh$keys$for$authenticated(
     params: Params$users$list$public$ssh$keys$for$authenticated,
@@ -27247,6 +28667,8 @@ export class Client<RequestOption> {
   /**
    * Create a public SSH key for the authenticated user
    * Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: users/create-public-ssh-key-for-authenticated
+   * Request URI: /user/keys
    */
   public async users$create$public$ssh$key$for$authenticated(
     params: Params$users$create$public$ssh$key$for$authenticated,
@@ -27262,6 +28684,8 @@ export class Client<RequestOption> {
   /**
    * Get a public SSH key for the authenticated user
    * View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: users/get-public-ssh-key-for-authenticated
+   * Request URI: /user/keys/{key_id}
    */
   public async users$get$public$ssh$key$for$authenticated(
     params: Params$users$get$public$ssh$key$for$authenticated,
@@ -27276,6 +28700,8 @@ export class Client<RequestOption> {
   /**
    * Delete a public SSH key for the authenticated user
    * Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+   * operationId: users/delete-public-ssh-key-for-authenticated
+   * Request URI: /user/keys/{key_id}
    */
   public async users$delete$public$ssh$key$for$authenticated(
     params: Params$users$delete$public$ssh$key$for$authenticated,
@@ -27285,7 +28711,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** List organization memberships for the authenticated user */
+  /**
+   * List organization memberships for the authenticated user
+   * operationId: orgs/list-memberships-for-authenticated-user
+   * Request URI: /user/memberships/orgs
+   */
   public async orgs$list$memberships$for$authenticated$user(
     params: Params$orgs$list$memberships$for$authenticated$user,
     option?: RequestOption,
@@ -27301,7 +28731,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Get an organization membership for the authenticated user */
+  /**
+   * Get an organization membership for the authenticated user
+   * operationId: orgs/get-membership-for-authenticated-user
+   * Request URI: /user/memberships/orgs/{org}
+   */
   public async orgs$get$membership$for$authenticated$user(
     params: Params$orgs$get$membership$for$authenticated$user,
     option?: RequestOption,
@@ -27312,7 +28746,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, undefined, option);
   }
-  /** Update an organization membership for the authenticated user */
+  /**
+   * Update an organization membership for the authenticated user
+   * operationId: orgs/update-membership-for-authenticated-user
+   * Request URI: /user/memberships/orgs/{org}
+   */
   public async orgs$update$membership$for$authenticated$user(
     params: Params$orgs$update$membership$for$authenticated$user,
     option?: RequestOption,
@@ -27331,6 +28769,8 @@ export class Client<RequestOption> {
    * **OAuth scope requirements**
    *
    * This only lists organizations that your authorization allows you to operate on in some way (e.g., you can list teams with `read:org` scope, you can publicize your organization membership with `user` scope, etc.). Therefore, this API requires at least `user` or `read:org` scope. OAuth requests with insufficient scope receive a `403 Forbidden` response.
+   * operationId: orgs/list-for-authenticated-user
+   * Request URI: /user/orgs
    */
   public async orgs$list$for$authenticated$user(
     params: Params$orgs$list$for$authenticated$user,
@@ -27346,7 +28786,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Create a user project */
+  /**
+   * Create a user project
+   * operationId: projects/create-for-authenticated-user
+   * Request URI: /user/projects
+   */
   public async projects$create$for$authenticated$user(
     params: Params$projects$create$for$authenticated$user,
     option?: RequestOption,
@@ -27361,6 +28805,8 @@ export class Client<RequestOption> {
   /**
    * List public email addresses for the authenticated user
    * Lists your publicly visible email address, which you can set with the [Set primary email visibility for the authenticated user](https://docs.github.com/enterprise-server@2.22/rest/reference/users#set-primary-email-visibility-for-the-authenticated-user) endpoint. This endpoint is accessible with the `user:email` scope.
+   * operationId: users/list-public-emails-for-authenticated
+   * Request URI: /user/public_emails
    */
   public async users$list$public$emails$for$authenticated(
     params: Params$users$list$public$emails$for$authenticated,
@@ -27381,6 +28827,8 @@ export class Client<RequestOption> {
    * Lists repositories that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.
    *
    * The authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.
+   * operationId: repos/list-for-authenticated-user
+   * Request URI: /user/repos
    */
   public async repos$list$for$authenticated$user(
     params: Params$repos$list$for$authenticated$user,
@@ -27413,6 +28861,8 @@ export class Client<RequestOption> {
    *
    * *   `public_repo` scope or `repo` scope to create a public repository
    * *   `repo` scope to create a private repository
+   * operationId: repos/create-for-authenticated-user
+   * Request URI: /user/repos
    */
   public async repos$create$for$authenticated$user(
     params: Params$repos$create$for$authenticated$user,
@@ -27428,6 +28878,8 @@ export class Client<RequestOption> {
   /**
    * List repository invitations for the authenticated user
    * When authenticating as a user, this endpoint will list all currently open repository invitations for that user.
+   * operationId: repos/list-invitations-for-authenticated-user
+   * Request URI: /user/repository_invitations
    */
   public async repos$list$invitations$for$authenticated$user(
     params: Params$repos$list$invitations$for$authenticated$user,
@@ -27443,7 +28895,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Decline a repository invitation */
+  /**
+   * Decline a repository invitation
+   * operationId: repos/decline-invitation
+   * Request URI: /user/repository_invitations/{invitation_id}
+   */
   public async repos$decline$invitation(
     params: Params$repos$decline$invitation,
     option?: RequestOption,
@@ -27452,7 +28908,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("DELETE", url, headers, undefined, undefined, option);
   }
-  /** Accept a repository invitation */
+  /**
+   * Accept a repository invitation
+   * operationId: repos/accept-invitation
+   * Request URI: /user/repository_invitations/{invitation_id}
+   */
   public async repos$accept$invitation(params: Params$repos$accept$invitation, option?: RequestOption): Promise<void> {
     const url = this.baseUrl + `/user/repository_invitations/${params.parameter.invitation_id}`;
     const headers = {};
@@ -27463,6 +28923,8 @@ export class Client<RequestOption> {
    * Lists repositories the authenticated user has starred.
    *
    * You can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types/) via the `Accept` header:
+   * operationId: activity/list-repos-starred-by-authenticated-user
+   * Request URI: /user/starred
    */
   public async activity$list$repos$starred$by$authenticated$user<
     ResponseContentType extends ResponseContentType$activity$list$repos$starred$by$authenticated$user
@@ -27482,7 +28944,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Check if a repository is starred by the authenticated user */
+  /**
+   * Check if a repository is starred by the authenticated user
+   * operationId: activity/check-repo-is-starred-by-authenticated-user
+   * Request URI: /user/starred/{owner}/{repo}
+   */
   public async activity$check$repo$is$starred$by$authenticated$user(
     params: Params$activity$check$repo$is$starred$by$authenticated$user,
     option?: RequestOption,
@@ -27494,6 +28960,8 @@ export class Client<RequestOption> {
   /**
    * Star a repository for the authenticated user
    * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#http-verbs)."
+   * operationId: activity/star-repo-for-authenticated-user
+   * Request URI: /user/starred/{owner}/{repo}
    */
   public async activity$star$repo$for$authenticated$user(
     params: Params$activity$star$repo$for$authenticated$user,
@@ -27503,7 +28971,11 @@ export class Client<RequestOption> {
     const headers = {};
     return this.apiClient.request("PUT", url, headers, undefined, undefined, option);
   }
-  /** Unstar a repository for the authenticated user */
+  /**
+   * Unstar a repository for the authenticated user
+   * operationId: activity/unstar-repo-for-authenticated-user
+   * Request URI: /user/starred/{owner}/{repo}
+   */
   public async activity$unstar$repo$for$authenticated$user(
     params: Params$activity$unstar$repo$for$authenticated$user,
     option?: RequestOption,
@@ -27515,6 +28987,8 @@ export class Client<RequestOption> {
   /**
    * List repositories watched by the authenticated user
    * Lists repositories the authenticated user is watching.
+   * operationId: activity/list-watched-repos-for-authenticated-user
+   * Request URI: /user/subscriptions
    */
   public async activity$list$watched$repos$for$authenticated$user(
     params: Params$activity$list$watched$repos$for$authenticated$user,
@@ -27533,6 +29007,8 @@ export class Client<RequestOption> {
   /**
    * List teams for the authenticated user
    * List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) when authenticating via [OAuth](https://docs.github.com/enterprise-server@2.22/apps/building-oauth-apps/).
+   * operationId: teams/list-for-authenticated-user
+   * Request URI: /user/teams
    */
   public async teams$list$for$authenticated$user(
     params: Params$teams$list$for$authenticated$user,
@@ -27553,6 +29029,8 @@ export class Client<RequestOption> {
    * Lists all users, in the order that they signed up on GitHub Enterprise Server. This list includes personal user accounts and organization accounts.
    *
    * Note: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#link-header) to get the URL for the next page of users.
+   * operationId: users/list
+   * Request URI: /users
    */
   public async users$list(
     params: Params$users$list,
@@ -27577,6 +29055,8 @@ export class Client<RequestOption> {
    * The `email` key in the following response is the publicly visible email address from your GitHub Enterprise Server [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be “public” which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub Enterprise Server. For more information, see [Authentication](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#authentication).
    *
    * The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see "[Emails API](https://docs.github.com/enterprise-server@2.22/rest/reference/users#emails)".
+   * operationId: users/get-by-username
+   * Request URI: /users/{username}
    */
   public async users$get$by$username(
     params: Params$users$get$by$username,
@@ -27591,6 +29071,8 @@ export class Client<RequestOption> {
   /**
    * List events for the authenticated user
    * If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events.
+   * operationId: activity/list-events-for-authenticated-user
+   * Request URI: /users/{username}/events
    */
   public async activity$list$events$for$authenticated$user(
     params: Params$activity$list$events$for$authenticated$user,
@@ -27609,6 +29091,8 @@ export class Client<RequestOption> {
   /**
    * List organization events for the authenticated user
    * This is the user's organization dashboard. You must be authenticated as the user to view this.
+   * operationId: activity/list-org-events-for-authenticated-user
+   * Request URI: /users/{username}/events/orgs/{org}
    */
   public async activity$list$org$events$for$authenticated$user(
     params: Params$activity$list$org$events$for$authenticated$user,
@@ -27624,7 +29108,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** List public events for a user */
+  /**
+   * List public events for a user
+   * operationId: activity/list-public-events-for-user
+   * Request URI: /users/{username}/events/public
+   */
   public async activity$list$public$events$for$user(
     params: Params$activity$list$public$events$for$user,
     option?: RequestOption,
@@ -27642,6 +29130,8 @@ export class Client<RequestOption> {
   /**
    * List followers of a user
    * Lists the people following the specified user.
+   * operationId: users/list-followers-for-user
+   * Request URI: /users/{username}/followers
    */
   public async users$list$followers$for$user(
     params: Params$users$list$followers$for$user,
@@ -27660,6 +29150,8 @@ export class Client<RequestOption> {
   /**
    * List the people a user follows
    * Lists the people who the specified user follows.
+   * operationId: users/list-following-for-user
+   * Request URI: /users/{username}/following
    */
   public async users$list$following$for$user(
     params: Params$users$list$following$for$user,
@@ -27675,7 +29167,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** Check if a user follows another user */
+  /**
+   * Check if a user follows another user
+   * operationId: users/check-following-for-user
+   * Request URI: /users/{username}/following/{target_user}
+   */
   public async users$check$following$for$user(
     params: Params$users$check$following$for$user,
     option?: RequestOption,
@@ -27687,6 +29183,8 @@ export class Client<RequestOption> {
   /**
    * List gists for a user
    * Lists public gists for the specified user:
+   * operationId: gists/list-for-user
+   * Request URI: /users/{username}/gists
    */
   public async gists$list$for$user(
     params: Params$gists$list$for$user,
@@ -27706,6 +29204,8 @@ export class Client<RequestOption> {
   /**
    * List GPG keys for a user
    * Lists the GPG keys for a user. This information is accessible by anyone.
+   * operationId: users/list-gpg-keys-for-user
+   * Request URI: /users/{username}/gpg_keys
    */
   public async users$list$gpg$keys$for$user(
     params: Params$users$list$gpg$keys$for$user,
@@ -27731,6 +29231,8 @@ export class Client<RequestOption> {
    *  curl -u username:token
    *   https://api.github.com/users/octocat/hovercard?subject_type=repository&subject_id=1300192
    * ```
+   * operationId: users/get-context-for-user
+   * Request URI: /users/{username}/hovercard
    */
   public async users$get$context$for$user(
     params: Params$users$get$context$for$user,
@@ -27751,6 +29253,8 @@ export class Client<RequestOption> {
    * Enables an authenticated GitHub App to find the user’s installation information.
    *
    * You must use a [JWT](https://docs.github.com/enterprise-server@2.22/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) to access this endpoint.
+   * operationId: apps/get-user-installation
+   * Request URI: /users/{username}/installation
    */
   public async apps$get$user$installation(
     params: Params$apps$get$user$installation,
@@ -27765,6 +29269,8 @@ export class Client<RequestOption> {
   /**
    * List public keys for a user
    * Lists the _verified_ public SSH keys for a user. This is accessible by anyone.
+   * operationId: users/list-public-keys-for-user
+   * Request URI: /users/{username}/keys
    */
   public async users$list$public$keys$for$user(
     params: Params$users$list$public$keys$for$user,
@@ -27785,6 +29291,8 @@ export class Client<RequestOption> {
    * List [public organization memberships](https://help.github.com/articles/publicizing-or-concealing-organization-membership) for the specified user.
    *
    * This method only lists _public_ memberships, regardless of authentication. If you need to fetch all of the organization memberships (public and private) for the authenticated user, use the [List organizations for the authenticated user](https://docs.github.com/enterprise-server@2.22/rest/reference/orgs#list-organizations-for-the-authenticated-user) API instead.
+   * operationId: orgs/list-for-user
+   * Request URI: /users/{username}/orgs
    */
   public async orgs$list$for$user(
     params: Params$orgs$list$for$user,
@@ -27800,7 +29308,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** List user projects */
+  /**
+   * List user projects
+   * operationId: projects/list-for-user
+   * Request URI: /users/{username}/projects
+   */
   public async projects$list$for$user(
     params: Params$projects$list$for$user,
     option?: RequestOption,
@@ -27819,6 +29331,8 @@ export class Client<RequestOption> {
   /**
    * List events received by the authenticated user
    * These are events that you've received by watching repos and following users. If you are authenticated as the given user, you will see private events. Otherwise, you'll only see public events.
+   * operationId: activity/list-received-events-for-user
+   * Request URI: /users/{username}/received_events
    */
   public async activity$list$received$events$for$user(
     params: Params$activity$list$received$events$for$user,
@@ -27834,7 +29348,11 @@ export class Client<RequestOption> {
     };
     return this.apiClient.request("GET", url, headers, undefined, queryParameters, option);
   }
-  /** List public events received by a user */
+  /**
+   * List public events received by a user
+   * operationId: activity/list-received-public-events-for-user
+   * Request URI: /users/{username}/received_events/public
+   */
   public async activity$list$received$public$events$for$user(
     params: Params$activity$list$received$public$events$for$user,
     option?: RequestOption,
@@ -27852,6 +29370,8 @@ export class Client<RequestOption> {
   /**
    * List repositories for a user
    * Lists public repositories for the specified user.
+   * operationId: repos/list-for-user
+   * Request URI: /users/{username}/repos
    */
   public async repos$list$for$user(
     params: Params$repos$list$for$user,
@@ -27873,6 +29393,8 @@ export class Client<RequestOption> {
   /**
    * Promote a user to be a site administrator
    * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#http-verbs)."
+   * operationId: enterprise-admin/promote-user-to-be-site-administrator
+   * Request URI: /users/{username}/site_admin
    */
   public async enterprise$admin$promote$user$to$be$site$administrator(
     params: Params$enterprise$admin$promote$user$to$be$site$administrator,
@@ -27885,6 +29407,8 @@ export class Client<RequestOption> {
   /**
    * Demote a site administrator
    * You can demote any user account except your own.
+   * operationId: enterprise-admin/demote-site-administrator
+   * Request URI: /users/{username}/site_admin
    */
   public async enterprise$admin$demote$site$administrator(
     params: Params$enterprise$admin$demote$site$administrator,
@@ -27899,6 +29423,8 @@ export class Client<RequestOption> {
    * Lists repositories a user has starred.
    *
    * You can also find out _when_ stars were created by passing the following custom [media type](https://docs.github.com/enterprise-server@2.22/rest/overview/media-types/) via the `Accept` header:
+   * operationId: activity/list-repos-starred-by-user
+   * Request URI: /users/{username}/starred
    */
   public async activity$list$repos$starred$by$user<
     ResponseContentType extends ResponseContentType$activity$list$repos$starred$by$user
@@ -27921,6 +29447,8 @@ export class Client<RequestOption> {
   /**
    * List repositories watched by a user
    * Lists repositories a user is watching.
+   * operationId: activity/list-repos-watched-by-user
+   * Request URI: /users/{username}/subscriptions
    */
   public async activity$list$repos$watched$by$user(
     params: Params$activity$list$repos$watched$by$user,
@@ -27943,6 +29471,8 @@ export class Client<RequestOption> {
    * You can suspend any user account except your own.
    *
    * Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://docs.github.com/enterprise-server@2.22/rest/overview/resources-in-the-rest-api#http-verbs)."
+   * operationId: enterprise-admin/suspend-user
+   * Request URI: /users/{username}/suspended
    */
   public async enterprise$admin$suspend$user(
     params: Params$enterprise$admin$suspend$user,
@@ -27957,6 +29487,8 @@ export class Client<RequestOption> {
   /**
    * Unsuspend a user
    * If your GitHub instance uses [LDAP Sync with Active Directory LDAP servers](https://help.github.com/enterprise/admin/guides/user-management/using-ldap), this API is disabled and will return a `403` response. Active Directory LDAP-authenticated users cannot be unsuspended using the API.
+   * operationId: enterprise-admin/unsuspend-user
+   * Request URI: /users/{username}/suspended
    */
   public async enterprise$admin$unsuspend$user(
     params: Params$enterprise$admin$unsuspend$user,
@@ -27971,6 +29503,8 @@ export class Client<RequestOption> {
   /**
    * Get the Zen of GitHub
    * Get a random sentence from the Zen of GitHub
+   * operationId: meta/get-zen
+   * Request URI: /zen
    */
   public async meta$get$zen(option?: RequestOption): Promise<Response$meta$get$zen$Status$200["text/plain"]> {
     const url = this.baseUrl + `/zen`;

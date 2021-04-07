@@ -11,7 +11,9 @@ export const generateTsCode = (entryPoint: string, outputFileName: string): void
 
   const apiClientGeneratorTemplate: Types.CodeGenerator.CustomGenerator<Templates.ApiClient.Option> = {
     generator: Templates.ApiClient.generator,
-    option: {},
+    option: {
+      additionalMethodComment: true,
+    },
   };
 
   const code = codeGenerator.generateTypeDefinition([
