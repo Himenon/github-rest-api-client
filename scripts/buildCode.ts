@@ -8,8 +8,6 @@ import { copyPackageSet } from "./tools/copyPackageSet.ts";
 export const build = async (key: string, entryPoint: string): Promise<void> => {
   const params = clean(key);
   generateTsCode(entryPoint, params.tsFile);
-
-  await shell(`oxlint --fix ${params.tsFile}`);
 };
 
 const main = async () => {

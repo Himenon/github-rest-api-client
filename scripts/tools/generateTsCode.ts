@@ -21,8 +21,14 @@ export const generateTsCode = (entryPoint: string, outputFileName: string): void
     apiClientGeneratorTemplate,
   ]);
 
+  // namespace に予約語が含まれる識別子 (例: delete-budget) を有効な識別子に置換する
+  const sanitized = code.replace(/export namespace ([a-zA-Z0-9_]*-[a-zA-Z0-9_-]*)/g, (_, name) => {
+    const safe = name.replace(/-([a-z])/g, (_: string, c: string) => c.toUpperCase()).replace(/-/g, "_");
+    return `export namespace ${safe}`;
+  });
+
   fs.mkdirSync(path.dirname(outputFileName), { recursive: true });
-  fs.writeFileSync(outputFileName, code, {
+  fs.writeFileSync(outputFileName, sanitized, {
     encoding: "utf-8",
   });
 

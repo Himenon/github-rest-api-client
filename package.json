@@ -17,18 +17,18 @@
   },
   "scripts": {
     "build": "run-s clean build:code",
-    "build:code": "pnpm ts ./scripts/buildCode.ts",
-    "build:docs": "pnpm ts ./scripts/buildDocs.ts",
-    "clean": "pnpm ts ./scripts/clean.ts",
-    "json2schema": "pnpm ts ./scripts/json2schema.ts",
-    "mock:server": "pnpm ts ./scripts/mockServer.ts",
+    "build:code": "node --strip-types ./scripts/buildCode.ts",
+    "build:docs": "node --strip-types ./scripts/buildDocs.ts",
+    "clean": "node --strip-types ./scripts/clean.ts",
+    "json2schema": "node --strip-types ./scripts/json2schema.ts",
+    "mock:server": "node --strip-types ./scripts/mockServer.ts",
     "format": "oxfmt",
+    "type-check": "tsc --noEmit",
     "lint": "oxlint .",
     "validate": "oxfmt --check",
     "publish:ghpages": "gh-pages --dist ./docs -b gh-pages",
     "release:github:registry": "pnpm publish --registry https://npm.pkg.github.com/",
-    "release:npm:registry": "pnpm publish",
-    "ts": "node --strip-types"
+    "release:npm:registry": "pnpm publish"
   },
   "dependencies": {
     "@types/superagent": "8.1.9",
