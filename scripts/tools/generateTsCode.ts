@@ -9,8 +9,8 @@ import type * as Types from "@himenon/openapi-typescript-code-generator/types";
 export const generateTsCode = (entryPoint: string, outputFileName: string): void => {
   const codeGenerator = new CodeGenerator(entryPoint);
 
-  const apiClientGeneratorTemplate: Types.CodeGenerator.CustomGenerator<Templates.ApiClient.Option> = {
-    generator: Templates.ApiClient.generator,
+  const apiClientGeneratorTemplate: Types.CodeGenerator.CustomGenerator<Templates.FunctionalApiClient.Option> = {
+    generator: Templates.FunctionalApiClient.generator,
     option: {
       additionalMethodComment: true,
     },

@@ -19,17 +19,13 @@ const main = async () => {
   await Promise.all(promises);
 
   await Promise.all([
-    shell(`yarn tsc -p tsconfig.cjs.json`),
-    shell(`yarn tsc -p tsconfig.esm.json`),
-    shell(
-      `yarn tsc -p tsconfig.esm.json -d --emitDeclarationOnly --outDir ${Config.libTypesDir}`
-    ),
+    shell(`pnpm tsc -p tsconfig.cjs.json`),
+    shell(`pnpm tsc -p tsconfig.esm.json`),
+    shell(`pnpm tsc -p tsconfig.esm.json -d --emitDeclarationOnly --outDir ${Config.libTypesDir}`),
   ]);
 
   await shell(
-    `cherry-pick --types-dir ./types --cjs-dir ./cjs --esm-dir ./esm --cwd ${
-      Config.libDir
-    } --input-dir ../${path.basename(Config.sourceDir)}`
+    `cherry-pick --types-dir ./types --cjs-dir ./cjs --esm-dir ./esm --cwd ${Config.libDir} --input-dir ../${path.basename(Config.sourceDir)}`,
   );
 
   await copyPackageSet();

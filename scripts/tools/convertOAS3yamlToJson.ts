@@ -5,9 +5,6 @@ interface Params {
   output: string;
 }
 
-export const convertYamlToJson = ({
-  filename,
-  output,
-}: Params): Promise<any> => {
-  return shell(`yarn swagger-cli bundle -r ${filename} -o ${output}`);
+export const convertYamlToJson = ({ filename, output }: Params): Promise<any> => {
+  return shell(`pnpm swagger-cli bundle -r ${filename} -o ${output}`);
 };
