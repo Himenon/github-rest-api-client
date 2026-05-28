@@ -1,11 +1,8 @@
-allowBuilds:
-  core-js: set this to true or false
-  jsonpath: set this to true or false
-  lefthook: set this to true or false
-  nx: set this to true or false
-
 minimumReleaseAge: 20160
 
 onlyBuiltDependencies:
+  - core-js
   - esbuild
+  - jsonpath
   - lefthook
+  - nx
