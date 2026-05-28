@@ -1,4 +1,4 @@
-import { shell } from "./shell";
+import { shell } from "./shell.ts";
 
 interface Params {
   filename: string;

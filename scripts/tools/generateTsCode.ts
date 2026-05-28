@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import * as logger from "./logger";
+import * as logger from "./logger.ts";
 
 import { CodeGenerator } from "@himenon/openapi-typescript-code-generator";
 import * as Templates from "@himenon/openapi-typescript-code-generator/templates";

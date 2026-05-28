@@ -23,5 +23,3 @@ schema:
         description: 以下
   example:
     $ref: "./SearchParams.json"
-
-  

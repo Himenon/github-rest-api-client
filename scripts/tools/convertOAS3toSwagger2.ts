@@ -1,4 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
 const Converter = require("api-spec-converter");
 
 export const convertOAS3toSwagger2 = (filename: string): Promise<string> => {
@@ -15,7 +17,7 @@ export const convertOAS3toSwagger2 = (filename: string): Promise<string> => {
         } else {
           resolve(converted.stringify());
         }
-      }
+      },
     );
   });
 };

@@ -1,10 +1,10 @@
-import * as Logger from "./tools/logger";
-import * as Config from "./tools/config";
-import * as rimraf from "rimraf";
+import * as Logger from "./tools/logger.ts";
+import * as Config from "./tools/config.ts";
+import { rimrafSync } from "rimraf";
 
 const remove = (filename: string) => {
   Logger.info(`remove: ${filename}`);
-  rimraf.sync(filename);
+  rimrafSync(filename);
 };
 
 const main = () => {

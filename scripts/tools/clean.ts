@@ -1,11 +1,11 @@
 import * as path from "path";
-import * as Config from "./config";
-import * as rimraf from "rimraf";
-import * as logger from "./logger";
+import * as Config from "./config.ts";
+import { rimrafSync } from "rimraf";
+import * as logger from "./logger.ts";
 
 const remove = (filename: string) => {
   logger.log(`remove ${filename}`);
-  rimraf.sync(filename);
+  rimrafSync(filename);
 };
 
 export const clean = (key: string) => {
