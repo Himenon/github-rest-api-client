@@ -3,4 +3,4 @@ properties:
   date:
     type: string
     format: date
-additionalProperties: false    
+additionalProperties: false

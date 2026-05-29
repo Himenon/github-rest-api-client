@@ -1,26 +1,16 @@
-import * as Config from "./tools/config";
-import * as logger from "./tools/logger";
-import { shell } from "./tools/shell";
-import { convertYamlToJson } from "./tools/convertOAS3yamlToJson";
+import * as Config from "./tools/config.ts";
+import * as logger from "./tools/logger.ts";
+import { shell } from "./tools/shell.ts";
+import { convertYamlToJson } from "./tools/convertOAS3yamlToJson.ts";
 import * as path from "path";
 import chokidar from "chokidar";
 
 const PORT = 4000;
 
-process.env.TS_POST_PROCESS_FILE =
-  "node_modules/prettier/bin-prettier.js --write";
-
-// OpenAPI CLIのログレベルの指定
 process.env.JAVA_OPTS = "-Dlog.level=warn";
 
-/**
- * endpointの名前を入れる
- */
 const run = async (endpointName: string) => {
-  const outputFilePath = path.join(
-    Config.endpointsOutputDir,
-    `${endpointName}.json`
-  );
+  const outputFilePath = path.join(Config.endpointsOutputDir, `${endpointName}.json`);
   const subprocess = shell(`prism mock -p ${PORT} ${outputFilePath}`);
 
   await convertYamlToJson({
@@ -38,7 +28,6 @@ const run = async (endpointName: string) => {
 };
 
 const main = async () => {
-  // endpoints/{endpointName}
   const endpointName = process.argv[2];
   const endpointDirectory = path.join(Config.endpointsDir, endpointName);
   logger.info(`watch directory ${endpointDirectory}`);

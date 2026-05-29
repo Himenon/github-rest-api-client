@@ -2,6 +2,10 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "esnext",
+    "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
     "outDir": "lib/esm",
     "rootDir": "source",
     "declaration": false

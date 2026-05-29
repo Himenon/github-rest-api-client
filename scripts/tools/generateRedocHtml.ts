@@ -1,7 +1,7 @@
 import { EOL } from "os";
 import * as fs from "fs";
 import * as path from "path";
-import { redocDir } from "./config";
+import { redocDir } from "./config.ts";
 
 export const generateRedocHtml = () => {
   const paths = fs.readdirSync("./docs");
@@ -13,11 +13,7 @@ export const generateRedocHtml = () => {
       return `<a class="dropdown-item" href="${uri}" target="view" />${uri}</a>`;
     })
     .join(EOL);
-  fs.writeFileSync(
-    path.join(redocDir, "index.html"),
-    html.replace(/\${list}/, list),
-    {
-      encoding: "utf-8",
-    }
-  );
+  fs.writeFileSync(path.join(redocDir, "index.html"), html.replace(/\${list}/, list), {
+    encoding: "utf-8",
+  });
 };

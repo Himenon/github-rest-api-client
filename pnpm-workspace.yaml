@@ -1,0 +1,7 @@
+minimumReleaseAge: 20160
+
+onlyBuiltDependencies:
+  - core-js
+  - jsonpath
+  - lefthook
+  - nx

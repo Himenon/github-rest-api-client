@@ -1,5 +1,7 @@
 import * as fs from "fs";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
 const json2yaml = require("json2yaml");
 
 const isNull = (value: any): value is null => {
@@ -84,9 +86,7 @@ const convert = (obj: { [key: string]: any }) => {
       if (value.length > 0) {
         result[key] = getArrayProp(convertChild(value[0], convert));
       } else {
-        console.log(
-          `key = ${key} は配列の長さが0のため、詳細の情報が記載されません`
-        );
+        console.log(`key = ${key} は配列の長さが0のため、詳細の情報が記載されません`);
         result[key] = getArrayProp("object");
       }
     }
@@ -94,9 +94,6 @@ const convert = (obj: { [key: string]: any }) => {
   return result;
 };
 
-/**
- * jsonToOas2 sample.json
- */
 const main = () => {
   const filename = process.argv[2] as string;
   if (typeof filename !== "string") {
